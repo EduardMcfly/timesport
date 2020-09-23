@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %} 
+{% block head %}
+  <style>
+    .form input {
+      width: 100%;
+      padding: 10px;
+      border: unset;
+      margin: 10px;
+      outline: unset;
+    }
+    .form input:focus {
+      border-bottom: 1px black solid;
+    }
+
+    .forms {
+      width: 250px;
+    }
+    @media screen and (min-width: 800px) {
+      .forms {
+        width: 750px;
+      }
+    }
+    .text-center {
+      text-align: center;
+    }
+    .body2 {
+      font-size: 1.975rem;
+      font-weight: 400;
+      line-height: 1.43;
+      font-family: 'Dancing Script', cursive;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+    .d-flex {
+      display: flex;
+    }
+    .justify-content-center {
+      justify-content: center;
+    }
+    .w-100 {
+      width: 100%;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<h1>Login</h1>
+<img src="{% static "images/you-with-me.jpg" %}" alt="Logo">
+<div class="w-100 d-flex justify-content-center">
+  <div class="forms">
+    <div class="form">
+      <input class="form" type="text" placeholder="Email" />
+    </div>
+    <div class="form">
+      <input class="form" type="text" placeholder="Password" />
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div style="background-color: aqua">
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+  </div>
+  <div style="background-color: red">
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+    <div class="text-center body2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis
+      eum totam molestias, veritatis
+    </div>
+  </div>
+</div>
+{% endblock %}
