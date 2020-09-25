@@ -1,15 +1,14 @@
 version: '3.8'
-
 services:
   web:
     build:
       context: ./
       dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:${PORT}
     volumes:
       - .:/usr/src/app/
     ports:
-      - 8000:8000
+      - ${PORT}:${PORT}
     environment:
       - SECRET_KEY=foo
       - DJANGOPROJECT_DATA_DIR=./data
