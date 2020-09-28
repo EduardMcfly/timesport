@@ -1,4 +1,4 @@
-# <div style="display:flex;justify-content:center;"><img src="./logo.jpg"  height="90px"></div>
+# <div style="display:flex;justify-content:center;"><img src="./static/images/logo.jpg"  height="90px"></div>
 
 This repo is functionality complete — PR's and issues welcome!
 
