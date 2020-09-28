@@ -32,8 +32,9 @@ def require_env(name: str):
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ju%mb&it_q0jgku&y_*jn!bfd4o261n&w-z5&hx#g+)*5dn!9a'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
