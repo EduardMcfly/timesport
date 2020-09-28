@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
 
 
 # Utilities
@@ -19,6 +20,12 @@ PROJECT_PACKAGE = Path(__file__).resolve().parent
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = PROJECT_PACKAGE.parent
+
+ENV_PATH = os.environ.get('ENV_PATH')
+dotenv_path = ENV_PATH and Path.joinpath(BASE_DIR,  ENV_PATH)
+if dotenv_path and not Path.exists(dotenv_path):
+    raise ImproperlyConfigured("File %s does not exist" % dotenv_path)
+load_dotenv(dotenv_path)
 
 
 def require_env(name: str):
@@ -95,7 +102,6 @@ DATABASES = {
         'USER': os.environ.get('SQL_USER'),
         'PASSWORD': os.environ.get('SQL_PASSWORD'),
         'HOST': os.environ.get('SQL_HOST'),
-        'PORT': os.environ.get('SQL_PORT'),
     }
 }
 
