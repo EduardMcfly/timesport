@@ -88,6 +88,22 @@
     background: #F29718;
 
   }
+  
+  .form-image {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .form-image img {
+    width: 100%;
+    min-width: 130px;
+    max-width: 100px;
+  }
+
+  .form-footer-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
 
 {% endblock %}
@@ -97,8 +113,10 @@
 
 <div class="contenedor">
 
-  <img src="{% static 'images/Motomoto.png'%}" alt="">
   <form action="" class="form">
+    <div class="form-image">
+      <img src="{% static 'images/Motomoto.png'%}" alt="">
+    </div>
     <div class="form-header">
       <h1 class="form-title">C<span>ontacto</span>
         <h1>
@@ -119,9 +137,9 @@
     <Label for="mensaje" class="form-label"></Label>
     <textarea id="mensaje" class="form-textarea"
       placeholder="Utiliza ocho caracteres como mínimo con una combinación de letras, números y símbolos"></textarea>
-
-    <input type="submit" class="btn-submit" value="Acceder" style='width:120px; height:80px'>
-
-    <input type="submit" class="btn-submit" value="Confirmar" style='width:120px; height:80px'>
+    <div class="form-footer-buttons">
+      <input type="submit" class="btn-submit" value="Acceder" style='width:120px; height:80px'>
+      <input type="submit" class="btn-submit" value="Confirmar" style='width:120px; height:80px'>
+    </div>
   </form>
   {% endblock %}
