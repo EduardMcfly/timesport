@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+
 
 # Utilities
 PROJECT_PACKAGE = Path(__file__).resolve().parent
@@ -17,6 +20,14 @@ PROJECT_PACKAGE = Path(__file__).resolve().parent
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = PROJECT_PACKAGE.parent
 
+
+def require_env(name: str):
+    """Raise an error if the environment variable isn't defined"""
+    value = os.getenv(name)
+    if value is None:
+        raise ImproperlyConfigured(
+            'Required environment variable "{}" is not set.'.format(name))
+    return value
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
