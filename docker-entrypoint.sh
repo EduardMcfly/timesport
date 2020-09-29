@@ -1,12 +1,12 @@
 #!/bin/sh
 
-echo "Waiting for postgres..."
+echo "Waiting for DB..."
 
 while ! nc -z $SQL_HOST $SQL_PORT; do
   sleep 0.1
 done
 
-echo "PostgreSQL started"
+echo "DB started"
 
 python manage.py flush --no-input
 # PGPASSWORD=djangoproject psql --host db --port 5432 --username=code.djangoproject --dbname=code.djangoproject < tracdb/trac.sql
