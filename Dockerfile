@@ -12,7 +12,6 @@ ENV PYTHONUNBUFFERED 1
 RUN apk update \
     && apk add --virtual build-deps gcc python3-dev musl-dev \
     && apk add mariadb-dev \
-    && pip install mysqlclient \
     && apk del build-deps
 
 # install node and npm
