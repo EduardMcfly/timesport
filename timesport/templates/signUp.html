@@ -2,18 +2,21 @@
 {% load static %}
 {% block title %}Login{% endblock %} 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/singUp.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/pages/singUp.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/>
 {% endblock %}
 {% block content %}
 
 <div class="container-form">
   <div class="informacion">
-   <h1>Time Sport 15</h1><span><i class="fa fa-heart"></i>
+   <h1 class="text-center m-4">Time Sport 15</h1><span><i class="fa fa-heart"></i>
 
 </div>
 <div class="form">
-  <div class="thumbnail w-100 d-flex justify-content-center"><img src={% static "images/inicio.png" %}/></div>
+  <div class="thumbnail w-100 d-flex justify-content-center">
+    <img src={% static "images/inicio.png" %}/>
+  </div>
 
 
   <form class="register-form">

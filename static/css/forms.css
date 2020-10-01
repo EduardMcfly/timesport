@@ -1,10 +1,8 @@
-/* Form */
-
 .form {
   position: relative;
   z-index: 1;
-  background: #ffffff;
   max-width: 400px;
+  background: #ffffff;
   margin: 30px auto 100px;
   padding: 30px;
   border-top-left-radius: 3px;
@@ -16,11 +14,6 @@
 
 .form .thumbnail {
   margin: 0 auto 30px;
-}
-
-h1 {
-  text-align: center;
-  margin: 30px;
 }
 
 .form input {
@@ -66,54 +59,7 @@ h1 {
   text-decoration: none;
 }
 
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.container:before,
-.container:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .container-form.informacion {
   margin: 20px auto;
   text-align: center;
-}
-
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-
-.container .info span .fa {
-  color: #ef3b3a;
-}
-
-/* END Form */
-
-/* Demo Purposes */
-
-body {
-  background: #f6f6f6;
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
