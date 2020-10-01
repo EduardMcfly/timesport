@@ -9,9 +9,29 @@
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}\\manage.py",
-      "args": ["runserver", "--noreload"],
+      "args": ["runserver"],
       "pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
       "django": true
+    },
+    {
+      "name": "Docker: Python - Django",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run: debug",
+      "python": {
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/app"
+          }
+        ],
+        "projectType": "django"
+      },
+      "dockerServerReadyAction": {
+        "action": "openExternally",
+        "pattern": "Starting development server at (https?://\\S+|[0-9]+)",
+        "uriFormat": "%s://localhost:%s/about.html"
+      }
     }
   ]
 }

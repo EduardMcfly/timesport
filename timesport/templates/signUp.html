@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %} 
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/singUp.css' %}"/>
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/>
+{% endblock %}
+{% block content %}
+
+<div class="container-form">
+  <div class="informacion">
+   <h1>Time Spor 15</h1><span><i class="fa fa-heart"></i>
+
+</div>
+<div class="form">
+  <div class="thumbnail"><img src={% static "images/inicio.png" %}/></div>
+
+
+  <form class="register-form">
+    <input type="text" placeholder="Name" />
+     <input type="text" placeholder="Username"/>
+     <input type="text" placeholder="Email-Address"/>
+     <input type="password" placeholder="Password"/>
+     <input type="password" placeholder="Confirm Password"/>
+    <button><strong>Create</strong></button>
+    <p class="message">Already registered?<a href="#"><strong>Sign up</strong></a></p>
+  </form>
+    
+</div>
+{% endblock %}

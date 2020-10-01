@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
+
 
 # Utilities
 PROJECT_PACKAGE = Path(__file__).resolve().parent
@@ -17,12 +21,27 @@ PROJECT_PACKAGE = Path(__file__).resolve().parent
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = PROJECT_PACKAGE.parent
 
+ENV_PATH = os.environ.get('ENV_PATH')
+dotenv_path = ENV_PATH and Path.joinpath(BASE_DIR,  ENV_PATH)
+if dotenv_path and not Path.exists(dotenv_path):
+    raise ImproperlyConfigured("File %s does not exist" % dotenv_path)
+load_dotenv(dotenv_path)
+
+
+def require_env(name: str):
+    """Raise an error if the environment variable isn't defined"""
+    value = os.getenv(name)
+    if value is None:
+        raise ImproperlyConfigured(
+            'Required environment variable "{}" is not set.'.format(name))
+    return value
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ju%mb&it_q0jgku&y_*jn!bfd4o261n&w-z5&hx#g+)*5dn!9a'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,8 +97,11 @@ WSGI_APPLICATION = 'timesport.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': require_env('SQL_ENGINE'),
+        'NAME': require_env('SQL_DATABASE'),
+        'USER': os.environ.get('SQL_USER'),
+        'PASSWORD': os.environ.get('SQL_PASSWORD'),
+        'HOST': os.environ.get('SQL_HOST'),
     }
 }
 

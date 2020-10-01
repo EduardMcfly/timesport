@@ -1,4 +1,8 @@
-# ![TimeSport](project-logo.png)
+# TimeSport15
+
+<p align="center">
+ <img src="./static/images/logo.jpg"  height="160px">
+</p>
 
 This repo is functionality complete — PR's and issues welcome!
 
@@ -10,6 +14,12 @@ This repo is functionality complete — PR's and issues welcome!
    ```
    pip install -r requirements.txt
    ```
+
+## Migrations
+
+```
+python manage.py migrate
+```
 
 ## Running
 
