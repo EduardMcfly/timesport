@@ -34,3 +34,10 @@ class JinjaStatic(JinjaBase):
 
     def getValue(self, path):
         return url_for('static', filename=path)
+
+
+class JinjaUrl(JinjaBase):
+    tags = {"url"}
+
+    def getValue(self, path):
+        return url_for(path)
