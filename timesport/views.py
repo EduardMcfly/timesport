@@ -6,8 +6,8 @@ def login(request):
     return render(request, "login.html")
 
 
-def main(request):
-    return render(request, "main.html")
+def signUp(request):
+    return render(request, "signUp.html")
 
 
 def page404(request):
