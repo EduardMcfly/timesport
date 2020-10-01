@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    """Run administrative tasks."""pip 
+    """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'timesport.settings')
     try:
         from django.core.management import execute_from_command_line
