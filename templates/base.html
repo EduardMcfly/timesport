@@ -1,16 +1,15 @@
-{% load static %}
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'lib/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'lib/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
-</head>
-<body>
+  </head>
+  <body>
     {% block content %}{% endblock %}
     <script src="{% static 'lib/js/jquery/jquery-3.5.1.min.js' %}"></script>
     <script src="{% static 'lib/js/bootstrap.min.js' %}"></script>
-</body>
+  </body>
 </html>
