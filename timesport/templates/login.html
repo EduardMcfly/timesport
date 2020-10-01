@@ -1,21 +1,18 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}Login{% endblock %} 
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Login{% endblock %}
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/>
 {% endblock %}
 {% block content %}
-
 <div class="container-form">
   <div class="informacion">
    <h1>Time Sport 15</h1><span><i class="fa fa-heart"></i>
-
+  </div>
 </div>
 <div class="form">
   <div class="thumbnail"><img src={% static "images/dos.png" %}/></div>
-
-
   <form class="login-form">
     <input type="text" placeholder="Username"/>
     <input type="password" placeholder="Password"/>

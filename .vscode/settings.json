@@ -3,6 +3,6 @@
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
   "python.venvPath": ".venv",
-  "python.pythonPath": ".venv/Scripts/python.exe",
-  "editor.formatOnSave": true
+  "python.pythonPath": ".venv\\Scripts\\python.exe",
+  "terminal.integrated.rendererType": "auto"
 }
