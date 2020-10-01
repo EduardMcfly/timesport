@@ -4,5 +4,11 @@
   "python.linting.enabled": true,
   "python.venvPath": ".venv",
   "python.pythonPath": ".venv\\Scripts\\python.exe",
-  "terminal.integrated.rendererType": "auto"
+  "terminal.integrated.rendererType": "auto",
+  "python.linting.pylintArgs": [
+    "--load-plugins",
+    "pylint-flask",
+    "ylint-flask-sqlalchemy"
+  ],
+  "python.languageServer": "Pylance"
 }
