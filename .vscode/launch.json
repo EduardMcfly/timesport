@@ -5,13 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Django",
+      "name": "Python: Flask",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}\\manage.py",
-      "args": ["runserver"],
+      "args": ["run", "--port", "8000"],
       "pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
-      "django": true
+      "module": "flask",
+      "jinja": true
     },
     {
       "name": "Docker: Python - Django",
