@@ -1,9 +1,10 @@
-from flask import Flask, render_template, url_for, jsonify
-from utils import ext
 import os
 
-from database import getSession, db, migrate
+from flask import Flask, jsonify, render_template, url_for
+
+from database import db, getSession, migrate
 from models import *
+from utils import ext
 
 static_url_path = '/static'
 app = Flask(__name__, static_url_path=static_url_path)
