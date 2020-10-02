@@ -6,7 +6,7 @@ from sqlalchemy.orm.session import Session, sessionmaker
 
 
 db = SQLAlchemy()
-migrate = Migrate()
+migrate = Migrate(db=db)
 
 
 def getSession() -> Union[Session, sessionmaker]: return db.session()
