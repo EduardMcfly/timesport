@@ -18,11 +18,11 @@ This repo is functionality complete — PR's and issues welcome!
 ## Migrations
 
 ```
-python manage.py migrate
+flask db upgrade
 ```
 
 ## Running
 
 ```
-python manage.py runserver
+python app.py
 ```

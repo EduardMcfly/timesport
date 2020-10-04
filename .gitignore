@@ -6,3 +6,4 @@
 !.elasticbeanstalk/*.global.yml
 .venv/**
 .env
+app.db
