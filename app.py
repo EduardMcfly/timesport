@@ -55,6 +55,18 @@ def signUp():
 def users():
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM "user"')
+    results = connection.execute('SELECT * FROM user')
     users = query_to_dict(results)
-    return jsonify(users)
+    return render_template('users.html', users=users)
+
+
+@app.route("/pistas")
+def pistas():
+
+    session = getSession()
+    connection = session.connection()
+    results = connection.execute('SELECT * FROM "pistas"')
+    for row in results:
+        print(row)
+    pistas = query_to_dict(results)
+    return jsonify(pistas)
