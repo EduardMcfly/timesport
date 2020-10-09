@@ -1,7 +1,8 @@
 import os
 from datetime import datetime
 
-from flask import Flask, jsonify, render_template, url_for
+from flask import Flask, jsonify, render_template, url_for, request
+from sqlalchemy.sql import text
 
 from database import db, getSession, migrate
 from models import *
@@ -77,3 +78,51 @@ def pistas():
         print(row)
     pistas = query_to_dict(results)
     return jsonify(pistas)
+
+
+@app.route("/createUser", methods=['GET', 'POST'])
+def createUser():
+    method = request.method
+    if(method == 'POST'):
+        name = request.form.get('name')
+        password = request.form.get('password')
+
+        session = getSession()
+        connection = session.connection()
+        try:
+            # Read this please https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/#Double_asterisks_in_dictionary_literals
+            # Options
+            # Using alias, example ':nameAlias'
+            """ connection.execute(
+                "INSERT INTO users(name, password) VALUES(:nameAlias, :password)",
+                password=password, nameAlias=name
+            ) """
+
+            # Insert with object
+            # connection.execute(
+            #     text(
+            #         """INSERT INTO users(name, password) VALUES(:nameAlias, :password)"""
+            #     ),
+            #     ({"password": password, "nameAlias": name})
+            # )
+
+            # Insert many
+            """ connection.execute(
+                "INSERT INTO users(name, password) VALUES(%s, %s)",
+                (password,  name),
+                ("root",  "root")
+            ) """
+            # The more simple
+            # Using multiparams
+            connection.execute(
+                "INSERT INTO users(name, password) VALUES(%s, %s)",
+                name, password
+            )
+
+            # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
+            session.commit()
+            return "Data saved"
+        except Exception as error:
+            session.rollback()
+            raise error
+    return render_template('createUser.html')
