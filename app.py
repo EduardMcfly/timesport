@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 from flask import Flask, jsonify, render_template, url_for
 
@@ -18,6 +19,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'development' == app.env
 
 db.init_app(app)
 migrate.init_app(app)
+
+
+@app.template_filter('date_format')
+def filter_datetime(value: datetime, fmt="%Y:%M:%d"):
+    return value.strftime(fmt)
 
 
 @app.context_processor
