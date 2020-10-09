@@ -60,7 +60,9 @@ def signUp():
 def users():
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM user')
+    results = connection.execute(
+        'SELECT id as id_user, name as name_user, password, created_at FROM users'
+    )
     users = query_to_dict(results)
     return render_template('users.html', users=users)
 
