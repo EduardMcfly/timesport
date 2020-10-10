@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
+block content %}
+<div class="container">
+ 
+
+  <div class="flash">
+      <table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Duracion Competencia</th>
+            <th>Cantidad de Vueltas</th>
+            <th>Clasificacion</th>
+            <th>Categoria</th>
+            <th>Pista</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for competencia in competencias %}
+        <tr>
+            <td>{{competencia.idcompetencias}}</td>
+            <td>{{ competencia.fecha}}</td>
+            <td>{{ competencia.duracionminutos}}</td>
+            <td>{{ competencia.cantidadvueltas}}</td>
+            <td>{{ competencia.clasificacionint}}</td>
+            <td>{{ competencia.categoriaid}}</td>
+            <td>{{ competencia.pistaid}}</td>
+        </tr>
+    </tbody>
+     {% endfor %}
+</table>
+  
+  </div>
+ 
+</div>
+{% endblock %}

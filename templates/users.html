@@ -4,8 +4,29 @@
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
 block content %}
 <div class="container">
-  users {% for user in users %}
-  <div class="flash">{{ user.name}}</div>
-  {% endfor %}
+ 
+
+  <div class="flash">
+      <table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for users in users %}
+        <tr>
+            <td>{{ users.iduser}}</td>
+            <td>{{ users.name}}</td>
+            <td>{{ users.password}}</td>
+        </tr>
+    </tbody>
+     {% endfor %}
+</table>
+  
+  </div>
+ 
 </div>
 {% endblock %}

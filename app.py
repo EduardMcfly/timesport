@@ -55,18 +55,17 @@ def signUp():
 def users():
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM user')
+    results = connection.execute('SELECT * FROM users')
     users = query_to_dict(results)
     return render_template('users.html', users=users)
 
 
-@app.route("/pistas")
-def pistas():
-
+@app.route("/competencias")
+def competencias():
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM "pistas"')
-    for row in results:
-        print(row)
-    pistas = query_to_dict(results)
-    return jsonify(pistas)
+    results = connection.execute('SELECT * FROM competencia')
+    competencias = query_to_dict(results)
+    return render_template('competencias.html', competencias=competencias)
+ 
+
