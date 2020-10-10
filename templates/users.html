@@ -4,29 +4,25 @@
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
 block content %}
 <div class="container">
- 
+  users
 
-  <div class="flash">
-      <table class="table table-responsive">
+  <table class="table">
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Password</th>
-        </tr>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Fecha de creacion</td>
+      </tr>
     </thead>
     <tbody>
-     {% for users in users %}
-        <tr>
-            <td>{{ users.iduser}}</td>
-            <td>{{ users.name}}</td>
-            <td>{{ users.password}}</td>
-        </tr>
+      {% for person in users %}
+      <tr>
+        <td>{{ person.id_user }}</td>
+        <td>{{ person.name_user }}</td>
+        <td>{{ person.created_at | date_format('%Y %M %d') }}</td>
+      </tr>
+      {% endfor %}
     </tbody>
-     {% endfor %}
-</table>
-  
-  </div>
- 
+  </table>
 </div>
 {% endblock %}
