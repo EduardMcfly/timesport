@@ -4,8 +4,25 @@
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
 block content %}
 <div class="container">
-  users {% for user in users %}
-  <div class="flash">{{ user.name}}</div>
-  {% endfor %}
+  users
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Fecha de creacion</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in users %}
+      <tr>
+        <td>{{ person.id_user }}</td>
+        <td>{{ person.name_user }}</td>
+        <td>{{ person.created_at | date_format('%Y %M %d') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}
