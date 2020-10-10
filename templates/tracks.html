@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
+block content %}
+<div class="container">
+  pistas{% for track in tracks %}
+  <div class="flash">{{track.nombre}}</div>
+  <div class="flash">{{track.ubicacion}}</div>
+  {% endfor %}
+</div>
+{% endblock %}

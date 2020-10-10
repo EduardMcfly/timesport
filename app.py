@@ -15,7 +15,9 @@ for extension in [ext.JinjaStatic, ext.JinjaUrl]:
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'development' == app.env
-
+print(os.getenv('PORT'))
+print(os.getenv('SECRET_KEY'))
+print(os.getenv('DATABASE_URL'))
 db.init_app(app)
 migrate.init_app(app)
 
@@ -59,13 +61,13 @@ def users():
     return render_template('users.html', users=users)
 
 
-@app.route("/pistas")
-def pistas():
+@app.route("/tracks")
+def tracks():
 
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM "pistas"')
+    results = connection.execute('SELECT * FROM "tracks"')
     for row in results:
         print(row)
-    pistas = query_to_dict(results)
-    return jsonify(pistas)
+    tracks = query_to_dict(results)
+    return render_template('tracks.html', tracks=tracks)
