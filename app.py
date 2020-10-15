@@ -68,13 +68,19 @@ def users():
     return render_template('users.html', users=users)
 
 
-@app.route("/competencias")
-def competencias():
+@app.route("/competences")
+def competences():
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM competencia')
-    competencias = query_to_dict(results)
-    return render_template('competencias.html', competencias=competencias)
+    results = connection.execute('''SELECT   competences.id, date, category.category AS category,
+    Tracks.name AS name_track, Tracks.measure AS masure_track,
+    durationminutes, amountturned, classification
+	FROM public.competences INNER JOIN Tracks ON competences.TracksId = Tracks.Id
+	 INNER JOIN category ON competences.categoryId = category.Id;''')
+    competences = query_to_dict(results)
+    print(competences)
+    return render_template('competences.html', competences=competences)
+    
 
 
 @app.route("/tracks")
@@ -135,3 +141,29 @@ def createUser():
             session.rollback()
             raise error
     return render_template('createUser.html')
+
+@app.route("/createCompetences", methods=['GET', 'POST'])
+def createCompetences():
+    method = request.method
+    if(method == 'POST'):
+        print(request.form)
+        print(request.form.get('date'))
+        name = request.form.get('name')
+        password = request.form.get('password')
+
+        session = getSession()
+        connection = session.connection()
+        try:
+            connection.execute(
+                "INSERT INTO users(name, password) VALUES(%s, %s)",
+                name, password
+            )
+
+            # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
+            session.commit()
+            return "Data saved"
+        except Exception as error:
+            session.rollback()
+            raise error
+    return render_template('createCompetences.html')
+
