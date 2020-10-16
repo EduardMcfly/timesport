@@ -84,9 +84,7 @@ def tracks():
 
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM "tracks"')
-    for row in results:
-        print(row)
+    results = connection.execute('SELECT * FROM tracks')
     tracks = query_to_dict(results)
     return render_template('tracks.html', tracks=tracks)
 
