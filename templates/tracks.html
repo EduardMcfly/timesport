@@ -3,10 +3,41 @@
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
 block content %}
+&nbsp
 <div class="container">
-  pistas{% for track in tracks %}
-  <div class="flash">{{track.nombre}}</div>
-  <div class="flash">{{track.ubicacion}}</div>
-  {% endfor %}
+  &nbsp
+  <center>tracks</center>
+  &nbsp
+  <table class="table">
+    <thead>
+      <tr>
+        
+        <th>Id</th>
+        <th>Name</td>
+        <th>Ubiety</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for track in tracks%}
+      <tr>
+        <td>{{track.id }}</td>
+        <td>{{track.name }}</td>
+        <td>{{track.ubiety }}</td>
+        <td>{{track.size }}</td> 
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select  class="form-control" id="exampleFormControlSelect2">
+      <option>hola</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
 </div>
 {% endblock %}
