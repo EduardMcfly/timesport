@@ -12,19 +12,21 @@ block content %}
         <tr>
           <th>Id</th>
           <th>Date</th>
-          <th>Place</th>
+          <th>Category</th>
+          <th>User</th>
           <th>Turns</th>
-          <th>Measure</th>
+          <th>Tracks</th>
         </tr>
       </thead>
       <tbody>
-        {% for entrenamiento in entrenamientos %}
+        {% for trainings in trainings %}
         <tr>
-          <td>{{entrenamiento.id}}</td>
-          <td>{{entrenamiento.date}}</td>
-          <td>{{entrenamiento.place}}</td>
-          <td>{{entrenamiento.turns}}</td>
-          <td>{{entrenamiento.measure}}</td>
+          <td>{{trainings.id}}</td>
+          <td>{{trainings.date}}</td>
+          <td>{{trainings.category_id}}</td>
+          <td>{{trainings.users_id}}</td>
+          <td>{{trainings.tracks_id}}</td>
+          <td>{{trainings.turns}}</td>
         </tr>
           {% endfor %}
       </tbody>

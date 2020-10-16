@@ -91,14 +91,14 @@ def tracks():
     return render_template('tracks.html', tracks=tracks)
 
 
-@app.route("/entrenamientos")
-def entrenamientos():
+@app.route("/trainings")
+def trainings():
 
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM entrenamientos')
-    entrenamientos = query_to_dict(results)
-    return render_template('entrenamientos.html', entrenamientos=entrenamientos)
+    results = connection.execute('SELECT * FROM trainings')
+    trainings = query_to_dict(results)
+    return render_template('entrenamientos.html', trainings=trainings)
 
 
 @app.route("/createUser", methods=['GET', 'POST'])
