@@ -18,12 +18,12 @@
   </div>
 
 
-  <form class="register-form">
-    <input type="text" placeholder="Name" />
-     <input type="text" placeholder="Username"/>
-     <input type="text" placeholder="Email-Address"/>
-     <input type="password" placeholder="Password"/>
-     <input type="password" placeholder="Confirm Password"/>
+  <form class="register-form" action="{% url 'createRegistro' %}" method="POST">
+    <input name="Name" type="text" placeholder="Name" />
+     <input name="Username"type="text" placeholder="Username"/>
+     <input name="Email"type="text" placeholder="Email-Address"/>
+     <input name="password" type="password" placeholder="Password"/>
+     <input name="passworrd"  type="password" placeholder="Confirm Password"/>
     <button><strong>Create</strong></button>
     <p class="message">Already registered?<a href="{% url "login" %}"><strong>Sign up</strong></a></p>
   </form>

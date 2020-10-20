@@ -11,7 +11,7 @@ block content %}
       <tr>
         <td>ID</td>
         <td>Name</td>
-        <td>Fecha de creacion</td>
+        <td>Password</td>
       </tr>
     </thead>
     <tbody>
@@ -19,7 +19,7 @@ block content %}
       <tr>
         <td>{{ person.id_user }}</td>
         <td>{{ person.name_user }}</td>
-        <td>{{ person.created_at | date_format('%Y %M %d') }}</td>
+        <td>{{ person.password}}</td>
       </tr>
       {% endfor %}
     </tbody>

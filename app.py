@@ -1,15 +1,18 @@
 import os
 from datetime import datetime
 
-from flask import Flask, jsonify, render_template, url_for, request
+from flask import Flask, jsonify, render_template, url_for, request, redirect
 from sqlalchemy.sql import text
 
 from database import db, getSession, migrate
 from models import *
 from utils import ext
+from blueprints.competence import competenceBp
 
 static_url_path = '/static'
 app = Flask(__name__, static_url_path=static_url_path)
+
+app.register_blueprint(competenceBp)
 
 for extension in [ext.JinjaStatic, ext.JinjaUrl]:
     # pylint: disable=no-member
@@ -68,21 +71,6 @@ def users():
     )
     users = query_to_dict(results)
     return render_template('users.html', users=users)
-
-
-@app.route("/competences")
-def competences():
-    session = getSession()
-    connection = session.connection()
-    results = connection.execute('''SELECT   competences.id, date, category.category AS category,
-    Tracks.name AS name_track, Tracks.measure AS masure_track,
-    durationminutes, amountturned, classification
-	FROM public.competences INNER JOIN Tracks ON competences.TracksId = Tracks.Id
-	 INNER JOIN category ON competences.categoryId = category.Id;''')
-    competences = query_to_dict(results)
-    print(competences)
-    return render_template('competences.html', competences=competences)
-    
 
 
 @app.route("/tracks")
@@ -152,21 +140,23 @@ def createUser():
             raise error
     return render_template('createUser.html')
 
-@app.route("/createCompetences", methods=['GET', 'POST'])
-def createCompetences():
+
+@app.route("/createRegistro", methods=['GET', 'POST'])
+def createRegistro():
     method = request.method
     if(method == 'POST'):
-        print(request.form)
-        print(request.form.get('date'))
-        name = request.form.get('name')
+        name = request.form.get('Name')
+        Username = request.form.get('Username')
+        Email = request.form.get('Email')
         password = request.form.get('password')
+        passworrd = request.form.get('password')
 
         session = getSession()
         connection = session.connection()
         try:
             connection.execute(
-                "INSERT INTO users(name, password) VALUES(%s, %s)",
-                name, password
+                "INSERT INTO registration(name, username, email_address, password, confirm_password) VALUES(%s, %s, %s, %s, %s)",
+                name, Username, Email, password, passworrd
             )
 
             # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
@@ -175,5 +165,4 @@ def createCompetences():
         except Exception as error:
             session.rollback()
             raise error
-    return render_template('createCompetences.html')
-
+    return render_template('signUp.html')

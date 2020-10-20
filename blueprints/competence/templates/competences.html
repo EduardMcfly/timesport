@@ -1,13 +1,16 @@
-{% extends "base.html" %} {% block title %}Login{% endblock %} {% block head %}
-<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
-<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
-block content %}
+{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'competence/styles.css' %}" />
+
+ {% endblock %} 
+ {% block content %}
+
 <div class="container">
+ 
+   <h1 class="text-center m-4">Lista Competencias</h1><span><i class="fa fa-heart"></i>
  
 
   <div class="flash">
-      <table class="table table-responsive">
+      <table class="table table-responsive table-striped table-sm table-entrenamiento">
     <thead>
         <tr>
             <th>ID</th>
@@ -31,8 +34,8 @@ block content %}
             <td>{{ competences.category}}</td>
             <td>{{ competences.name_track}}</td>
             <td>{{ competences.masure_track}}</td>
-            <td>{{ competences.durationminutes}}</td>
-            <td>{{ competences.amountturned}}</td>
+            <td>{{ competences.duration_minutes}}</td>
+            <td>{{ competences.amount_turned}}</td>
             <td>{{ competences.classification}}</td>
 
            
@@ -44,6 +47,7 @@ block content %}
   
   </div>
  
+ <a href="{% url 'createCompetences' %}"><strong>Agregar Competencias</strong></a>
 </div>
 {% endblock %}
 
