@@ -1,12 +1,13 @@
 import os
 from datetime import datetime
 
-from flask import Flask, jsonify, render_template, url_for, request
+from flask import Flask, jsonify, render_template, request, url_for
 from sqlalchemy.sql import text
 
+from blueprints import trainigBp
 from database import db, getSession, migrate
 from models import *
-from utils import ext
+from utils import ext, query_to_dict
 
 static_url_path = '/static'
 app = Flask(__name__, static_url_path=static_url_path)
@@ -21,6 +22,8 @@ print(os.getenv('DATABASE_URL'))
 print(os.getenv('SECRET_KEY'))
 db.init_app(app)
 migrate.init_app(app)
+
+app.register_blueprint(trainigBp)
 
 
 @app.template_filter('date_format')
@@ -39,13 +42,6 @@ def inject_dict_for_all_templates():
 @app.route("/")
 def index():
     return "Hello, World!"
-
-
-def query_to_dict(ret):
-    if ret is not None:
-        return [{key: value for key, value in row.items()} for row in ret if row is not None]
-    else:
-        return []
 
 
 @app.route("/login/")
@@ -82,7 +78,6 @@ def competences():
     competences = query_to_dict(results)
     print(competences)
     return render_template('competences.html', competences=competences)
-    
 
 
 @app.route("/tracks")
@@ -93,16 +88,6 @@ def tracks():
     results = connection.execute('SELECT * FROM tracks')
     tracks = query_to_dict(results)
     return render_template('tracks.html', tracks=tracks)
-
-
-@app.route("/trainings")
-def trainings():
-
-    session = getSession()
-    connection = session.connection()
-    results = connection.execute('SELECT * FROM trainings')
-    trainings = query_to_dict(results)
-    return render_template('entrenamientos.html', trainings=trainings)
 
 
 @app.route("/createUser", methods=['GET', 'POST'])
@@ -152,6 +137,7 @@ def createUser():
             raise error
     return render_template('createUser.html')
 
+
 @app.route("/createCompetences", methods=['GET', 'POST'])
 def createCompetences():
     method = request.method
@@ -176,4 +162,3 @@ def createCompetences():
             session.rollback()
             raise error
     return render_template('createCompetences.html')
-
