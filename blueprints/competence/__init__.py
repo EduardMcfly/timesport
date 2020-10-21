@@ -1,7 +1,4 @@
-import os
-from datetime import datetime
-
-from flask import Blueprint, jsonify, render_template, url_for, request, redirect
+from flask import Blueprint, render_template, request, redirect
 from sqlalchemy.sql import text
 
 from database import db, getSession, migrate
@@ -19,7 +16,7 @@ competenceBp = Blueprint(
 
 
 @competenceBp.route("/competences")
-def competences():
+def index():
     session = getSession()
     connection = session.connection()
     results = connection.execute('''SELECT   competences.id, date, category.category AS category,
@@ -33,7 +30,7 @@ def competences():
 
 
 @competenceBp.route("/createCompetences", methods=['GET', 'POST'])
-def createCompetences():
+def create():
     method = request.method
     if(method == 'POST'):
         date = request.form.get('date')
