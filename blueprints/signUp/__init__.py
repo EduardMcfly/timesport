@@ -1,6 +1,8 @@
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from flask.blueprints import Blueprint
+
 from database import getSession
+from models.User import User
 
 signUpBp = Blueprint(
     'signUp',
@@ -19,15 +21,13 @@ def index():
         password = request.form.get('password')
 
         session = getSession()
-        connection = session.connection()
         try:
+            user = User()
+            user.name = name
+            user.password = password
+            session.add(user)
 
-            connection.execute(
-                "INSERT INTO users(name, password) VALUES(%s, %s)",
-                name, password
-            )
-
-            # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
+            # This is to save the data
             session.commit()
             return "Data saved"
         except Exception as error:
