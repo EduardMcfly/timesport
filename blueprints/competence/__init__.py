@@ -6,7 +6,7 @@ from sqlalchemy.sql import text
 
 from database import db, getSession, migrate
 from models import *
-from utils import ext
+from utils import query_to_dict
 
 
 competenceBp = Blueprint(
