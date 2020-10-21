@@ -162,3 +162,25 @@ def createCompetences():
             session.rollback()
             raise error
     return render_template('createCompetences.html')
+
+
+@app.route("/createTracks", methods=['GET', 'POST'])
+def createTracks():
+    method = request.method
+    if(method == 'POST'):
+        name = request.form.get('name')
+        ubiety = request.form.get('ubiety')
+        size = request.form.get('size')
+        session = getSession()
+        connection = session.connection()
+        try:
+            connection.execute(
+                "INSERT INTO tracks(name,ubiety,size) VALUES(%s, %s,%s)",
+                name, ubiety, size
+            )
+            session.commit()
+            return "Data saved"
+        except Exception as error:
+            session.rollback()
+            raise error
+    return render_template('createTracks.html')
