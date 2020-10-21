@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import Flask, jsonify, render_template, request, url_for
 from sqlalchemy.sql import text
 
-from blueprints import trainigBp
+from blueprints import trainigBp, signUpBp
 from database import db, getSession, migrate
 from models import *
 from utils import ext, query_to_dict
@@ -28,6 +28,7 @@ db.init_app(app)
 migrate.init_app(app)
 
 app.register_blueprint(trainigBp)
+app.register_blueprint(signUpBp)
 
 
 @app.template_filter('date_format')
@@ -54,11 +55,6 @@ def login():
     return render_template('login.html')
 
 
-@app.route("/signUp")
-def signUp():
-    return render_template('signUp.html')
-
-
 @app.route("/users")
 def users():
     session = getSession()
@@ -78,81 +74,6 @@ def tracks():
     results = connection.execute('SELECT * FROM tracks')
     tracks = query_to_dict(results)
     return render_template('tracks.html', tracks=tracks)
-
-
-@app.route("/createUser", methods=['GET', 'POST'])
-def createUser():
-    method = request.method
-    if(method == 'POST'):
-        name = request.form.get('name')
-        password = request.form.get('password')
-
-        session = getSession()
-        connection = session.connection()
-        try:
-            # Read this please https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/#Double_asterisks_in_dictionary_literals
-            # Options
-            # Using alias, example ':nameAlias'
-            """ connection.execute(
-                "INSERT INTO users(name, password) VALUES(:nameAlias, :password)",
-                password=password, nameAlias=name
-            ) """
-
-            # Insert with object
-            # connection.execute(
-            #     text(
-            #         """INSERT INTO users(name, password) VALUES(:nameAlias, :password)"""
-            #     ),
-            #     ({"password": password, "nameAlias": name})
-            # )
-
-            # Insert many
-            """ connection.execute(
-                "INSERT INTO users(name, password) VALUES(%s, %s)",
-                (password,  name),
-                ("root",  "root")
-            ) """
-            # The more simple
-            # Using multiparams
-            connection.execute(
-                "INSERT INTO users(name, password) VALUES(%s, %s)",
-                name, password
-            )
-
-            # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
-            session.commit()
-            return "Data saved"
-        except Exception as error:
-            session.rollback()
-            raise error
-    return render_template('createUser.html')
-
-
-@app.route("/createRegistro", methods=['GET', 'POST'])
-def createRegistro():
-    method = request.method
-    if(method == 'POST'):
-        name = request.form.get('Name')
-        Username = request.form.get('Username')
-        Email = request.form.get('Email')
-        password = request.form.get('password')
-        passworrd = request.form.get('password')
-
-        session = getSession()
-        connection = session.connection()
-        try:
-            connection.execute(
-                "INSERT INTO registration(name, username, email_address, password, confirm_password) VALUES(%s, %s, %s, %s, %s)",
-                name, Username, Email, password, passworrd
-            )
-
-            # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
-            session.commit()
-            return "Data saved"
-        except Exception as error:
-            session.rollback()
-            raise error
-    return render_template('signUp.html')
 
 
 @app.route("/createTracks", methods=['GET', 'POST'])
