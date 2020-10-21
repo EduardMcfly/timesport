@@ -1,21 +1,26 @@
 {% extends "base.html" %} {% block title %}Login{% endblock %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="stylesheet" href="{% static 'css/tracks.css' %}" />
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
 block content %}
 &nbsp
 <div class="container">
   &nbsp
-  <center>tracks</center>
+  <center><H3>Pistas</H3></center>
   &nbsp
   <table class="table">
+    <style>
+      table, th,td{
+        border:1px solid black;
+      }
+    </style>
     <thead>
       <tr>
-        
-        <th>Id</th>
-        <th>Name</td>
-        <th>Ubiety</th>
-        <th>Size</th>
+        <th scope="200">Id</th>
+        <th scope="200">Nombre</td>
+         <th scope="200">Ubicacion</th>
+         <th scope="200">Medida</th>
       </tr>
     </thead>
     <tbody>
@@ -29,15 +34,23 @@ block content %}
       {% endfor %}
     </tbody>
   </table>
+  &nbsp
+  &nbsp
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <label for="exampleFormControlSelect2">PISTAS DE HARE SCRAMBLE EN CUNDINAMARCA</label>
     <select  class="form-control" id="exampleFormControlSelect2">
-      <option>hola</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <option> </option>
+      <option>La Montaña-Girardot </option>
+      <option> Veloarena Y Enduro La Bonita-Girardot</option>
+      <option>Minas Montecristo-Cucunuba</option>
+      <option>Finca Hacienda San Miguel(El Ospicio)-La Mesa </option>
+      <option>La Laguna-Guasca</option>
+      <option> El Reto-Tocancipá y Gachancipá </option>
+      <option>La mugrosa-Villeta </option>
+      <option>Alto Tierra Negra-Nemocón</option>
+      <option>Territorio Chibcha-Facatativá </option>
     </select>
   </div>
 </div>
+
 {% endblock %}
