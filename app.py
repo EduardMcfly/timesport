@@ -1,12 +1,13 @@
 import os
 from datetime import datetime
 
-from flask import Flask, jsonify, render_template, url_for, request
+from flask import Flask, jsonify, render_template, request, url_for
 from sqlalchemy.sql import text
 
+from blueprints import trainigBp
 from database import db, getSession, migrate
 from models import *
-from utils import ext
+from utils import ext, query_to_dict
 
 static_url_path = '/static'
 app = Flask(__name__, static_url_path=static_url_path)
@@ -17,8 +18,12 @@ for extension in [ext.JinjaStatic, ext.JinjaUrl]:
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'development' == app.env
+print(os.getenv('DATABASE_URL'))
+print(os.getenv('SECRET_KEY'))
 db.init_app(app)
 migrate.init_app(app)
+
+app.register_blueprint(trainigBp)
 
 
 @app.template_filter('date_format')
@@ -37,13 +42,6 @@ def inject_dict_for_all_templates():
 @app.route("/")
 def index():
     return "Hello, World!"
-
-
-def query_to_dict(ret):
-    if ret is not None:
-        return [{key: value for key, value in row.items()} for row in ret if row is not None]
-    else:
-        return []
 
 
 @app.route("/login/")
@@ -68,13 +66,18 @@ def users():
     return render_template('users.html', users=users)
 
 
-@app.route("/competencias")
-def competencias():
+@app.route("/competences")
+def competences():
     session = getSession()
     connection = session.connection()
-    results = connection.execute('SELECT * FROM competencia')
-    competencias = query_to_dict(results)
-    return render_template('competencias.html', competencias=competencias)
+    results = connection.execute('''SELECT   competences.id, date, category.category AS category,
+    Tracks.name AS name_track, Tracks.measure AS masure_track,
+    durationminutes, amountturned, classification
+	FROM public.competences INNER JOIN Tracks ON competences.TracksId = Tracks.Id
+	 INNER JOIN category ON competences.categoryId = category.Id;''')
+    competences = query_to_dict(results)
+    print(competences)
+    return render_template('competences.html', competences=competences)
 
 
 @app.route("/tracks")
@@ -133,3 +136,51 @@ def createUser():
             session.rollback()
             raise error
     return render_template('createUser.html')
+
+
+@app.route("/createCompetences", methods=['GET', 'POST'])
+def createCompetences():
+    method = request.method
+    if(method == 'POST'):
+        print(request.form)
+        print(request.form.get('date'))
+        name = request.form.get('name')
+        password = request.form.get('password')
+
+        session = getSession()
+        connection = session.connection()
+        try:
+            connection.execute(
+                "INSERT INTO users(name, password) VALUES(%s, %s)",
+                name, password
+            )
+
+            # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
+            session.commit()
+            return "Data saved"
+        except Exception as error:
+            session.rollback()
+            raise error
+    return render_template('createCompetences.html')
+
+
+@app.route("/createTracks", methods=['GET', 'POST'])
+def createTracks():
+    method = request.method
+    if(method == 'POST'):
+        name = request.form.get('name')
+        ubiety = request.form.get('ubiety')
+        size = request.form.get('size')
+        session = getSession()
+        connection = session.connection()
+        try:
+            connection.execute(
+                "INSERT INTO tracks(name,ubiety,size) VALUES(%s, %s,%s)",
+                name, ubiety, size
+            )
+            session.commit()
+            return "Data saved"
+        except Exception as error:
+            session.rollback()
+            raise error
+    return render_template('createTracks.html')

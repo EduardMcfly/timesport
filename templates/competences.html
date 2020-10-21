@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
+block content %}
+<div class="container">
+ 
+
+  <div class="flash">
+      <table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+           <th>Categoria</th>
+           <th>Nombre Pista</th>
+           <th>Medida Pista</th>
+            <th>Duracion Competencia</th>
+            <th>Cantidad de Vueltas</th>
+            <th>Clasificacion</th>
+            
+           
+            
+        </tr>
+    </thead>
+    <tbody>
+     {% for competences in competences %}
+        <tr>
+            <td>{{ competences.id}}</td>
+            <td>{{ competences.date}}</td>
+            <td>{{ competences.category}}</td>
+            <td>{{ competences.name_track}}</td>
+            <td>{{ competences.masure_track}}</td>
+            <td>{{ competences.durationminutes}}</td>
+            <td>{{ competences.amountturned}}</td>
+            <td>{{ competences.classification}}</td>
+
+           
+          
+        </tr>
+    </tbody>
+     {% endfor %}
+</table>
+  
+  </div>
+ 
+</div>
+{% endblock %}
+
