@@ -6,10 +6,10 @@ from database import db
 
 
 class Training(db.Model):
-    __tablename__ = 'training'
+    __tablename__ = 'trainings'
     id = Column(Integer, primary_key=True)
     date = Column(Date())
     turns = Column(Integer())
-    track_id = Column(Integer, ForeignKey('track.id'))
-    category_id = Column(Integer, ForeignKey('category.id'))
-    user_id = Column(Integer, ForeignKey('user.id'))
+    track_id = Column(Integer, ForeignKey('tracks.id'))
+    category_id = Column(Integer, ForeignKey('categories.id'))
+    user_id = Column(Integer, ForeignKey('users.id'))
