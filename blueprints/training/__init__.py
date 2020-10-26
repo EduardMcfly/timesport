@@ -3,7 +3,7 @@ from flask.blueprints import Blueprint
 from database import getSession
 from utils import query_to_dict
 
-trainigBp = Blueprint(
+trainingBp = Blueprint(
     'training',
     __name__,
     template_folder='templates',
@@ -12,7 +12,7 @@ trainigBp = Blueprint(
 )
 
 
-@trainigBp.route("/trainings")
+@trainingBp.route("/trainings", methods=['GET','POST'])
 def trainings():
 
     session = getSession()
@@ -28,7 +28,7 @@ def trainings():
     return render_template('trainings.html', trainings=trainings)
 
 
-@trainigBp.route("/trainingCreate", methods=['GET', 'POST'])
+@trainingBp.route("/trainingCreate", methods=['GET', 'POST'])
 def create():
     method = request.method
     if(method == 'POST'):

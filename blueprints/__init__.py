@@ -1,2 +1,2 @@
-from .training import trainigBp
+from .training import trainingBp
 from .signUp import signUpBp
