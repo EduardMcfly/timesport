@@ -5,6 +5,6 @@ from database import db
 
 
 class Category(db.Model):
-    __tablename__ = 'category'
+    __tablename__ = 'categories'
     id = Column(Integer, primary_key=True)
     name = Column(String(128))
