@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import Flask, jsonify, render_template, request, url_for
 from sqlalchemy.sql import text
 
-from blueprints import trainigBp, signUpBp
+from blueprints import trainigBp, signUpBp, trackBp
 from database import db, getSession, migrate
 from models import *
 from utils import ext, query_to_dict
@@ -29,6 +29,7 @@ migrate.init_app(app)
 
 app.register_blueprint(trainigBp)
 app.register_blueprint(signUpBp)
+app.register_blueprint(trackBp)
 
 
 @app.template_filter('date_format')
@@ -64,35 +65,3 @@ def users():
     )
     users = query_to_dict(results)
     return render_template('users.html', users=users)
-
-
-@app.route("/tracks")
-def tracks():
-
-    session = getSession()
-    connection = session.connection()
-    results = connection.execute('SELECT * FROM tracks')
-    tracks = query_to_dict(results)
-    return render_template('tracks.html', tracks=tracks)
-
-
-@app.route("/createTracks", methods=['GET', 'POST'])
-def createTracks():
-    method = request.method
-    if(method == 'POST'):
-        name = request.form.get('name')
-        ubiety = request.form.get('ubiety')
-        size = request.form.get('size')
-        session = getSession()
-        connection = session.connection()
-        try:
-            connection.execute(
-                "INSERT INTO tracks(name,ubiety,size) VALUES(%s, %s,%s)",
-                name, ubiety, size
-            )
-            session.commit()
-            return "Data saved"
-        except Exception as error:
-            session.rollback()
-            raise error
-    return render_template('createTracks.html')

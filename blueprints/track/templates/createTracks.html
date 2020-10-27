@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "app.html" %}
 {% block title %}Create{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
@@ -10,7 +10,7 @@
    <h1 class="text-center m-4">Pistas</h1><span><i class="fa fa-heart"></i>
   </div>
 <div class="container mt-4">
-  <form action="{% url 'createTracks' %}" method="POST">
+  <form action="{% url 'track.createTracks' %}" method="POST">
   <div class="text">
     <div class="form-group">
       <label for="exampleInputDate1"></label>
