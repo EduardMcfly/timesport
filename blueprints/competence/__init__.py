@@ -45,7 +45,7 @@ def create():
         connection = session.connection()
         try:
             connection.execute(
-                "INSERT INTO competences(date, duration_minutes, amount_turned, classification, tracks_id, category_id, registration_id) VALUES( %s, %s, %s, %s, %s, %s, %s)",
+                "INSERT INTO competences(date, duration_minutes, amount_turned, classification, tracks_id, category_id, users_id) VALUES( %s, %s, %s, %s, %s, %s, %s)",
                 date, duration_minutes, amount_turned, classification, tracks, category_id, name
             )
             # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
