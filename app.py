@@ -1,8 +1,7 @@
 import os
 from datetime import datetime
 
-from flask import Flask, jsonify, render_template, request, url_for
-from sqlalchemy.sql import text
+from flask import Flask, render_template, url_for
 
 from blueprints import trainingBp, signUpBp, trackBp
 from database import db, getSession, migrate
