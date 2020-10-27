@@ -60,3 +60,8 @@ def create():
             session.rollback()
             raise error
     return render_template('trainingsViews.html')
+
+
+@trainingBp.route("/charts")
+def charts():
+    return render_template('charts.html')

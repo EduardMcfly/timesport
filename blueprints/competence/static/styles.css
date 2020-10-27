@@ -15,7 +15,13 @@ th {
   background-color: #ffc353 !important;
 }
 
-h1{
-  color: #fda300; 
+h1 {
+  color: #fda300;
 }
 
+.form-control:focus {
+  color: var(--warning);
+  background-color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem #fda300;
+}

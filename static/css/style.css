@@ -4,17 +4,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.form-control:focus {
-  color: #000000;
-    background-color: #fff;
-    border-color: var(--white);
-    box-shadow: 0 0 0 0.2rem #fda300;
-}
-
-
-
-
-
-
-
