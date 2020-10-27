@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import Flask, jsonify, render_template, request, url_for
 from sqlalchemy.sql import text
 
-from blueprints import trainigBp, signUpBp, trackBp
+from blueprints import trainingBp, signUpBp, trackBp
 from database import db, getSession, migrate
 from models import *
 from utils import ext, query_to_dict
@@ -27,7 +27,7 @@ print(os.getenv('SECRET_KEY'))
 db.init_app(app)
 migrate.init_app(app)
 
-app.register_blueprint(trainigBp)
+app.register_blueprint(trainingBp)
 app.register_blueprint(signUpBp)
 app.register_blueprint(trackBp)
 
