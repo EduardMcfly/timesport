@@ -1,5 +1,7 @@
+from flask.globals import session
+from flask.helpers import url_for
 from models import Training, Track, Category, User
-from flask import render_template, request
+from flask import render_template, request, redirect
 from flask.blueprints import Blueprint
 from database import getSession
 from utils import query_to_dict
@@ -42,24 +44,40 @@ def create():
     if(method == 'POST'):
         print(request.form)
         print(request.form.get('date'))
-        name = request.form.get('name')
-        password = request.form.get('password')
-
+        date = request.form.get('date')
+        category = request.form.get('category')
+        turns = request.form.get('turns')
+        track = request.form.get('track')
         session = getSession()
         connection = session.connection()
         try:
-            connection.execute(
-                "INSERT INTO users(name, password) VALUES(%s, %s)",
-                name, password
-            )
+            training = Training()
+            training.date = date
+            training.category_id = category
+            training.turns = turns
+            training.track_id = track
+            training.user_id = 2
+            session.add(training)
 
             # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).
             session.commit()
-            return "Data saved"
+            return redirect(url_for('training.trainings'))
         except Exception as error:
             session.rollback()
             raise error
-    return render_template('trainingsViews.html')
+    session = getSession()
+    categories = session.query(Category).all()
+    tracks = session.query(Track).all()
+    return render_template('create.html', categories=categories, tracks=tracks)
+
+
+@trainingBp.route("/trainig/delete/<int:id>")
+def delete(id):
+    session = getSession()
+    training = session.query(Training).filter(Training.id == id)
+    training.delete()
+    session.commit()
+    return redirect(url_for('training.trainings'))
 
 
 @trainingBp.route("/charts")
