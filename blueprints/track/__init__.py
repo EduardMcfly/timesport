@@ -29,13 +29,13 @@ def createTracks():
     method = request.method
     if(method == 'POST'):
         name = request.form.get('name')
-        ubiety = request.form.get('ubiety')
+        ubiety = request.form.get('location')
         size = request.form.get('size')
         session = getSession()
         connection = session.connection()
         try:
             connection.execute(
-                "INSERT INTO tracks(name,ubiety,size) VALUES(%s, %s,%s)",
+                "INSERT INTO tracks(name,location,size) VALUES(%s, %s,%s)",
                 name, ubiety, size
             )
             session.commit()
