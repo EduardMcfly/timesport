@@ -19,11 +19,11 @@ competenceBp = Blueprint(
 def index():
     session = getSession()
     connection = session.connection()
-    results = connection.execute('''SELECT   competences.id, date, category.category AS category,
-    Tracks.name AS name_track, Tracks.measure AS masure_track,
+    results = connection.execute('''SELECT   competences.id, date, categories.name AS category,
+    tracks.name AS name, tracks.size AS masure_track,
     duration_minutes, amount_turned, classification
-	FROM public.competences INNER JOIN Tracks ON competences.tracks_id = Tracks.Id
-	 INNER JOIN category ON competences.category_id = category.Id;''')
+	FROM public.competences INNER JOIN tracks ON competences.track_id = tracks.id
+	 INNER JOIN categories ON competences.category_id = categories.id;''')
     competences = query_to_dict(results)
     print(competences)
     return render_template('competences.html', competences=competences)
@@ -45,7 +45,7 @@ def create():
         connection = session.connection()
         try:
             connection.execute(
-                "INSERT INTO competences(date, duration_minutes, amount_turned, classification, tracks_id, category_id, users_id) VALUES( %s, %s, %s, %s, %s, %s, %s)",
+                "INSERT INTO competences(date, duration_minutes, amount_turned, classification, track_id, category_id, user_id) VALUES( %s, %s, %s, %s, %s, %s, %s)",
                 date, duration_minutes, amount_turned, classification, tracks, category_id, name
             )
             # This is to save the data used in the transactions (INSERT, UPDATE, DELETE).

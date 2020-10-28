@@ -11,7 +11,7 @@ block content %}
   <center><H3>Pistas</H3></center>
   &nbsp
   <table align="center" border="1" style="width:auto; height:20px;" ;
-   class="table table-condensed table-bordered table-hover">>
+   class="table table-condensed table-bordered table-hover">
     <style>
       table, th,td{
         border:1px solid black;
@@ -25,6 +25,7 @@ block content %}
         <th scope="200">Nombre</td>
          <th scope="200">Ubicacion</th>
          <th scope="200">Medida</th>
+         <th scope="200">User_id</th>
       </tr>
     </thead>
     <tbody>
@@ -32,28 +33,15 @@ block content %}
       <tr>
         <td width="150">{{track.id }}</td>
         <td >{{track.name }}</td>
-        <td  >{{track.ubiety }}</td>
+        <td  >{{track.location }}</td>
         <td >{{track.size }}</td> 
+        <td >{{track.user_id}}</td> 
       </tr>
       {% endfor %}
     </tbody>
   </table>
   &nbsp
   &nbsp
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">PISTAS DE HARE SCRAMBLE EN CUNDINAMARCA</label>
-    <select  class="form-control" id="exampleFormControlSelect2">
-      <option> </option>
-      <option>La Montaña-Girardot </option>
-      <option> Veloarena Y Enduro La Bonita-Girardot</option>
-      <option>Minas Montecristo-Cucunuba</option>
-      <option>Finca Hacienda San Miguel(El Ospicio)-La Mesa </option>
-      <option>La Laguna-Guasca</option>
-      <option> El Reto-Tocancipá y Gachancipá </option>
-      <option>La mugrosa-Villeta </option>
-      <option>Alto Tierra Negra-Nemocón</option>
-      <option>Territorio Chibcha-Facatativá </option>
-    </select>
-  </div>
+  <center><a href="{% url 'track.createTracks' %}">Hola</a></center>
 </div>
 {% endblock %}

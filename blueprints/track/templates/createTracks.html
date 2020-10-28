@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
 {% block content %}
+{{ url_for('static', filename='images/images.png') }}
 <div class="container">
 <div class="informacion">
    <h1 class="text-center m-4">Pistas</h1><span><i class="fa fa-heart"></i>
@@ -15,7 +16,7 @@
     <div class="form-group">
       <label for="exampleInputDate1"></label>
       <div class="form-group">
-        <label for="exampleFormControlSelect2">Nombre</label>
+        <label for="exampleFormControlSelect2">Nombre y ubicación</label>
         <select  class="form-control" id="exampleFormControlSelect2">
           <option> </option>
           <option>La Montaña-Girardot </option>
@@ -30,6 +31,7 @@
         </select>
       </div>
     <div class="form-group">
+    
       <label for="exampleInputTrack1">Medida </label>
       <input name="size" type="text" class="form-control" />
         <label for="exampleInputTrack1">Fecha</label>
@@ -38,5 +40,6 @@
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </div>
+
 </div>
 {% endblock %}

@@ -3,7 +3,7 @@
 
  {% endblock %} 
  {% block content %}
- 
+
 <div class="container">
  
    <h1 class="text-center m-4">Lista Competencias</h1><span><i class="fa fa-heart"></i>
@@ -31,15 +31,12 @@
         <tr>
             <td>{{ competences.id}}</td>
             <td>{{ competences.date}}</td>
-            <td>{{ competences.category}}</td>
-            <td>{{ competences.name_track}}</td>
+            <td>{{ competences.name}}</td>
+            <td>{{ competences.name}}</td>
             <td>{{ competences.masure_track}}</td>
             <td>{{ competences.duration_minutes}}</td>
             <td>{{ competences.amount_turned}}</td>
             <td>{{ competences.classification}}</td>
-
-           
-          
         </tr>
     </tbody>
      {% endfor %}
@@ -50,4 +47,6 @@
  <a href="{% url 'competence.create' %}"><strong>Agregar Competencias</strong></a>
 </div>
 {% endblock %}
+
+
 
