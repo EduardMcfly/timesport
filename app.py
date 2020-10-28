@@ -8,6 +8,7 @@ from database import db, getSession, migrate
 from models import *
 from utils import ext, query_to_dict
 from blueprints.competence import competenceBp
+from login_manager import login_manager
 
 
 static_url_path = '/static'
@@ -25,6 +26,7 @@ print(os.getenv('DATABASE_URL'))
 print(os.getenv('SECRET_KEY'))
 db.init_app(app)
 migrate.init_app(app)
+login_manager.init_app(app)
 
 app.register_blueprint(trainingBp)
 app.register_blueprint(signUpBp)
