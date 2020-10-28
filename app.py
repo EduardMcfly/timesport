@@ -3,7 +3,7 @@ from datetime import datetime
 
 from flask import Flask, render_template, url_for
 
-from blueprints import trainingBp, signUpBp, trackBp
+from blueprints import trainingBp, authenticationBp, trackBp
 from database import db, getSession, migrate
 from models import *
 from utils import ext, query_to_dict
@@ -22,14 +22,14 @@ for extension in [ext.JinjaStatic, ext.JinjaUrl]:
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'development' == app.env
-print(os.getenv('DATABASE_URL'))
-print(os.getenv('SECRET_KEY'))
+app.secret_key = os.getenv('SECRET_KEY')
+
 db.init_app(app)
 migrate.init_app(app)
 login_manager.init_app(app)
 
 app.register_blueprint(trainingBp)
-app.register_blueprint(signUpBp)
+app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
 
 
@@ -44,6 +44,12 @@ def inject_dict_for_all_templates():
         static=lambda path: url_for('static', filename=path),
         url=lambda path: url_for(path)
     )
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    user = User.query.get(user_id)
+    return user
 
 
 @app.route("/")
