@@ -1,3 +1,3 @@
 from .training import trainingBp
-from .signUp import signUpBp
+from .authentication import authenticationBp
 from .track import trackBp
