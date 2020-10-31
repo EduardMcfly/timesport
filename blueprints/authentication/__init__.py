@@ -38,8 +38,6 @@ def loginPost():
     hashed = toBytes(user.password)
     if bcrypt.checkpw(password, hashed):
         login_user(user)
-        if 'url' in request.session:
-            return redirect(session['url'])
         return redirect(url_for('main'))
     else:
         return "Constraseña incorrecta"
