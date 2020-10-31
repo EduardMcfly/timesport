@@ -14,3 +14,4 @@ class User(db.Model, UserMixin):
     lastname = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
     tracks = relationship("Track")
+    userCompetences = relationship("UserCompetence")
