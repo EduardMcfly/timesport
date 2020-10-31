@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 
 from flask import Flask, render_template, url_for
+from flask_login.utils import login_required
 
 from blueprints import trainingBp, authenticationBp, trackBp
 from database import db, getSession, migrate
@@ -52,23 +53,7 @@ def load_user(user_id):
     return user
 
 
-@app.route("/")
-def index():
-    return "Hello, World!"
-
-
-@app.route("/login/")
-@app.route("/login")
-def login():
-    return render_template('login.html')
-
-
-@app.route("/users")
-def users():
-    session = getSession()
-    connection = session.connection()
-    results = connection.execute(
-        'SELECT id as id_user, name as name_user, password, created_at FROM users'
-    )
-    users = query_to_dict(results)
-    return render_template('users.html', users=users)
+@app.route("/main")
+@login_required
+def main():
+    return render_template('main.html')
