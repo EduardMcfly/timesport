@@ -9,8 +9,6 @@ class Competence(db.Model):
     __tablename__ = 'competences'
     id = Column(Integer, primary_key=True)
     date = Column(Date)
-    duration_minutes= Column(Integer())
-    turns = Column(Integer())
     track_id= Column(Integer,ForeignKey('tracks.id'))
     category_id = Column(Integer,(ForeignKey('categories.id')))
     user_id = Column(Integer,ForeignKey('users.id'))

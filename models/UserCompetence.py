@@ -9,8 +9,9 @@ from database import db
 class UserCompetence(db.Model):
     __tablename__ = 'user_competences'
     id = Column(Integer, primary_key=True)
+    duration = Column(Integer())
+    turns = Column(Integer())
     user_id = Column(Integer, ForeignKey('users.id'))
     competences_id = Column(Integer, ForeignKey('competences.id'))
     trainings = relationship("Training")
     competences = relationship("Competence")
-
