@@ -4,6 +4,7 @@ from flask.helpers import url_for
 from flask_login import login_user
 from flask_login.utils import login_required, logout_user
 import bcrypt
+from flask_login import current_user
 
 from database import getSession
 from models.User import User
@@ -19,7 +20,29 @@ authenticationBp = Blueprint(
 
 @authenticationBp.route("/login")
 def login():
+    if(current_user.is_authenticated):
+        return redirect(url_for('main'))
     return render_template('login.html')
+
+
+def toBytes(text: str):
+    return bytes(text, encoding='utf-8')
+
+
+@authenticationBp.route("/login", methods=['POST'])
+def loginPost():
+    email = request.form.get('email')
+    password = toBytes(request.form.get('password'))
+    session = getSession()
+    user = session.query(User).filter_by(email=email).first()
+    hashed = toBytes(user.password)
+    if bcrypt.checkpw(password, hashed):
+        login_user(user)
+        if 'url' in request.session:
+            return redirect(session['url'])
+        return redirect(url_for('main'))
+    else:
+        return "Constraseña incorrecta"
 
 
 @authenticationBp.route("/logout")
@@ -41,19 +64,21 @@ def signUp():
         name = request.form.get('name')
         lastname = request.form.get('lastname')
         email = request.form.get('email')
-        password = request.form.get('password')
+        password = toBytes(request.form.get('password'))
         session = getSession()
         try:
             user = User()
             user.email = email
             user.name = name
             user.lastname = lastname
-            hashed = bcrypt.hashpw(password, bcrypt.gensalt())
-            user.password = hashed
+            hashed = bcrypt.hashpw(
+                password, bcrypt.gensalt()
+            )
+            user.password = hashed.decode("utf-8")
             session.add(user)
             session.commit()
             login_user(user)
-            return "Data saved"
+            return redirect(url_for('main'))
         except Exception as error:
             session.rollback()
             raise error

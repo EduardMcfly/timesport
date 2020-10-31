@@ -14,21 +14,19 @@ block content %}
           <th>Date</th>
           <th>Category</th>
           <th>Tracks</th>
-          <th>User</th>
           <th>Turns</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        {% for training in trainings %}
+        {% for row in trainings %}
           <tr>
-            <td>{{loop.index}}</td>
-            <td>{{training.date}}</td>
-            <td>{{training.categoria}}</td>
-            <td>{{training.name_track}}</td>
-            <td>{{training.usuario}}</td>
-            <td>{{training.turns}}</td>
-            <td><a href="{{url_for('training.delete', id = training.id)}}">Delete</a></td>
+            <td>{{row.Training.id}}</td>
+            <td>{{row.Training.date}}</td>
+            <td>{{row.Category.name}}</td>
+            <td>{{row.Track.name}}</td>
+            <td>{{row.Training.turns}}</td>
+            <td><a href="{{ url_for('training.delete', id = row.Training.id) }}">Delete</a></td>
           </tr>
         {% endfor %}
       </tbody>
