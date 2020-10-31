@@ -1,145 +1,42 @@
-{% extends "base.html" %} {% load static %}
-{% block title %}Login{% endblock %}
-{% block head %}
-<style>
-  * {
-    margin: 0;
-    paddind: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  body {
-    background: #4568DC;
-    background: -webkit-linear-gradient(to right, #806AB3, #4568DC);
-    background: linear-gradiente(to right, #B06AB3, #4568DC);
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-
-  .contenedor .form .form-header .form-title {
-    form-weight: normal;
-    font-family: sans-serif;
-    color: #ff851b;
-    text-align: center;
-    padding: 14px 0;
-  }
-
-  .contenedor .form .form-header .form-title span {
-    color: #fff;
-  }
-
-  .contenedor .form {
-    background: rgba(0, 0, 0, .6);
-    width: 90%;
-    max-width: 650px;
-    margin: auto;
-    padding: 5px 35px;
-    margin-top: 30px;
-    padding-bottom: 39px;
-    border-radius: 3px;
-  }
-
-  .contenedor .form .form-label {
-    display: block;
-    color: #ff851b;
-    font-size: 16px;
-    font-family: Roboto;
-    position: relative;
-  }
-
-  .contenedor .form .form-input,
-  .form-textarea {
-    background: rgba(0, 0, 0, .7);
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #ff851b;
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 2px;
-    font-size: 14px;
-    color: #FFF;
-    font-family: Roboto;
-  }
-
-  .contenedor .form .form-textarea {
-    resize: vertical;
-    max-height: 150px;
-    min-height: 50px;
-  }
-
-  .contenedor .form .btn-submit {
-    width: 100%;
-    font-family: Roboto;
-    outline: none;
-    background: #ff851b;
-    font-size: 16px;
-    border: none;
-    color: #fff;
-    padding: 15px 0;
-    cursor: pointer;
-    transition: all .5s ease;
-  }
-
-  .contenedor .form .btn-submit:hover {
-    background: #F29718;
-
-  }
-  
-  .form-image {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  .form-image img {
-    width: 100%;
-    min-width: 130px;
-    max-width: 100px;
-  }
-
-  .form-footer-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-</style>
-
+{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
+block content %}
+<div class="container h-100 d-flex align-items-center">
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <a href="{% url 'training.trainings' %}">
+            <h5 class="card-title">Entrenamientos</h5>
+          </a>
+          <p class="card-text">
+            This is a longer card with supporting text below as a natural
+            lead-in to additional content. This content is a little bit longer.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Comepetencias</h5>
+          <p class="card-text">This is a short card.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Pistas</h5>
+          <p class="card-text">
+            This is a longer card with supporting text below as a natural
+            lead-in to additional content.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
-
-{% block content %}
-
-
-<div class="contenedor">
-
-  <form action="" class="form">
-    <div class="form-image">
-      <img src="{% static 'images/Motomoto.png'%}" alt="">
-    </div>
-    <div class="form-header">
-      <h1 class="form-title">C<span>ontacto</span>
-        <h1>
-    </div>
-
-    <Label for="nombre" class="form-label">Nombre Completo:</Label>
-    <input type="text" id="nombre" class="form-input" placeholder="Escriba su nombre y apellidos">
-
-    <Label for="direccion" class="form-label">Nombre de Usuario:</Label>
-    <input type="text" id="direccion" class="form-input" placeholder="Escriba su usuario">
-
-    <Label for="correo" class="form-label">Contraseña:</Label>
-    <input type="email" id="correo" class="form-input" placeholder="Escriba su Contraseña">
-
-    <Label for="correo" class="form-label">Confirmar Contraseña:</Label>
-    <input type="email" id="correo" class="form-input" placeholder="Confirmar contraseña">
-
-    <Label for="mensaje" class="form-label"></Label>
-    <textarea id="mensaje" class="form-textarea"
-      placeholder="Utiliza ocho caracteres como mínimo con una combinación de letras, números y símbolos"></textarea>
-    <div class="form-footer-buttons">
-      <input type="submit" class="btn-submit" value="Acceder" style='width:120px; height:80px'>
-      <input type="submit" class="btn-submit" value="Confirmar" style='width:120px; height:80px'>
-    </div>
-  </form>
-  {% endblock %}

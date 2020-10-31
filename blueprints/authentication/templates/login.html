@@ -16,9 +16,9 @@
     <div class="d-flex justify-content-center thumbnail">
       <img class="w-100" style="object-fit: contain;" src={% static "images/dos.png" %}/>
     </div>
-    <form class="login-form">
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
+    <form class="login-form" method="POST" action="{% url 'authentication.login' %}">
+      <input name="email" type="text" placeholder="Email"/>
+      <input name="password" type="password" placeholder="Password"/>
       <button><strong>Login</strong></button>
       <p class="message">Not registered?<a href="{% url 'authentication.signUp' %}"><strong>Create an account</strong></a></p>
     </form>
