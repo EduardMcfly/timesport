@@ -11,7 +11,6 @@ from utils import ext, query_to_dict
 from blueprints.competence import competenceBp
 from login_manager import login_manager
 from blueprints.competence import competenceBp
-from blueprints.homePage import homePageBp
 
 
 static_url_path = '/static'
@@ -34,7 +33,6 @@ login_manager.init_app(app)
 app.register_blueprint(trainingBp)
 app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
-app.register_blueprint(homePageBp)
 
 
 @app.template_filter('date_format')
