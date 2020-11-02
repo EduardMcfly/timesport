@@ -15,4 +15,4 @@ class Track(db.Model):
     user_id = Column(Integer, ForeignKey('users.id'))
     trainings = relationship("Training")
     competences = relationship("Competence")
-
+    images = relationship("TrackImage")
