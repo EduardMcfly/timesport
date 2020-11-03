@@ -1,0 +1,30 @@
+body {
+  background: #f6f6f6;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header .contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logotipo {
+  font-family: "Bebas Neue", cursive;
+  font-weight: normal;
+  color: var(--rojo);
+  font-size: 40px;
+}
+
+.header nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.header nav a:hover,
+header nav a.activo {
+  color: #fff;
+}
