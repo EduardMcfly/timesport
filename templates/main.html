@@ -1,42 +1,127 @@
-{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
-<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+{% extends "app.html" %}
+{% block title %}Main{% endblock %} 
+{% block head %}
+<link
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+  rel="stylesheet" 
+/>
+<link rel="stylesheet" href="{% static 'css/pages/main.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
-block content %}
-<div class="container h-100 d-flex align-items-center">
-  <div class="row row-cols-1 row-cols-md-3">
-    <div class="col mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <a href="{% url 'training.trainings' %}">
-            <h5 class="card-title">Entrenamientos</h5>
-          </a>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}" />
+{% endblock %}
+{% macro target(img, name, descripcion, class="", children="", url="#") -%}
+<div class="col tarjeta {{class}}">
+  <figure>
+    <img
+    src="{{ url_for('static', filename='images/img/'+img) }}"
+    />
+    <div class="capa">
+      <h3>{{ name }}</h3>
+      <p>{{ descripcion }}</p>
+    </div>
+    <div class="w-100 text-center">
+      {{ children }}
+    </div>
+  </figure>
+</div>
+{%- endmacro %}
+{% macro childrenParent(attr) -%}
+  <div class="position-absolute triangle-root" data-toggle="collapse"  {{attr}}>
+    <div class="triangle"></div>
+  </div>
+{%- endmacro %}
+{% macro targetParent(img, name, descripcion, class="", attr="", url="#") -%}
+  {{ target(img, name, descripcion, class, children = childrenParent(attr), url=url) }}
+{%- endmacro %}
+{% block content %}
+<main>
+  <div class="tarjeta-principal">
+    <div class="contenedor">
+      <div class="parrafo">
+        <div class="d-flex justify-content-center">
+          <img src="{{ url_for('static', filename='images/img/1.png') }}" />
         </div>
+        <p class="descripcion">
+          Aplicativo Web para Enduristas en la Modalidad de Hare Scramble
+        </p>
       </div>
     </div>
-    <div class="col mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">Comepetencias</h5>
-          <p class="card-text">This is a short card.</p>
-        </div>
-      </div>
+  </div>
+  <div class="tarjetas-recomendadas contenedor">
+    <div class="contenedor-titulo-controles">
+      <h3 class="text-center w-100">¿Que deseas hacer?</h3>
+      <div class="indicadores"></div>
     </div>
-    <div class="col mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">Pistas</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content.
-          </p>
+    <div class="row">
+        {{ targetParent('entrenamiento.png', 'Entrenamientos', 'Gestiona tus entrenamientos', attr="data-target=#trainings", url=url_for('competence.index')) }}
+        {{ targetParent('categoria.png', 'Competencias', 'Gestiona tus competencias', attr="data-target=#competences", url=url_for('training.trainings')) }}
+        {{ targetParent('pistas.png', 'Pistas', 'Gestiona tus competencias', attr="data-target=#tracks", url=url_for('track.tracks')) }}
+    </div>
+    <div class="row">
+      <div class="col" id="accordion">
+        <div class="collapse" id="trainings" data-parent="#accordion">
+          <div class="card-body">
+            <div class="row">
+              {% set items = [
+                ['geral.png', 'En Honor de una Grande', 'Geraldin Aguilar'], 
+                ['entrenamiento.png','Registrar Entrenamientos',''],
+                ['entrenamiento3.png','Comparar lista de entrenamientos', ''], 
+                ['competencia3.png','Evaluar tu rendimiento', ''],
+                ['entrenamiento1.png','Iniciar con una categoria', 'Lorem dsfsdf'],  
+                ['entrenamiento2.png','Reconocer tus avances', 'Lorem dsfsdf'],  
+              ] %}
+              {% for item in items %}
+                {{ target(item[0], item[1], item[entrenamiento]) }}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="competences" data-parent="#accordion">
+          <div class="card-body">
+            <div class="row">
+              {% set items = [
+                ['categoria.png','Registrar Competencias', ''],  
+                ['categoria1.png','Crear grupos', 'Lorem dsfsdf'], 
+                ['competencia2.png','Calificar y Evaluar participantes', 'Lorem dsfsdf'], 
+              ] %}
+              {% for item in items %}
+                {{ target(item[0], item[1], item[entrenamiento]) }}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="tracks" data-parent="#accordion">
+          <div class="card-body">
+            <div class="row">
+              {% set items = [
+                ['pistas.png','Encontrar Pistas disponibles', 'Lorem dsfsdf'], 
+                ['pista2.png','Agregar Fotos', 'Lorem dsfsdf'],  
+                ['pistas1.png','Obtener mejores resultados', 'Lorem dsfsdf'], 
+              ] %}
+              {% for item in items %}
+                {{ target(item[0], item[1], item[entrenamiento]) }}
+              {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</main>
+
+<script
+  src="https://kit.fontawesome.com/2c36e9b7b1.js"
+  crossorigin="anonymous"
+></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+  crossorigin="anonymous"
+></script>
 {% endblock %}
