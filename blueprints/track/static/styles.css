@@ -27,7 +27,6 @@
 .item-text,
 .item-text:hover {
   color: black;
-  text-decoration: none;
 }
 
 .item-text::after {

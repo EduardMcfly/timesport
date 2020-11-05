@@ -18,7 +18,9 @@ block content %}
       >Crear pistas</a
     >
   </div>
-  <!-- <table align="center" border="1" style="width:auto; height:20px;" ;
+  <br
+  >
+   <table align="center" border="1" style="width:auto; height:20px;" ;
    class="table table-condensed table-bordered table-hover">
     <style>
       table, th,td{
@@ -47,12 +49,13 @@ block content %}
       </tr>
       {% endfor %}
     </tbody>
-  </table>  -->
-
+  </table> 
+  <br>
+  <br>
   <div class="row mt-4">
     {% for track in tracks %}
     <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="track-item">
+      <div class="track-item shadow">
         <div
           id="carousel-{{ track.id }}"
           class="carousel slide"
@@ -88,11 +91,16 @@ block content %}
             <span class="sr-only">Next</span>
           </a>
         </div>
-        <a href="#" class="item-text" style="text-align: center">
-          <h4><b>{{ track.name }}</b></h4>
-          <p>{{ track.location }}</p>
-          <h4>{{ track.size }}</h4>
-          <p>{{ track.user_id }}</p>
+        <a
+          href="{{ url_for('track.tracks', id = track.id ) }}"
+          class="text-decoration-none"
+        >
+          <div class="item-text text-center">
+            <h4><b>{{ track.name }}</b></h4>
+            <p>{{ track.location }}</p>
+            <h4>{{ track.size }}</h4>
+            <p>{{ track.user_id }}</p>
+          </div>
         </a>
       </div>
     </div>
