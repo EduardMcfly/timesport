@@ -3,6 +3,10 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link
+  rel="stylesheet"
+  href="{{ url_for('track.static', filename='styles.css')}}"
+/>
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
 {% block content %}
 <div class="container mt-4">
@@ -11,16 +15,15 @@
   </div>
   <form action="{% url 'track.createTracks' %}" method="POST"   enctype="multipart/form-data">
       <div class="form-group">
-        <label>Nombre </label>
-        <input name="name" type="text" class="form-control" />
+        <label></label>
+        <input name="name" type="text" class="form-control" placeholder = "Nombre" />
       </div>
       <div class="form-group">
-        <label>Ubicación </label>
-        <input name="location" type="text" class="form-control" />
+     
+        <input name="location" type="text" class="form-control" placeholder = "Ubicación" />
       </div>
       <div class="form-group">
-        <label>Medida </label>
-        <input name="size" type="text" class="form-control" />
+        <input name="size" type="text" class="form-control" placeholder = "Medida"/>
       </div>
       <div class="input-group mb-3">
         <div class="custom-file">
