@@ -1,3 +1,4 @@
+from blueprints.training import trainings
 import uuid
 import os
 from flask_login.utils import login_required
@@ -10,7 +11,7 @@ from werkzeug.utils import secure_filename
 
 from database import getSession
 from utils import query_to_dict
-from models import Track, TrackImage
+from models import Track, TrackImage, Competence
 from flask import redirect
 
 trackBp = Blueprint(
