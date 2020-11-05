@@ -1,11 +1,15 @@
 {% extends "base_competence.html" %}
 
 {% block title %}Charts{% endblock %} 
-<link rel="stylesheet" href="competence/static/start.css">
-<link rel="stylesheet" href="competence/static/charts.css">
 
 {% block content %}
+<link rel="stylesheet" href="competence/static/start.css">
+<link rel="stylesheet" href="/competence/static/charts.css">
+
 <div class="chart-container" style="position: relative; width: 600px">
+<div class="informacion">
+   <h1 class="text-center m-4 ">Grafica Resultados Competencias</h1><span>
+  </div>
   <canvas id="myChart"></canvas>
 </div>
 <script src="{% static 'lib/js/chart.min.js' %}"></script>

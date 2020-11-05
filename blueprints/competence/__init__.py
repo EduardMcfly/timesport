@@ -181,8 +181,8 @@ def graphicPreviousCompetitions(id):
     return jsonify(result)
 
 
-@competenceBp.route("/moduleCompetences")
-def moduleCompetences():
+@competenceBp.route("/module")
+def module():
     return render_template('index.html')
 
 

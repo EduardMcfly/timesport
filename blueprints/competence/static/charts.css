@@ -5,7 +5,7 @@ body{
     rgba(211,135,20, .6),
     rgba(204, 94, 4, 0.6),
     rgba(49, 31, 7, 0.45)
-    ), url(/competence/static/img/no.jpg);
+    ), url(/competence/static/img/ultima.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -15,11 +15,11 @@ body{
       vertical-align: top;
   }
   
-  .container{
-      background-color:  #deb887d1;
+  .chart-container{
+      background-color: #fffffffa;
       padding: 30px;
-      position: fixed;
-      margin-top: 25px;
+      margin-top: 35px;
+      margin-left: 400px;
       
   }
   

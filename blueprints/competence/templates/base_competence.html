@@ -4,13 +4,14 @@
 <nav id="nav" class="nav1">
   <div class="contenedor-nav">
     <div class="logo">
-      <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+     <link rel="stylesheet" href="/competence/static/otro.css" />
+     
       <img src="/competence/static/img/1.png" alt="" />
     </div>
     <div class="enlaces" id="enlaces">
-      <a href="" id="enlace-inicio" class="btn-header">Pagina Principal</a>
+      <a href="main" id="enlace-inicio" class="btn-header">Pagina Principal</a>
       <a
-        href="{% url 'competence.index' %}"
+        href="{% url 'competence.module' %}"
         id="enlace-trabajo"
         class="btn-header"
         >Inicio</a
@@ -34,3 +35,4 @@
   </div>
 </nav>
 {% endblock %}
+
