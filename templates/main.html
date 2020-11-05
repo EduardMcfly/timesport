@@ -63,12 +63,10 @@
           <div class="card-body">
             <div class="row">
               {% set items = [
-                ['geral.png', 'En Honor de una Grande', 'Geraldin Aguilar'], 
-                ['entrenamiento.png','Registrar Entrenamientos',''],
                 ['entrenamiento3.png','Comparar lista de entrenamientos', ''], 
                 ['competencia3.png','Evaluar tu rendimiento', ''],
-                ['entrenamiento1.png','Iniciar con una categoria', 'Lorem dsfsdf'],  
-                ['entrenamiento2.png','Reconocer tus avances', 'Lorem dsfsdf'],  
+                ['entrenamiento1.png','Iniciar con una categoria', ''],  
+                ['entrenamiento2.png','Reconocer tus avances', ''],  
               ] %}
               {% for item in items %}
                 {{ target(item[0], item[1], item[entrenamiento]) }}
@@ -81,7 +79,8 @@
             <div class="row">
               {% set items = [
                 ['categoria.png','Registrar Competencias', ''],  
-                ['categoria1.png','Crear grupos', 'Lorem dsfsdf'], 
+                ['categoria1.png','Crear grupos', 'Lorem dsfsdf'],
+                ['pistas1.png','Obtener mejores resultados', 'Lorem dsfsdf'], 
                 ['competencia2.png','Calificar y Evaluar participantes', 'Lorem dsfsdf'], 
               ] %}
               {% for item in items %}
@@ -96,7 +95,7 @@
               {% set items = [
                 ['pistas.png','Encontrar Pistas disponibles', 'Lorem dsfsdf'], 
                 ['pista2.png','Agregar Fotos', 'Lorem dsfsdf'],  
-                ['pistas1.png','Obtener mejores resultados', 'Lorem dsfsdf'], 
+                 
               ] %}
               {% for item in items %}
                 {{ target(item[0], item[1], item[entrenamiento]) }}

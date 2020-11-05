@@ -122,14 +122,14 @@ body {
   bottom: 0;
 }
 
-.contenedor-titulo-controles .indicadores button {
+/* .contenedor-titulo-controles .indicadores button {
   background: #fff;
   height: 5px;
   width: 15px;
   cursor: pointer;
   border: none;
   margin-right: 2px;
-}
+} */
 
 .contenedor-titulo-controles .indicadores button:hover,
 .contenedor-titulo-controles .indicadores button.activo {
