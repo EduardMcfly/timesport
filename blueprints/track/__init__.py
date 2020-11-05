@@ -25,11 +25,8 @@ trackBp = Blueprint(
 @trackBp.route("/tracks")
 @login_required
 def tracks():
-
     session = getSession()
-    connection = session.connection()
-    results = connection.execute('SELECT * FROM tracks')
-    tracks = query_to_dict(results)
+    tracks = session.query(Track).outerjoin(TrackImage).all()
     return render_template('tracks.html', tracks=tracks)
 
 
