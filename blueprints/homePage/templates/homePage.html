@@ -1,0 +1,156 @@
+{% extends "base.html" %} 
+{% block title %}Time Sport 15{% endblock %} 
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{{ url_for('homePage.static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
+{% endblock %} 
+{% block content %}
+{% set images = url_for('homePage.static', filename='images') %}
+<header class="d-flex">
+  <div class="sesgoabajo"></div>
+  <div class="textos row w-100">
+    <div class="col-sm-12 col-md-6 text-center d-flex justify-content-center align-items-center">
+        <div>
+            <div class="logo">
+                <img src="{{images}}/logoP.png" alt="130" height="130" />
+            </div>
+            <h1 class="titulo">TIME SPORT 15</h1>
+        </div>
+    </div>
+    <div
+      class="col-sm-12 col-md-6 d-flex justify-content-center align-items-end"
+    >
+      <div class="row w-100 btn-actions">
+        <div class="col-sm-12 col-md-6">
+          <a href="{{ url_for('authentication.login') }}" class="btn btn-block btn-lg btn-primary text-truncate">Iniciar Session</a>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <a href="{{ url_for('authentication.signUp') }}" class="btn btn-block btn-lg btn-primary text-truncate">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="acerca-de">
+    <div class="contenedor">
+      <h2 class="sobre-nosotros">Sobre Nosotros</h2>
+      <h3 class="slogan">
+        Aplicativo Web para deportistas que practican enduro en la modalidad de
+        Hare Scramble
+      </h3>
+      <p class="parrafo">
+        Este sistema cuenta con tres modulos principales los cuales permiten
+        realizar un registro de los datos y resultados obtenidos en cada uno de
+        los entrenamientos y competencias. y asu vez disponen de una actualizada
+        galería de pistas disponibles en las que se practica este deporte
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">Entrenamientos</div>
+          <p>
+            El modulo de Etrenamientos permite que el usuario final registre los
+            resultados obtenidos en cada una de las rutinas de entrenamiento
+            realizadas con el fin de que estos datos sean analizados y mostrados
+            almismo por medio de graficas.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Competencias</div>
+          <p>
+            El modulo de competencias brinda la opcion de registar la
+            competencia por medio de el organizador y asu vez permite
+            aldeportista registrar los resultados obtenidos en dicha competencia
+            con el fin de comarara os resultados y mostrarlos de manera grafica.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">Pistas</div>
+          <p>
+            El modulo de pistas ofrece al deportista una galeria de pistas
+            actualizada en la cual se muestar una imagen junto con
+            caracteristicas de cadapista disponible en la region de
+            Cundinamarca.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="galeria">
+    <div class="imagenes none">
+      <img src="{{ images }}/a.jpg" alt="" />
+    </div>
+    <div class="imagenes">
+      <img src="{{ images }}/1e.jpg" alt="" />
+    </div>
+    <div class="imagenes">
+      <img src="{{ images }}/geral.png" alt="" />
+    </div>
+    <div class="imagenes">
+      <img src="{{ images }}/2e.png" alt="" />
+    </div>
+    <div class="imagenes none">
+      <img src="{{ images }}/c.jpg" alt="" />
+    </div>
+  </section>
+  <section class="miembros">
+    <div class="contenedor">
+      <h2 class="sobre-nosotros">Nuestro equipo</h2>
+      <h3 class="slogan">Conoce a nuestro equipo de trabajo</h3>
+      <div class="cards">
+        <div class="card">
+          <img src="{{ images }}/yeimy.jpeg" alt="" />
+          <h4>Yeimy Angel</h4>
+          <p>
+            <a
+              href="https://yinethcastiblanco22.neocities.org/Yiyis/index.html"
+              target="_blank"
+            >
+              texto ancla</a
+            >
+          </p>
+        </div>
+        <div class="card">
+          <img src="{{ images }}/otraNatalia.jpg" alt="" />
+          <h4>Natalia Antonio</h4>
+          <p>
+            <a
+              href="https://yinethcastiblanco22.neocities.org/Yiyis/index.html"
+              target="_blank"
+            >
+              texto ancla</a
+            >
+          </p>
+        </div>
+        <div class="card">
+          <img src="{{ images }}/yiyi.jpg" alt="" col-md-6 />
+          <h4>Yineth Castiblanco</h4>
+          <p><a href=" " target="_blank"></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="contenedor">
+    <h2 class="titulo-footer">Contactanos</h2>
+    <div class="footer">
+      <form action="">
+        <input type="text" name="" id="" placeholder="Nombre" />
+        <input type="email" name="" id="" placeholder="Email" />
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Ingrese su mensaje..."
+        ></textarea>
+        <input type="submit" value="Enviar" />
+      </form>
+    </div>
+  </div>
+</footer>
+{% endblock %}
