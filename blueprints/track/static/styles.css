@@ -1,0 +1,56 @@
+.track-item {
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 5px 0 rgba(250, 123, 18, 0.095);
+  transition: all 300ms;
+  position: relative;
+}
+
+.track-item:hover {
+  transform: scale(1.05);
+}
+
+.track-item-text {
+  padding: 10px 50px 20px;
+}
+
+.track-item-img {
+  max-width: 100%;
+  display: block;
+}
+
+.item-text {
+  position: relative;
+  padding: 20px 0;
+}
+
+.item-text,
+.item-text:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.item-text::after {
+  content: "";
+  background-color: rgba(241, 132, 43, 0.1);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transition: all 300ms;
+  opacity: 0;
+}
+
+.item-text:hover:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.track-carrusel {
+  height: 200px;
+}
+
+.track-carrusel .carousel-item {
+}

@@ -4,3 +4,4 @@ from models.Category import Category
 from models.Training import Training
 from models.Competence import Competence
 from .UserCompetence import UserCompetence
+from .TrackImage import TrackImage

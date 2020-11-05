@@ -1,4 +1,7 @@
-input {
-  width: 98%;
-  padding: 1%;
+.form-group {
+  width: auto;
+  display: block;
+  position: absolute;
+  border-radius: 6px;
+  padding: 15px;
 }
