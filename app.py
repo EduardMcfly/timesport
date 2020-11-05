@@ -30,11 +30,11 @@ app.secret_key = os.getenv('SECRET_KEY')
 db.init_app(app)
 migrate.init_app(app)
 login_manager.init_app(app)
-
+app.register_blueprint(homePageBp)
 app.register_blueprint(trainingBp)
 app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
-app.register_blueprint(homePageBp)
+
 
 
 @app.template_filter('date_format')
