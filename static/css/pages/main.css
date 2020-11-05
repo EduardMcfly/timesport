@@ -1,0 +1,333 @@
+:root {
+  --rojo: #eb5905;
+  --fondo: #141414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--fondo);
+  font-family: "Open Sans", sans-serif;
+}
+
+.contenedor {
+  width: 90%;
+  margin: auto;
+}
+
+.parrafo {
+  z-index: 3;
+  width: 400px;
+  height: 440px;
+  padding: 20px 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: 1px 5px 25px rgb(0, 0, 0.45);
+  float: right;
+  background-color: rgba(250, 240, 230, 0.3);
+  border-radius: 30px;
+}
+
+.parrafo img {
+  width: 310px;
+  border-radius: 5px;
+}
+
+.parrafo .descripcion {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 0.4em;
+  text-align: center;
+}
+
+/* ---- ----- ----- tarjeta Principal ----- ----- ----- */
+
+.tarjeta-principal {
+  font-size: 16px;
+  min-height: 40.62em;
+  color: rgb(8, 8, 8);
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    url(../../images/img/17.png);
+  background-position: top center;
+  background-size: cover;
+  margin-bottom: 3.12em;
+  display: flex;
+  align-items: end;
+}
+
+/* .tarjeta-principal .contenedor {
+	margin: 0 auto;
+	margin-bottom: 6.25em;
+} */
+
+.tarjeta-principal .titulo {
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
+}
+
+.tarjeta-principal .descripcion {
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 32px;
+  max-width: 100%;
+  margin-bottom: 1.25em;
+  font-family: "Bebas Neue", cursive;
+}
+
+.tarjeta-principal .boton {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: #fff;
+  margin-right: 1.25em;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-size: 1.12em;
+}
+
+.tarjeta-principal .boton:hover {
+  background: #fff;
+  color: #000;
+}
+
+.tarjeta-principal .boton i {
+  margin-right: 1.25em;
+}
+
+/* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
+
+.contenedor-titulo-controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  position: relative;
+  margin-bottom: 13px;
+}
+
+.contenedor-titulo-controles h3 {
+  color: #fff;
+  font-size: 30px;
+}
+
+.contenedor-titulo-controles .indicadores {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* .contenedor-titulo-controles .indicadores button {
+  background: #fff;
+  height: 5px;
+  width: 15px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+} */
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+  background: rgb(240, 118, 5);
+}
+
+/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+
+.tarjetas-recomendadas {
+  margin-bottom: 70px;
+}
+
+.tarjetas-recomendadas .contenedor-principal {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.tarjetas-recomendadas .contenedor-principal .flecha-izquierda,
+.tarjetas-recomendadas .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+}
+
+.tarjetas-recomendadas .contenedor-principal .flecha-izquierda:hover,
+.tarjetas-recomendadas .contenedor-principal .flecha-derecha:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.tarjetas-recomendadas .contenedor-principal .flecha-izquierda {
+  left: 0;
+}
+
+.tarjetas-recomendadas .contenedor-principal .flecha-derecha {
+  right: 0;
+}
+
+/* ---- ----- ----- Carousel ----- ----- ----- */
+
+.tarjetas-recomendadas .contenedor-carousel {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.tarjetas-recomendadas .contenedor-carousel .carousel {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.tarjetas-recomendadas .contenedor-carousel .carousel .tarjeta {
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tarjetas-recomendadas .contenedor-carousel .carousel .tarjeta.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.tarjetas-recomendadas .contenedor-carousel .carousel .tarjeta img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+
+@media screen and (max-width: 800px) {
+  .header .logotipo {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  .header .contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+  .tarjeta-principal {
+    font-size: 14px;
+  }
+  .tarjeta-principal .descripcion {
+    max-width: 100%;
+  }
+  .tarjetas-recomendadas .contenedor-carousel {
+    overflow: visible;
+  }
+  .tarjetas-recomendadas .contenedor-carousel .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .tarjetas-recomendadas .indicadores,
+  .tarjetas-recomendadas .flecha-izquierda,
+  .tarjetas-recomendadas .flecha-derecha {
+    display: none;
+  }
+}
+
+.tarjeta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tarjeta figure {
+  position: relative;
+  height: 250px;
+  cursor: pointer;
+  width: 350px;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.tarjeta figure img {
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-out;
+}
+
+.tarjeta figure .capa {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(180, 125, 23, 0.7);
+  transition: all 500ms ease-out;
+  opacity: 1;
+  visibility: hidden;
+  text-align: center;
+}
+
+.tarjeta figure:hover > .capa {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tarjeta figure:hover > .capa h3 {
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+
+.tarjeta figure:hover > img {
+  transform: scale(1.3);
+}
+
+.tarjeta figure .capa h3 {
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 120px;
+  transition: all 500ms ease-out;
+  margin-top: 30px;
+}
+
+.tarjeta figure .capa p {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+}
+
+.triangle-root {
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+}
+
+.triangle-root:hover {
+  background: #ffffff6b;
+}
+
+.triangle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: 0.255em;
+  border-top: 2em solid;
+  border-right: 2em solid transparent;
+  border-bottom: 0;
+  border-left: 2em solid transparent;
+  color: #fff;
+}
+
+.triangle-root:hover .triangle {
+  color: #000;
+}

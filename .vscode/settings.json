@@ -10,5 +10,6 @@
     "pylint-flask",
     "ylint-flask-sqlalchemy"
   ],
-  "python.languageServer": "Pylance"
+  "python.languageServer": "Pylance",
+  "liveServer.settings.port": 5501
 }
