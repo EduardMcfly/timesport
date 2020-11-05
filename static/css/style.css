@@ -1,6 +1,54 @@
 body {
   background: #f6f6f6;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(248, 152, 43, 0.25);
+}
+
+.btn-primary {
+  color: #f7f1f1;
+  background-color: #ff851b;
+  border-color: #ff851b;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #c76815;
+  border-color: #ad5a12;
+}
+
+
+.btn-primary.focus,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #c76815;
+  border-color: #ad5a12;
+  box-shadow: 0 0 0 0.2rem rgba(255, 125, 38, 0.5);
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #86460e;
+  border-color: #964f11;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #cc7400;
+  border-color: #bf5c00;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 143, 38, 0.5);
 }

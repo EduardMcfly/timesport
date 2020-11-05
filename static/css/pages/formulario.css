@@ -8,7 +8,7 @@
     border-bottom-right-radius: 3px;
 }
 
-.form-group input {
+.form-group input,select {
     outline: 0;
     width: 100%;
     border: 0;
