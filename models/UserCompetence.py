@@ -13,5 +13,3 @@ class UserCompetence(db.Model):
     turns = Column(Integer())
     user_id = Column(Integer, ForeignKey('users.id'))
     competences_id = Column(Integer, ForeignKey('competences.id'))
-    trainings = relationship("Training")
-    competences = relationship("Competence")
