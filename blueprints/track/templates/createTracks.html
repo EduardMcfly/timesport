@@ -5,41 +5,32 @@
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
 {% block content %}
-{{ url_for('static', filename='images/images.png') }}
-<div class="container">
-<div class="informacion">
-   <h1 class="text-center m-4">Pistas</h1><span><i class="fa fa-heart"></i>
-  </div>
 <div class="container mt-4">
-  <form action="{% url 'track.createTracks' %}" method="POST">
-  <div class="text">
-    <div class="form-group">
-      <label for="exampleInputDate1"></label>
+  <div class="informacion">
+    <h1 class="text-center m-4">Pistas</h1><span><i class="fa fa-heart"></i>
+  </div>
+  <form action="{% url 'track.createTracks' %}" method="POST"   enctype="multipart/form-data">
       <div class="form-group">
-        <label for="exampleFormControlSelect2">Nombre y ubicación</label>
-        <select  class="form-control" id="exampleFormControlSelect2">
-          <option> </option>
-          <option>La Montaña-Girardot </option>
-          <option> Veloarena Y Enduro La Bonita-Girardot</option>
-          <option>Minas Montecristo-Cucunuba</option>
-          <option>Finca Hacienda San Miguel(El Ospicio)-La Mesa </option>
-          <option>La Laguna-Guasca</option>
-          <option>El Reto-Tocancipá y Gachancipá </option>
-          <option>La mugrosa-Villeta </option>
-          <option>Alto Tierra Negra-Nemocón</option>
-          <option>Territorio Chibcha-Facatativá </option>
-        </select>
+        <label>Nombre </label>
+        <input name="name" type="text" class="form-control" />
       </div>
-    <div class="form-group">
-    
-      <label for="exampleInputTrack1">Medida </label>
-      <input name="size" type="text" class="form-control" />
-        <label for="exampleInputTrack1">Fecha</label>
-        <input class="form-control" type="date" value="2020-10-16" id="example-date-input">
-        <br>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+      <div class="form-group">
+        <label>Ubicación </label>
+        <input name="location" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Medida </label>
+        <input name="size" type="text" class="form-control" />
+      </div>
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input name="images" type="file" class="form-control" multiple id="track_images" >
+          <label class="custom-file-label" for="track_images">
+            Adjuntar imagenes
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
-</div>
-
 </div>
 {% endblock %}
