@@ -1,0 +1,31 @@
+{% extends "base_competence.html" %}
+ {% block title %}Login{% endblock %}
+  {% block head %}
+<link rel="stylesheet" href="competence/static/start.css">
+ {% endblock %} 
+ {% block content %}
+<div class="container">
+   <h1 class="text-center m-4">
+       {{ competence.Competence.name_competence }}
+    </h1>
+    <div class="card p-4">
+        <div><b>Fecha:</b> {{ competence.Competence.date}}</div>
+        <div><b>Categoria:</b> {{ competence.Category.name }}</div>
+        <div><b>Nombre Pista:</b> {{ competence.Track.name }}</div>
+        <div><b>Medida Pista:</b> {{ competence.Track.size }}</div>
+        <a class="d-block"  href="{{url_for('competence.delete', id = competence.Competence.id)}}">Delete</a>
+        <a class="d-block"  href="{{url_for('competence.charts', id = competence.Competence.id)}}">Estadisticas</a>
+    </div>
+    <div class="card mt-3 p-3">
+        <div class="h3">Mis resultados</div>
+        {% set duration = competence.UserCompetence.duration %}
+        {% set turns = competence.UserCompetence.turns %}
+        {% if turns and duration %}
+            <div><b>Duracion Competencia:</b> {{ duration }}</div>
+            <div><b>Cantidad de Vueltas:</b> {{ turns }}</td>
+        {% else %}
+            <a class="d-block"  href="{{url_for('competence.createResults', id = competence.UserCompetence.id)}}">Crear mis resultados</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

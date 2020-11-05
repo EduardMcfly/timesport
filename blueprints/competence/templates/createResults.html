@@ -1,0 +1,26 @@
+{% extends "base_competence.html" %}
+{% block title %}Create{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="competence/static/start.css">
+<link rel="stylesheet" href="competence/static/results.css">
+<link rel="stylesheet" href="{% static 'css/pages/formulario.css' %}" />
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
+{% block content %}
+<div class="container">
+<div class="informacion">
+   <h1 class="text-center m-4 ">Agregar Resultados</h1><span>
+  </div>
+  <form action="{{ url_for('competence.createResults', id = id)  }}" method="POST">
+    <div class="form-group">
+      <label>Duracion</label>
+      <input name="duration" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Cantidad Vuelta</label>
+      <input name="turns" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+</div>
+{% endblock %}

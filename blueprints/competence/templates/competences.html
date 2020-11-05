@@ -1,50 +1,58 @@
-{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
-<link rel="stylesheet" href="{% static 'competence/styles.css' %}" />
+{% extends "base_competence.html" %} 
+{% block title %}Login{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="competence/static/start.css"/>
+<link rel="stylesheet" href="competence/static/styles.css" />
 
  {% endblock %} 
  {% block content %}
+<div class="background"></div>
+<div class="m-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active"><a href="#">Competencias</a></li>
+        </ol>
+    </nav>
+</div>
 
-<div class="container">
- 
-   <h1 class="text-center m-4">Lista Competencias</h1><span><i class="fa fa-heart"></i>
- 
-
+<div class="container compente-container">
   <div class="flash">
-      <table class="table table-responsive table-striped table-sm table-entrenamiento">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Fecha</th>
-           <th>Categoria</th>
-           <th>Nombre Pista</th>
-           <th>Medida Pista</th>
-            <th>Duracion Competencia</th>
-            <th>Cantidad de Vueltas</th>
-            <th>Clasificacion</th>
-            
-           
-            
-        </tr>
-    </thead>
-    <tbody>
-     {% for competences in competences %}
-        <tr>
-            <td>{{ competences.id}}</td>
-            <td>{{ competences.date}}</td>
-            <td>{{ competences.name}}</td>
-            <td>{{ competences.name}}</td>
-            <td>{{ competences.masure_track}}</td>
-            <td>{{ competences.duration_minutes}}</td>
-            <td>{{ competences.amount_turned}}</td>
-            <td>{{ competences.classification}}</td>
-        </tr>
-    </tbody>
-     {% endfor %}
-</table>
+      <h1 class="text-center m-4">Lista Competencias</h1>
+      <div class="d-flex justify-content-center">
+          <a class="btn btn-primary" href="{% url 'competence.create' %}"><strong>Agregar Competencias</strong></a>
+      </div>
+      <table class="table table-striped table-entrenamiento mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Nombre Competencia</th>
+            <th>Categoria</th>
+            <th>Nombre Pista</th>
+            <th>Medida Pista</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in competences %}
+            <tr>
+                <td>{{ row.Competence.id }}</td>
+                <td>{{ row.Competence.date}}</td>
+                <td>{{ row.Competence.name_competence}}</td>
+                <td>{{ row.Category.name }}</td>
+                <td>{{ row.Track.name }}</td>
+                <td>{{ row.Track.size }}</td>
+                <td>
+                    <a href="{{url_for('competence.one', id = row.Competence.id)}}">Ver Resultados</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
   
   </div>
- 
- <a href="{% url 'competence.create' %}"><strong>Agregar Competencias</strong></a>
+
 </div>
 {% endblock %}
 

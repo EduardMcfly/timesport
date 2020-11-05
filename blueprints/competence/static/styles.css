@@ -16,7 +16,7 @@ th {
 }
 
 h1 {
-  color: #fda300;
+  color: black;
 }
 
 .form-control:focus {
@@ -24,4 +24,36 @@ h1 {
   background-color: #fff;
   border-color: var(--primary);
   box-shadow: 0 0 0 0.2rem #fda300;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to bottom,
+      rgba(211, 135, 20, 0.6),
+      rgba(204, 94, 4, 0.6),
+      rgba(49, 31, 7, 0.45)
+    ),
+    url(/competence/static/img/ji.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+img {
+  vertical-align: top;
+}
+
+.compente-container {
+  background-color: #ffffffd1;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+a {
+  color: black;
 }
