@@ -37,6 +37,12 @@ def createTracks():
     return render_template('createTracks.html')
 
 
+@trackBp.route("/indextra")
+@login_required
+def indextra():
+    return render_template('indextra.html')
+
+
 folderTracks = 'static/tracks/'
 if not os.path.exists(folderTracks):
     os.makedirs(folderTracks)
