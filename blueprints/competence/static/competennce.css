@@ -12,3 +12,7 @@ body {
     background-position: center;
     background-size: cover;
   }
+
+  a {
+    color: orange;
+  }

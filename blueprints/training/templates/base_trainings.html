@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head %}
+    
+   
+{% endblock %}
+{% block header %}
+
+<nav id="nav" class="nav1">
+            <div class="contenedor-nav">
+                <div class="logo">
+                    <img src="{% static 'training/img/1.png' %}" alt="">
+                </div>
+                <div class="enlaces" id="enlaces">
+                    <a href="main" id="enlace-inicio" class="btn-header">Pagina Principal</a>
+                    <a href="{% url 'training.modules' %}" id="enlace-trabajo" class="btn-header">Inicio</a>
+                    <a href="{% url 'training.create' %}" id="enlace-servicio" class="btn-header">Agregar Entrenamento</a>
+                    <a href="{% url 'training.trainings' %}" id="enlace-equipo" class="btn-header">Lista Entrenamentos</a>
+                </div>
+                <div class="icono" id="open">
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+{% endblock %}

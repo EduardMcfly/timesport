@@ -97,3 +97,7 @@ def delete(id):
 @trainingBp.route("/charts")
 def charts():
     return render_template('charts.html')
+
+@trainingBp.route("/modules")
+def modules():
+    return render_template('home.html')
