@@ -13,7 +13,6 @@ from login_manager import login_manager
 from blueprints.homePage import homePageBp
 
 
-
 static_url_path = '/static'
 app = Flask(__name__, static_url_path=static_url_path)
 
@@ -34,7 +33,6 @@ app.register_blueprint(homePageBp)
 app.register_blueprint(trainingBp)
 app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
-
 
 
 @app.template_filter('date_format')
@@ -60,3 +58,7 @@ def load_user(user_id):
 @login_required
 def main():
     return render_template('main.html')
+
+
+if(os.getenv("FLASK_RUN_FROM_CLI") != "true"):
+    app.run(port=3000)
