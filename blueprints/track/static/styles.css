@@ -17,6 +17,7 @@
 .track-item-img {
   max-width: 100%;
   display: block;
+  margin: 0.5em 0.5em 0.5m 1em;
 }
 
 .item-text {
