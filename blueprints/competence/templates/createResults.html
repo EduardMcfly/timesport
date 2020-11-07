@@ -1,4 +1,4 @@
-{% extends "base_competence.html" %}
+{% extends "app.html" %}
 {% block title %}Create{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="competence/static/start.css">
@@ -7,20 +7,23 @@
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
 {% block content %}
 <div class="container">
-<div class="informacion">
-   <h1 class="text-center m-4 ">Agregar Resultados</h1><span>
+  <div class="container-results">
+    <div class="informacion">
+      <h1 class="text-center m-4 ">Agregar Resultados</h1><span>
+    </div>
+    <form action="{{ url_for('competence.createResults', id = id)  }}" method="POST">
+      <div class="form-group">
+        <label>Duracion</label>
+        <input name="duration" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Cantidad Vuelta</label>
+        <input name="turns" type="text" class="form-control" />
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary px-4">Guardar</button>
+      </div>
+    </form>
   </div>
-  <form action="{{ url_for('competence.createResults', id = id)  }}" method="POST">
-    <div class="form-group">
-      <label>Duracion</label>
-      <input name="duration" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label>Cantidad Vuelta</label>
-      <input name="turns" type="text" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
-</div>
 </div>
 {% endblock %}
