@@ -1,4 +1,4 @@
-{% extends "base_track.html" %} {% block title %}Login{% endblock %} {% block head %}
+{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 <link rel="stylesheet" href="{% static 'track/basetra.css' %}" />
@@ -6,103 +6,84 @@
   rel="stylesheet"
   href="{{ url_for('track.static', filename='styles.css')}}"
 />
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
-block content %}
-  <div class="text-center mb-3">
-    <h3></h3>
-  </div><br>
-
-  </div>
-  <div class="caja-center">
-  <div class="contenedor">
-       <style>
-    table, th,td{
-      border:1px solid black;
-      width:10%
-      
-    }
-  </style>
-   <table align="center" border="1" style="width:auto; height:20px;" ;
-   class="table table-condensed table-bordered table-hover">
-
-    <thead>
-      <tr>
-        <th scope="200">Id</th>
-        <th scope="200">Nombre</td>
-         <th scope="200">Ubicacion</th>
-         <th scope="200">Medida</th>
-         <th scope="200">User_id</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for track in tracks%}
-      <tr>
-        <td width="150">{{track.id }}</td>
-        <td >{{track.name }}</td>
-        <td  >{{track.location }}</td>
-        <td >{{track.size }}</td> 
-        <td >{{track.user_id}}</td> 
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table> 
-</div>
-</div>
-  <br>
-  <br>
-  <div class="row mt-4">
-    {% for track in tracks %}
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="track-item shadow">
-        <div
-          id="carousel-{{ track.id }}"
-          class="carousel slide"
-          data-ride="carousel"
-        >
-          <div class="carousel-inner track-carrusel">
-            {% for image in track.images %}
-            <div class="carousel-item {{ 'active' if loop.index == 1 }}">
-              <img
-                src="{{ url_for('static', filename='tracks/'+image.src) }}"
-                class="d-block w-100"
-                alt="..."
-              />
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    width: 10%;
+  }
+</style>
+{% endblock %} {% block content %} {{ moduleHeader('Pistas', image =
+'tracks-image') }}
+<div class="container-tracks">
+  <div class="container">
+    <div class="text-center mt-4">
+      <a class="btn btn-primary" href="{% url 'track.createTracks' %}"
+        >Crear pistas</a
+      >
+    </div>
+    <div class="row mt-4">
+      {% for track in tracks %}
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="track-item m-1 shadow">
+          <div
+            id="carousel-{{ track.id }}"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner track-carrusel">
+              {% for image in track.images %}
+              <div class="carousel-item {{ 'active' if loop.index == 1 }}">
+                <img
+                  src="{{ url_for('static', filename='tracks/'+image.src) }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              {% endfor %}
             </div>
-            {% endfor %}
+            <a
+              class="carousel-control-prev"
+              href="#carousel-{{ track.id }}"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carousel-{{ track.id }}"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
           <a
-            class="carousel-control-prev"
-            href="#carousel-{{ track.id }}"
-            role="button"
-            data-slide="prev"
+            href="{{ url_for('track.tracks', id = track.id ) }}"
+            class="text-decoration-none"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#carousel-{{ track.id }}"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <div class="item-text text-center">
+              <h4><b>{{ track.name }}</b></h4>
+              <p>{{ track.location }}</p>
+              <h4>{{ track.size }}</h4>
+              <p>{{ track.user_id }}</p>
+            </div>
           </a>
         </div>
-        <a
-          href="{{ url_for('track.tracks', id = track.id ) }}"
-          class="text-decoration-none"
-        >
-          <div class="item-text text-center">
-            <h4><b>{{ track.name }}</b></h4>
-            <p>{{ track.location }}</p>
-            <h4>{{ track.size }}</h4>
-            <p>{{ track.user_id }}</p>
-          </div>
-        </a>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </div>
 {% endblock %}
