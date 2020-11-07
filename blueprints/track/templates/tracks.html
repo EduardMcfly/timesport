@@ -1,34 +1,30 @@
-{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
+{% extends "base_track.html" %} {% block title %}Login{% endblock %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="stylesheet" href="{% static 'track/basetra.css' %}" />
 <link
   rel="stylesheet"
   href="{{ url_for('track.static', filename='styles.css')}}"
 />
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} {%
 block content %}
-<div class="container">
   <div class="text-center mb-3">
-    <h3>Pistas</h3>
+    <h3></h3>
+  </div><br>
+
   </div>
-  <div class="text-center">
-    <a
-      class="btn btn-link btn-outline-primary"
-      href="{% url 'track.createTracks' %}"
-      >Crear pistas</a
-    >
-  </div>
-  <br
-  >
+  <div class="caja-center">
+  <div class="contenedor">
+       <style>
+    table, th,td{
+      border:1px solid black;
+      width:10%
+      
+    }
+  </style>
    <table align="center" border="1" style="width:auto; height:20px;" ;
    class="table table-condensed table-bordered table-hover">
-    <style>
-      table, th,td{
-        border:1px solid black;
-        width:0%
-        
-      }
-    </style>
+
     <thead>
       <tr>
         <th scope="200">Id</th>
@@ -50,6 +46,8 @@ block content %}
       {% endfor %}
     </tbody>
   </table> 
+</div>
+</div>
   <br>
   <br>
   <div class="row mt-4">

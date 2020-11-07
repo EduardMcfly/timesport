@@ -1,6 +1,8 @@
-{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
+{% extends "base_track.html" %} {% block title %}Login{% endblock %} {% block
+head %}
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+
 <link
   rel="stylesheet"
   href="{{ url_for('track.static', filename='styles.css')}}"
