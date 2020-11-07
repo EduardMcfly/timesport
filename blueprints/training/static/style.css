@@ -3,8 +3,8 @@ body{
   height:640px;
   background: linear-gradient(to bottom,
   rgba(211,135,20, .6),
-  rgba(204, 94, 4, 0.6),
-  rgba(49, 31, 7, 0.45)
+  #bbbbbb99,
+  #bbbbbb99
   ), url(/competence/static/img/pistas.jpeg);
   background-attachment: fixed;
   background-position: center;
@@ -43,10 +43,12 @@ img {
   vertical-align: top;
 }
 
-.container {
+.competence-container {
   background-color: #ffffffd1;
-  padding: 20px;
-  margin-top: 50px;
+  padding: 15px;
+  margin-top: 15px;
+ 
+
 }
 
 a {

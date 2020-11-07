@@ -2,12 +2,29 @@
  {% block head %}
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 <link rel="stylesheet" href="{% static 'training/style.css' %}" />
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}" /> {% endblock %} 
-{%block content %}
-    <div class="container">
+<link rel="stylesheet" href="{% static 'training/base.css' %}" />
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}" /> 
+{% endblock %} 
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('track.static', filename='styles.css')}}"
+/>
+<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    width: 10%;
+  }
+</style>
+ {% block content %} {{ moduleHeader('Entrenamientos', image =
+'tracks-image') }}
+    <div class="competence-container  ">
       <div class="flash">
         <table class="table table-striped table-sm table-entrenamiento">
-        <h1>Hola gooaoa</h1>
+        <h1>Lista Entrenamientos</h1>
           <thead>
             <tr>
               <th>Id</th>
