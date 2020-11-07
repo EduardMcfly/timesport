@@ -3,14 +3,47 @@
     <link rel="stylesheet" href="competence/static/start.css">
 {% endblock %} 
 
- {% block content %}
-
-<body class="hidden">
+{% block content %}
     <header>
         <div class="textos">
-            <h2>Time Sport 15</h2>
-            <h1>Competencias</h1>
+            <h2>Competencias</h2>
         </div>
     </header>
-</body>
+    <div class="background"></div>
+    <div class="container compente-container">
+    <div class="flash">
+        <h1 class="text-center m-4">Lista Competencias</h1>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary" href="{% url 'competence.create' %}"><strong>Agregar Competencias</strong></a>
+        </div>
+        <table class="table table-striped table-entrenamiento mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Nombre Competencia</th>
+                    <th>Categoria</th>|
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in competences %}
+                <tr>
+                    <td>{{ row.Competence.id }}</td>
+                    <td>{{ row.Competence.date}}</td>
+                    <td>{{ row.Competence.name_competence}}</td>
+                    <td>{{ row.Category.name }}</td>
+                    <td>{{ row.Track.name }}</td>
+                    <td>{{ row.Track.size }}</td>
+                    <td>
+                        <a href="{{url_for('competence.one', id = row.Competence.id)}}">Ver Resultados</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+    </div>
+
+    </div>
 {% endblock %} 

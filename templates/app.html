@@ -1,17 +1,21 @@
 {% extends "base.html" %}
-
+{%  from 'common/module-header.html' import moduleHeader %}
 {% block head_app %}
+    <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet" 
+    />
     <link rel="stylesheet" href="{% static 'css/app.css' %}" />
 {% endblock %}
 {% block header %}
 
 <header class="header py-3">
-    <div class="contenedor">
+    <div class="align-items-center container contenedor d-flex justify-content-between">
         <h2 class="logotipo">TIME SPORT 15</h2>
         <nav>
             <a href="" class="activo">Inicio</a>
             <a href="{% url 'training.modules' %}">Entrenamientos</a>
-            <a href="{% url 'competence.module' %}">Competencias</a>
+            <a href="{% url 'competence.index' %}">Competencias</a>
             <a href="{% url 'track.tracks' %}">Pistas</a>
             <!-- Example split danger button -->
             <div class="btn-group">

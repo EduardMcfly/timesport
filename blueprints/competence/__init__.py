@@ -81,6 +81,7 @@ def create():
 
             userCompetence = UserCompetence()
             userCompetence.user_id = current_user.id
+            userCompetence.competences_id=competence.id
             session.add(userCompetence)
             session.commit()
             return redirect(url_for('competence.index'))
@@ -180,10 +181,6 @@ def graphicPreviousCompetitions(id):
         })
     return jsonify(result)
 
-
-@competenceBp.route("/module")
-def module():
-    return render_template('index.html')
 
 
 @competenceBp.route("/rendimiento")
