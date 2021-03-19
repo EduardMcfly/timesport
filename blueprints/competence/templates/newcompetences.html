@@ -1,0 +1,41 @@
+{% extends "newapp.html" %}
+{% block title %}Main{% endblock %}
+{% block head %}
+<link rel="icon" href="{% static " images/IconoNegro.ico" %}" />
+{% endblock %}
+{% block content %}
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+      <!-- Page Heading -->
+      <h1 class="h3 mb-4 text-gray-800">Competencias</h1>
+
+      <div class="flash">
+        <table class="table table-responsive">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Duracion Competencia</th>
+              <th>Cantidad de Vueltas</th>
+              <th>Clasificacion</th>
+              <th>Categoria</th>
+              <th>Pista</th>
+          </tr>
+      </thead>
+      <tbody>
+       {% for competencia in competencias %}
+          <tr>
+              <td>{{competencia.idcompetencias}}</td>
+              <td>{{ competencia.fecha}}</td>
+              <td>{{ competencia.duracionminutos}}</td>
+              <td>{{ competencia.cantidadvueltas}}</td>
+              <td>{{ competencia.clasificacionint}}</td>
+              <td>{{ competencia.categoriaid}}</td>
+              <td>{{ competencia.pistaid}}</td>
+          </tr>
+      </tbody>
+       {% endfor %}
+    </div>
+    <!-- /.container-fluid -->
+{% endblock %}

@@ -46,7 +46,7 @@ def index():
         UserCompetence, Track, Category
     ).filter(UserCompetence.user_id == current_user.id).all()
     print(competences)
-    return render_template('competences.html', competences=competences)
+    return render_template('newcompetences.html', competences=competences)
 
 
 @competenceBp.route("/competence/<int:id>")
