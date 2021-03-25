@@ -17,7 +17,6 @@ from blueprints.homePage import homePageBp
 static_url_path = '/static'
 app = Flask(__name__, static_url_path=static_url_path)
 
-app.register_blueprint(competenceBp)
 
 for extension in [ext.JinjaStatic, ext.JinjaUrl]:
     # pylint: disable=no-member
@@ -31,6 +30,7 @@ db.init_app(app)
 migrate.init_app(app)
 login_manager.init_app(app)
 app.register_blueprint(homePageBp)
+app.register_blueprint(competenceBp)
 app.register_blueprint(trainingBp)
 app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
