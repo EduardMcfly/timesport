@@ -1,6 +1,7 @@
 from sqlalchemy.schema import Column
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.sqltypes import Integer, String
+from sqlalchemy.sql.schema import ForeignKey
+from sqlalchemy.sql.sqltypes import Integer, String, Date
 from flask_login.mixins import UserMixin
 
 from database import db
@@ -13,5 +14,11 @@ class User(db.Model, UserMixin):
     email = Column(String(128), nullable=False)
     lastname = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
+    gender_id = Column(Integer, ForeignKey('genders.id'))
+    dateBirth = Column(Date)
+
+    def getYearsOld(self):
+        return self.dateBirth.year
+
     tracks = relationship("Track")
     userCompetences = relationship("UserCompetence")
