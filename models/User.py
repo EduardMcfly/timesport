@@ -1,8 +1,10 @@
+from datetime import datetime
 from sqlalchemy.schema import Column
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String, Date
 from flask_login.mixins import UserMixin
+
 
 from database import db
 
@@ -18,7 +20,15 @@ class User(db.Model, UserMixin):
     dateBirth = Column(Date)
 
     def getYearsOld(self):
-        return self.dateBirth.year
+        born = self.dateBirth
+        if (born):
+            today = datetime.today()
+            return (
+                today.year - born.year -
+                ((today.month, today.day) < (born.month, born.day))
+            )
+        else:
+            return 18
 
     tracks = relationship("Track")
     userCompetences = relationship("UserCompetence")
