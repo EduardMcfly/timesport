@@ -1,3 +1,4 @@
+from blueprints.authentication import user
 import os
 from datetime import datetime
 
@@ -11,7 +12,6 @@ from utils import ext, query_to_dict
 from blueprints.competence import competenceBp
 from login_manager import login_manager
 from blueprints.homePage import homePageBp
-
 
 
 static_url_path = '/static'
@@ -34,7 +34,6 @@ app.register_blueprint(competenceBp)
 app.register_blueprint(trainingBp)
 app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
-
 
 
 @app.template_filter('date_format')
@@ -60,3 +59,10 @@ def load_user(user_id):
 @login_required
 def main():
     return render_template('newmain.html')
+
+
+@app.route("/user")
+def user():
+    user = User.query.get(2)
+    year = user.getYearsOld()
+    print(year)
