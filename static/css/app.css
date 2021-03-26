@@ -10,22 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.header {
-  background-color: var(--fondo);
-}
 
-.header .contenedor {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header .logotipo {
-  font-family: "Bebas Neue", cursive;
-  font-weight: normal;
-  color: var(--rojo);
-  font-size: 40px;
-}
 
 .header nav a {
   color: #aaa;

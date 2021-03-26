@@ -9,7 +9,8 @@
   href="{{ url_for('track.static', filename='styles.css')}}"
 />
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
-{% block content %}
+{% block content %}<!--Card-->
+
 <div class="container mt-4">
   <div class="informacion">
     <h1 class="text-center m-4">Pistas</h1><span><i class="fa fa-heart"></i>
@@ -21,7 +22,7 @@
       </div>
       <div class="form-group">
      
-        <input name="location" type="text" class="form-control" placeholder = "Ubicación" />
+        <input name="municipality" type="text" class="form-control" placeholder = "Municipio" />
       </div>
       <div class="form-group">
         <input name="size" type="text" class="form-control" placeholder = "Medida"/>
@@ -37,4 +38,22 @@
       <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </div>
+ <center> <h5>Localiza tu Pista </h5></center>
+ <div class= "d-flex justify-content-center">
+ <!--Card content-->
+ <div class="card-body card-body-cascade text-center">
+ 
+   <!--Google map-->
+   <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 400px">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m1
+     2!1m3!1d2035669.3338732112!2d-75.09226203976633!3d4.78432272512759!2m3!1f0!2f0!3f
+     0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f28eb1616af2b%3A0x933cbcb5fad108ed!2sCundinamarca%2C%20Colombia!5e0!3m2!1ses!2sus!4v1616618256870!5m2!1ses!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+     </iframe>
+   </div>
+ </div>
+ <!--/.Card content-->
+ 
+ </div>
+ <!--/.Card-->
+
 {% endblock %}
