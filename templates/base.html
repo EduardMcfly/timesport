@@ -10,9 +10,13 @@
     {% block head %}{% endblock %}
   </head>
 
-  <body>
-    {% block header %}{% endblock %}
-    {% block content %}{% endblock %}
+  <body>  
+    <div id="wrapper">
+      {% block sidebar %}{% endblock %}
+      {% block contentWrapper %}{% endblock %}
+      {% block footer %}{% endblock %}
+    </div>
+    {% block body %}{% endblock %}
     <script src="{% static 'lib/js/jquery/jquery-3.5.1.slim.min.js' %}"></script>
     <script src="{% static 'lib/js/bootstrap.bundle.min.js' %}"></script>
     {% block scripts %}{% endblock %}
