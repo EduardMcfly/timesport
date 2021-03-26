@@ -1,3 +1,5 @@
+from sqlalchemy.sql.expression import or_
+from models.CategoryAge import CategoryAge
 from flask.helpers import url_for
 from flask_login.utils import login_required
 from models import Training, Track, Category
@@ -75,7 +77,11 @@ def create():
             session.rollback()
             raise error
     session = getSession()
-    categories = session.query(Category).all()
+    age = current_user.getYearsOld()
+    categories = session.query(Category).join(CategoryAge).filter(
+        or_(CategoryAge.since <= age, CategoryAge.until <= age)
+    ).all()
+    
     tracks = session.query(Track).all()
     return render_template('create.html', categories=categories, tracks=tracks)
 
@@ -97,6 +103,7 @@ def delete(id):
 @trainingBp.route("/charts")
 def charts():
     return render_template('charts.html')
+
 
 @trainingBp.route("/modules")
 def modules():
