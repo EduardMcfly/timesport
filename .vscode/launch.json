@@ -9,7 +9,7 @@
       "type": "python",
       "request": "launch",
       "args": ["run", "--port", "8000"],
-      "pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
       "module": "flask",
       "jinja": true
     },
