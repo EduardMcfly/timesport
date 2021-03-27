@@ -1,5 +1,6 @@
-{% extends "base.html" %} {% from 'common/module-header.html' import
-moduleHeader %} {% block head_app %}
+{% extends "base.html" %}
+{% from 'common/module-header.html' import moduleHeader %}
+{% block head_app %}
 <link
   href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
   rel="stylesheet"
@@ -10,7 +11,7 @@ moduleHeader %} {% block head_app %}
   rel="stylesheet"
   type="text/css"
 />
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}" /> {% endblock %}
+<link rel="icon" href="{% static 'images/IconoNegro.ico' %}" /> {% endblock %}
 {% block sidebar %}
 <!-- Sidebar -->
 <ul
@@ -139,11 +140,11 @@ moduleHeader %} {% block head_app %}
     </div>
   </li>
 
-  <!-- Nav Item - Charts -->
+  <!-- Nav Item - Competences -->
   <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="{{ url_for('competence.index')}}">
       <i class="fas fa-fw fa-chart-area"></i>
-      <span>Charts</span></a
+      <span>Competencias</span></a
     >
   </li>
   <li class="nav-item">
