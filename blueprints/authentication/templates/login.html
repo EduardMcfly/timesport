@@ -1,27 +1,33 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}">
 <link rel="stylesheet" href="{% static 'css/forms.css' %}">
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/>
+<link rel="icon" href="{% static " images/IconoNegro.ico" %}" />
 {% endblock %}
-{% block content %}
-<div class="container-form">
-  <div class="informacion">
-   <h1 class="text-center m-4">Time Sport 15</h1><span><i class="fa fa-heart"></i>
-  </div>
-</div>
-<div class="h-100">
-  <div class="form" style="max-width: 400px">
-    <div class="d-flex justify-content-center thumbnail">
-      <img class="w-100" style="object-fit: contain;" src={% static "images/dos.png" %}/>
+{% block contentWrapper %}
+<div class="flex-fill">
+  <div class="container-form">
+    <div class="informacion">
+      <h1 class="text-center m-4">Time Sport 15</h1><span><i class="fa fa-heart"></i>
     </div>
-    <form class="login-form" method="POST" action="{% url 'authentication.login' %}">
-      <input name="email" type="text" placeholder="Email"/>
-      <input name="password" type="password" placeholder="Password"/>
-      <button><strong>Login</strong></button>
-      <p class="message">Not registered?<a href="{% url 'authentication.signUp' %}"><strong>Create an account</strong></a></p>
-    </form>
+  </div>
+  <div class="h-100">
+    <div class="form" style="max-width: 400px">
+      <div class="d-flex justify-content-center thumbnail">
+        <img class="w-100" style="object-fit: contain;" src={% static "images/dos.png" %} />
+      </div>
+      <form class="login-form" method="POST" action="{% url 'authentication.login' %}">
+        <input name="email" type="text" placeholder="Email" />
+        <input name="password" type="password" placeholder="Password" />
+        <button><strong>Login</strong></button>
+        <p class="message">Not registered?
+          <a href="{% url 'authentication.signUp' %}">
+            <strong>Create an account</strong></a>
+        </p>
+      </form>
+    </div>
   </div>
 </div>
+
 {% endblock %}
