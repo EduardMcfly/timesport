@@ -1,28 +1,16 @@
 {% extends "base.html" %}
 {% from 'common/module-header.html' import moduleHeader %}
 {% block head_app %}
-<link
-  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
-  rel="stylesheet"
-/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+  rel="stylesheet" />
 <link rel="stylesheet" href="{% static 'css/app.css' %}" />
-<link
-  href="{% static 'lib/fontawesome-free/css/all.min.css' %}"
-  rel="stylesheet"
-  type="text/css"
-/>
+<link href="{% static 'lib/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css" />
 <link rel="icon" href="{% static 'images/IconoNegro.ico' %}" /> {% endblock %}
 {% block sidebar %}
 <!-- Sidebar -->
-<ul
-  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-  id="accordionSidebar"
->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
   <!-- Sidebar - Brand -->
-  <a
-    class="sidebar-brand d-flex align-items-center justify-content-center"
-    href="index.html"
-  >
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div>
@@ -36,8 +24,7 @@
   <li class="nav-item active">
     <a class="nav-link" href="{{ url_for('main') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a
-    >
+      <span>Dashboard</span></a>
   </li>
 
   <!-- Divider -->
@@ -48,23 +35,12 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a
-      class="nav-link collapsed"
-      href="#"
-      data-toggle="collapse"
-      data-target="#collapseTwo"
-      aria-expanded="true"
-      aria-controls="collapseTwo"
-    >
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+      aria-controls="collapseTwo">
       <i class="fas fa-fw fa-cog"></i>
       <span>Components</span>
     </a>
-    <div
-      id="collapseTwo"
-      class="collapse"
-      aria-labelledby="headingTwo"
-      data-parent="#accordionSidebar"
-    >
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Custom Components:</h6>
         <a class="collapse-item" href="buttons.html">Buttons</a>
@@ -75,23 +51,12 @@
 
   <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
-    <a
-      class="nav-link collapsed"
-      href="#"
-      data-toggle="collapse"
-      data-target="#collapseUtilities"
-      aria-expanded="true"
-      aria-controls="collapseUtilities"
-    >
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true"
+      aria-controls="collapseUtilities">
       <i class="fas fa-fw fa-wrench"></i>
       <span>Utilities</span>
     </a>
-    <div
-      id="collapseUtilities"
-      class="collapse"
-      aria-labelledby="headingUtilities"
-      data-parent="#accordionSidebar"
-    >
+    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Custom Utilities:</h6>
         <a class="collapse-item" href="utilities-color.html">Colors</a>
@@ -110,70 +75,37 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a
-      class="nav-link"
-      href="#"
-      data-toggle="collapse"
-      data-target="#collapsePages"
-      aria-expanded="true"
-      aria-controls="collapsePages"
-    >
-      <i class="fas fa-fw fa-folder"></i>
-      <span>Pages</span>
-    </a>
-    <div
-      id="collapsePages"
-      class="collapse"
-      aria-labelledby="headingPages"
-      data-parent="#accordionSidebar"
-    >
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Login Screens:</h6>
-        <a class="collapse-item" href="login.html">Login</a>
-        <a class="collapse-item" href="register.html">Register</a>
-        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-        <div class="collapse-divider"></div>
-        <h6 class="collapse-header">Other Pages:</h6>
-        <a class="collapse-item" href="404.html">404 Page</a>
-        <a class="collapse-item" href="blank.html">Blank Page</a>
-      </div>
-    </div>
+    
+    <a class="nav-link" href="{{ url_for('training.trainings') }}">
+      <i class="fas fa-fw fa-chart-area"></i>
+      
+      <span>Entrenamientos</span></a>
+      
   </li>
 
   <!-- Nav Item - Competences -->
   <li class="nav-item">
-    <a class="nav-link" href="{{ url_for('competence.index')}}">
+    <a class="nav-link" href="{{ url_for('competence.index') }}">
       <i class="fas fa-fw fa-chart-area"></i>
-      <span>Competencias</span></a
-    >
+      <span>Competencias</span></a>
   </li>
+
   <li class="nav-item">
     <a class="nav-link" href="http://127.0.0.1:8000/tracks">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-geo-alt"
-        viewBox="0 0 16 16"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+        viewBox="0 0 16 16">
         <path
-          d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"
-        />
-        <path
-          d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-        />
+          d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
       </svg>
-      <span>Pistas</span></a
-    >
+      <span>Pistas</span></a>
   </li>
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
     <a class="nav-link" href="tables.html">
       <i class="fas fa-fw fa-table"></i>
-      <span>Tables</span></a
-    >
+      <span>Tables</span></a>
   </li>
 
   <!-- Divider -->
@@ -192,24 +124,13 @@
 </a>
 
 <!-- Logout Modal-->
-<div
-  class="modal fade"
-  id="logoutModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button
-          class="close"
-          type="button"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
@@ -231,29 +152,17 @@
   <!-- Main Content -->
   <div id="content">
     <!-- Topbar -->
-    <nav
-      class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
-    >
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <!-- Sidebar Toggle (Topbar) -->
-      <button
-        id="sidebarToggleTop"
-        class="btn btn-link d-md-none rounded-circle mr-3"
-      >
+      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
       </button>
 
       <!-- Topbar Search -->
-      <form
-        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-      >
+      <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <div class="input-group">
-          <input
-            type="text"
-            class="form-control bg-light border-0 small"
-            placeholder="Search for..."
-            aria-label="Search"
-            aria-describedby="basic-addon2"
-          />
+          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+            aria-label="Search" aria-describedby="basic-addon2" />
           <div class="input-group-append">
             <button class="btn btn-primary" type="button">
               <i class="fas fa-search fa-sm"></i>
@@ -266,31 +175,16 @@
       <ul class="navbar-nav ml-auto">
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
         <li class="nav-item dropdown no-arrow d-sm-none">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="searchDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-search fa-fw"></i>
           </a>
           <!-- Dropdown - Messages -->
-          <div
-            class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-            aria-labelledby="searchDropdown"
-          >
+          <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
             <form class="form-inline mr-auto w-100 navbar-search">
               <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control bg-light border-0 small"
-                  placeholder="Search for..."
-                  aria-label="Search"
-                  aria-describedby="basic-addon2"
-                />
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                  aria-label="Search" aria-describedby="basic-addon2" />
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -303,24 +197,15 @@
 
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="alertsDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
             <!-- Counter - Alerts -->
             <span class="badge badge-danger badge-counter">3+</span>
           </a>
           <!-- Dropdown - Alerts -->
-          <div
-            class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-            aria-labelledby="alertsDropdown"
-          >
+          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="alertsDropdown">
             <h6 class="dropdown-header">Alerts Center</h6>
             <a class="dropdown-item d-flex align-items-center" href="#">
               <div class="mr-3">
@@ -330,9 +215,7 @@
               </div>
               <div>
                 <div class="small text-gray-500">December 12, 2019</div>
-                <span class="font-weight-bold"
-                  >A new monthly report is ready to download!</span
-                >
+                <span class="font-weight-bold">A new monthly report is ready to download!</span>
               </div>
             </a>
             <a class="dropdown-item d-flex align-items-center" href="#">
@@ -358,40 +241,25 @@
                 account.
               </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#"
-              >Show All Alerts</a
-            >
+            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
           </div>
         </li>
 
         <!-- Nav Item - Messages -->
         <li class="nav-item dropdown no-arrow mx-1">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="messagesDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-envelope fa-fw"></i>
             <!-- Counter - Messages -->
             <span class="badge badge-danger badge-counter">7</span>
           </a>
           <!-- Dropdown - Messages -->
-          <div
-            class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-            aria-labelledby="messagesDropdown"
-          >
+          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="messagesDropdown">
             <h6 class="dropdown-header">Message Center</h6>
             <a class="dropdown-item d-flex align-items-center" href="#">
               <div class="dropdown-list-image mr-3">
-                <img
-                  class="rounded-circle"
-                  src="{% static 'images/undraw_profile_1.svg' %}"
-                  alt=""
-                />
+                <img class="rounded-circle" src="{% static 'images/undraw_profile_1.svg' %}" alt="" />
                 <div class="status-indicator bg-success"></div>
               </div>
               <div class="font-weight-bold">
@@ -404,11 +272,7 @@
             </a>
             <a class="dropdown-item d-flex align-items-center" href="#">
               <div class="dropdown-list-image mr-3">
-                <img
-                  class="rounded-circle"
-                  src="{% static 'images/undraw_profile_2.svg' %}"
-                  alt=""
-                />
+                <img class="rounded-circle" src="{% static 'images/undraw_profile_2.svg' %}" alt="" />
                 <div class="status-indicator"></div>
               </div>
               <div>
@@ -421,11 +285,7 @@
             </a>
             <a class="dropdown-item d-flex align-items-center" href="#">
               <div class="dropdown-list-image mr-3">
-                <img
-                  class="rounded-circle"
-                  src="{% static 'images/undraw_profile_3.svg' %}"
-                  alt=""
-                />
+                <img class="rounded-circle" src="{% static 'images/undraw_profile_3.svg' %}" alt="" />
                 <div class="status-indicator bg-warning"></div>
               </div>
               <div>
@@ -438,11 +298,7 @@
             </a>
             <a class="dropdown-item d-flex align-items-center" href="#">
               <div class="dropdown-list-image mr-3">
-                <img
-                  class="rounded-circle"
-                  src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                  alt=""
-                />
+                <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="" />
                 <div class="status-indicator bg-success"></div>
               </div>
               <div>
@@ -453,9 +309,7 @@
                 <div class="small text-gray-500">Chicken the Dog · 2w</div>
               </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#"
-              >Read More Messages</a
-            >
+            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
           </div>
         </li>
 
@@ -463,28 +317,13 @@
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="userDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-              >Douglas McGee</span
-            >
-            <img
-              class="img-profile rounded-circle"
-              src="{% static 'images/undraw_profile.svg' %}"
-            />
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+            <img class="img-profile rounded-circle" src="{% static 'images/undraw_profile.svg' %}" />
           </a>
           <!-- Dropdown - User Information -->
-          <div
-            class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-            aria-labelledby="userDropdown"
-          >
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">
               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
               Profile
@@ -498,12 +337,7 @@
               Activity Log
             </a>
             <div class="dropdown-divider"></div>
-            <a
-              class="dropdown-item"
-              href="#"
-              data-toggle="modal"
-              data-target="#logoutModal"
-            >
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
               <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Logout
             </a>
@@ -534,10 +368,11 @@
   var ruta = document.location.href;
   for (var i = 0; i <= elementos.length; i++) {
     var elemento = elementos[i];
+    const parent = elemento.parentNode
     if (elemento.href === ruta) {
-      elemento.classList.add("active");
+      parent.classList.add("active");
     } else {
-      elemento.classList.remove("active");
+      parent.classList.remove("active");
     }
   }
 </script>
