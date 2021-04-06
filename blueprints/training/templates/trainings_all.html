@@ -1,0 +1,14 @@
+{% extends "app.html" %}
+{% from 'common/table.html' import table %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="stylesheet" href="{% static 'training/style.css' %}" />
+<link rel="stylesheet" href="{% static 'training/base.css' %}" />
+<link rel="icon" href="{% static " images/IconoNegro.ico" %}" />
+{% endblock %}
+{% block content %}
+ {{ moduleHeader('Entrenamientos', image = 'training-image') }}
+ <div class="container">
+     {{ table(trainings) }}
+ </div>
+{% endblock %}
