@@ -1,7 +1,8 @@
 {% macro moduleHeader(name, image = 'module-image') -%}
-<div class="module-title d-flex {{ image }}">
+<div class="module-title d-flex {{ image }} position-relative">
   <div class="m-auto module-texts">
     <h2>{{ name }}</h2>
   </div>
+  <div class="header-module-gradient"></div>
 </div>
 {%- endmacro %}
