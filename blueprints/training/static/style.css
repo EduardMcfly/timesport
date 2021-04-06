@@ -1,11 +1,13 @@
-body{
+body {
   width: 100%;
-  height:640px;
-  background: linear-gradient(to bottom,
-  rgba(211,135,20, .6),
-  #bbbbbb99,
-  #bbbbbb99
-  ), url(/competence/static/img/pistas.jpeg);
+  height: 640px;
+  background: linear-gradient(
+      to bottom,
+      rgba(211, 135, 20, 0.6),
+      #bbbbbb99,
+      #bbbbbb99
+    ),
+    url(/competence/static/img/pistas.jpeg);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -47,10 +49,9 @@ img {
   background-color: #ffffffd1;
   padding: 15px;
   margin-top: 15px;
- 
-
 }
 
 a {
-  color: black;
+  color: #5a5c69;
+  font-weight: 700 !important;
 }
