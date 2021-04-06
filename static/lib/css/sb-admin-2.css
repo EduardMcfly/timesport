@@ -369,6 +369,7 @@
   
   h1, .h1 {
     font-size: 2.5rem;
+    
   }
   
   h2, .h2 {
@@ -1838,7 +1839,6 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #e2ddd1;
-    border-radius: 1.5rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
   @media (prefers-reduced-motion: reduce) {
@@ -9462,7 +9462,10 @@
   }
   
   .text-center {
+    color: #e4810f;
     text-align: center !important;
+    font-family: 'Lora', serif;
+   
   }
   
   @media (min-width: 576px) {
@@ -10006,6 +10009,7 @@
   
   .border-left-primary {
     border-left: 0.25rem solid #fb7100e5 !important;
+    text-decoration: none !important;
   }
   
   .border-bottom-primary {
