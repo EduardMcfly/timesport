@@ -19,35 +19,27 @@ trainingBp = Blueprint(
 )
 
 
-@trainingBp.route("/trainings", methods=['GET', 'POST'])
+@trainingBp.route("/trainings", methods=['GET'])
 @login_required
 def trainings():
 
     session = getSession()
-    connection = session.connection()
+    trainings = session.query(Training, Track, Category).join(
+        Track, Category
+    ).filter(Training.user_id == current_user.id).order_by(Training.date.desc()).limit(10).all()
+    return render_template('trainings.html', trainings=trainings)
 
-    results = connection.execute(
-        text('''SELECT
-	trainings.ID,
-	DATE,
-	categories.NAME AS categoria,
-	tracks.NAME AS name_track,
-	tracks.SIZE AS masure_track,
-	users.NAME AS usuario,
-	turns 
-FROM
-	PUBLIC.trainings
-	INNER JOIN tracks ON PUBLIC.trainings.track_id = tracks.
-	ID INNER JOIN categories ON trainings.category_id = categories.
-	ID LEFT JOIN users ON trainings.user_id = users.ID WHERE trainings.user_id = :user_id;'''),
-        ({"user_id": current_user.id})
-    )
-    trainings = query_to_dict(results)
+
+@trainingBp.route("/trainingsAll", methods=['GET'])
+@login_required
+def trainingsAll():
+    page = request.args.get('page')
+    print(page)
+    session = getSession()
     trainings = session.query(Training, Track, Category).join(
         Track, Category
     ).filter(Training.user_id == current_user.id).all()
-    return render_template('trainings.html', trainings=trainings)
-
+    return render_template('trainings_all.html', trainings=trainings)
 
 @trainingBp.route("/trainingCreate", methods=['GET', 'POST'])
 @login_required
