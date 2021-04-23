@@ -1,4 +1,5 @@
-from sqlalchemy.sql.expression import or_
+from sqlalchemy.sql.expression import null, or_
+from sqlalchemy.sql.functions import ReturnTypeFromArgs
 from models.CategoryAge import CategoryAge
 from flask.helpers import url_for
 from flask_login.utils import login_required
@@ -33,13 +34,30 @@ def trainings():
 @trainingBp.route("/trainingsAll", methods=['GET'])
 @login_required
 def trainingsAll():
-    page = request.args.get('page')
-    print(page)
+    page = 1
+    limit = 10
+    getArg = request.args.get
+    try:
+        page = int(getArg('page'))
+    except:
+        pass
+    try:
+        limit = int(getArg('limit'))
+    except:
+        pass
     session = getSession()
-    trainings = session.query(Training, Track, Category).join(
+    query = session.query(Training, Track, Category).join(
         Track, Category
-    ).filter(Training.user_id == current_user.id).all()
-    return render_template('trainings_all.html', trainings=trainings)
+    ).filter(Training.user_id == current_user.id)
+    query = query.order_by(Training.date.desc())
+    count = query.count()
+    query = query.offset((page * limit) - limit)
+
+    query = query.limit(limit)
+
+    trainings = query.all()
+    return render_template('trainings_all.html', trainings=trainings, count=count, page=page, limit=limit)
+
 
 @trainingBp.route("/trainingCreate", methods=['GET', 'POST'])
 @login_required
@@ -73,7 +91,7 @@ def create():
     categories = session.query(Category).join(CategoryAge).filter(
         or_(CategoryAge.since <= age, CategoryAge.until <= age)
     ).all()
-    
+
     tracks = session.query(Track).all()
     return render_template('create.html', categories=categories, tracks=tracks)
 
