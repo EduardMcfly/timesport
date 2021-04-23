@@ -1498,6 +1498,7 @@
   }
   
   .table thead th {
+    text-align: center;
     vertical-align: bottom;
     border-bottom: 2px solid #e3e6f0;
   }
