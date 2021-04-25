@@ -1,0 +1,27 @@
+{% extends "app.html" %} {% block title %}Login{% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+<link rel="stylesheet" href="{% static 'css/pages/stylecrono.css' %}" />
+<link rel="icon" href="{% static " images/IconoNegro.ico" %}" /> {% endblock %}
+{%block contentWrapper %}
+<body>
+    <div class="container mt-4">
+    <div class="informacion">
+        <h1 class="text-center m-4">Cronómetro</h1><span><i class="fa fa-heart"></i>
+      </div>
+  <div class="c-body">
+    <div class="c-time">
+      <div class="screen">
+        <span id="time">00:00:00.00</span>
+      </div>
+      <div class="c-btn">
+        <button id="btn-start">&#9658;</button>
+        <button id="btn-stop">&#8718;</button>
+        <button id="btn-reset">&#8635;</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="{{ url_for('static', filename='js/cronometro.js') }}"></script>
+</body>
+{% endblock %}

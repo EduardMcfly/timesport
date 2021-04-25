@@ -36,6 +36,10 @@ def tracks():
 def createTracks():
     return render_template('createTracks.html')
 
+@trackBp.route("/cronometro")
+@login_required
+def cronometro():
+    return render_template('cronometro.html')
 
 @trackBp.route("/indextra")
 @login_required
