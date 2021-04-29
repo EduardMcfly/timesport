@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Endurist Tracking</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="{{ url_for('homePage.static', filename='assets/images/logoo.ico')}}"> 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/css/bootstrap.min.css')}}">  
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{{ url_for('homePage.static', filename='assets/css/styles.css')}}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    
+</head> 
+
+<body>
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">       
+            <h1 class="logo">
+                <a class="scrollto" href="#hero">
+                    <span class="logo-icon-wrapper"><img class="logo-icon" src="{{ url_for('homePage.static', filename='assets/images/logo.ico')}}" alt="icon"></span>
+                    <span class="text"><span class="highlight">ENDURIST TRACKING</span></span></a>
+            </h1><!--//logo-->
+            <nav class="main-nav navbar-expand-md float-right navbar-inverse" role="navigation">
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a class="active nav-link scrollto" href="#testimonials">Acerca</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="#features">Diseño</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="#team">Equipo</a></li>                       
+                        <li class="nav-item"><a class="nav-link scrollto" href="#about">Tecnologias</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+                        
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->                     
+        </div><!--//container-->
+    </header><!--//header-->
+    
+    <div id="hero" class="hero-section">
+        
+        <div id="hero-carousel" class="hero-carousel carousel carousel-fade slide" data-ride="carousel" data-interval="7000">
+            
+            <div class="figure-holder-wrapper">
+        		<div class="container">
+            		<div class="row justify-content-end">
+                		<div class="figure-holder">
+                	        <img class="figure-image img-fluid" src="{{ url_for('homePage.static', filename='assets/images/imac.png')}}" alt="image" />
+                        </div><!--//figure-holder-->
+            		</div><!--//row-->
+        		</div><!--//container-->
+    		</div><!--//figure-holder-wrapper-->
+            
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li class="active" data-slide-to="0" data-target="#hero-carousel"></li>
+				<li data-slide-to="1" data-target="#hero-carousel"></li>
+				<li data-slide-to="2" data-target="#hero-carousel"></li>
+				<li data-slide-to="3" data-target="#hero-carousel"></li>
+			</ol>
+			
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+    			
+				<div class="carousel-item item-1 active">
+					<div class="item-content container">
+    					<div class="item-content-inner">
+    				        
+				            <h2 class="heading"> Aplicativo Web Para Enduristas En La Modalidad De Hare Scramble </h2>
+				            <p class="intro">Este sistema cuenta con tres módulos principales los cuales permiten realizar un registro de los datos y resultados obtenidos en cada uno de los entrenamientos y competencias. Y así disponer de una actualizada galería de pistas disponibles en las que se practica este deporte.</p>
+				            <a class="btn btn-cta btn-primary">Iniciar Sesion</a>
+				            <a class="btn btn-cta btn-primary">Crear Cuenta</a>
+            
+            
+    				        
+    					</div><!--//item-content-inner-->
+					</div><!--//item-content-->
+				</div><!--//item-->
+				
+				<div class="carousel-item item-2">
+					<div class="item-content container">
+						<div class="item-content-inner">
+    				        
+				            <h2 class="heading"> <br class="d-none d-md-block">Entrenamientos</h2>
+				            <p class="intro">El módulo de Entrenamientos permite que el usuario registre los resultados obtenidos en cada una de sus rutinas de entrenamiento realizadas con el fin de que estos datos sean analizados y mostrados.</p>
+				          
+    				        
+    					</div><!--//item-content-inner-->
+					</div>
+				</div><!--//item-->
+				
+				<div class="carousel-item item-3">
+					<div class="item-content container">
+						<div class="item-content-inner">
+    				        
+				            <h2 class="heading"><br class="d-none d-md-block">Competencias</h2>
+				            <p class="intro">El módulo de competencias brinda la opción de registrar la competencia por medio de el organizador y a su vez permite al deportista registrar los resultados obtenidos en dicha competencia con el fin de comparar los resultados y mostrarlos de manera gráfica.
+
+				    
+    				        
+    					</div><!--//item-content-inner-->
+					</div>
+				</div><!--//item-->
+
+				<div class="carousel-item item-4">
+					<div class="item-content container">
+    					<div class="item-content-inner">
+    				        
+				            <h2 class="heading"><br class="d-none d-md-block">Pistas</h2>
+				            <p class="intro">El módulo de pistas ofrece al deportista una galería de pistas actualizada en la cual se muestra una imagen junto con características de cada pista disponible en la región de Cundinamarca.</p>
+				            
+    				        
+    					</div><!--//item-content-inner-->
+					</div><!--//item-content-->
+				</div><!--//item-->
+			</div><!--//carousel-inner-->
+
+		</div><!--//carousel-->
+    </div><!--//hero-->
+
+    <div id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title text-center"><b>¿Por qué usar Endurist Tracking?</b> </h2>
+            <div class="item mx-auto">
+                <div class="profile-holder">
+                    <img class="profile-image" src="{{ url_for('homePage.static', filename='assets/images/motocross.png')}}" alt="profile">
+                </div>
+                <div class="quote-holder">
+                    <blockquote class="quote">
+                    	<div class="quote-source">
+                        	<span class="meta"><b>Diseño Familiarizado con el Usuario <br></b></span>
+                            <span class="name"><br></span>
+                        </div><!--//quote-source-->
+                        <p>El aplicativo cuenta con un diseño en su interfaz como tanto en su funcionamiento adaptado y familiarizado con los colores representativos y actividades de los deportistas que practican Enduro, con el fin de que el usuario al acceder al sistema se sienta en un entorno familiar. .</p>
+                    </blockquote>
+                </div><!--//quote-holder-->
+            </div><!--//item-->
+            <div class="item item-reversed mx-auto">
+                <div class="profile-holder">
+                    <img class="profile-image" src="{{ url_for('homePage.static', filename='assets/images/eficiencia.png')}}" alt="profile">
+                </div>
+                <div class="quote-holder">
+                    <blockquote class="quote">
+                    	<div class="quote-source">
+                        	<span class="meta"><b>Funcionamiento Rapido y Eficiente<br></b></span>
+                            <span class="name"> <br></span>
+                        </div><!--//quote-source-->
+                        <p>Endurist Tracking es un aplicativo desarrollado con tecnologías y lenguajes de programación de alto nivel que permiten un correcto y eficiente funcionamiento, lo que permite que el usuario pueda hacer uso del mismo de una forma rápida, fácil y consisa.</p>
+                    </blockquote>
+                </div><!--//quote-holder-->
+            </div><!--//item-->
+            <div class="item mx-auto">
+                <div class="profile-holder">
+                    <img class="profile-image" src="{{ url_for('homePage.static', filename='assets/images/contenido.png')}}" alt="profile">
+                </div>
+                <div class="quote-holder">
+                    <blockquote class="quote">
+                    	<div class="quote-source">
+                        	<span class="meta"><b>Aplicativo Multiplataforma<br></b></span>
+                            <span class="name"><br></span>
+                        </div><!--//quote-source-->
+                        <p>En el desarrollo de este aplicativo se incluyo la propiedad de responsive la cual permite al usuario que pueda acceder al sistema desde cualquier dispositivo para mejorar la experiencia a la hora de utilizarlo</p>
+                    </blockquote>
+                </div><!--//quote-holder-->
+            </div><!--//item-->
+            <div class="item item-reversed mx-auto">
+                <div class="profile-holder">
+                    <img class="profile-image" src="{{ url_for('homePage.static', filename='assets/images/estadisticas.png')}}" alt="profile">
+                </div>
+                <div class="quote-holder">
+                    <blockquote class="quote">
+                    	<div class="quote-source">
+                        	<span class="meta"><b>Analisis Resultados de acuerdo a la Categoria<br></b></span>
+                            <span class="name"><br></span>
+                        </div><!--//quote-source-->
+                        <p>Los resultados de los entrenamientos y las competencias ingresados por el usuario al sistema son analizados por el mismo teniendo en cuenta la categoría a la que pertenece, con el fin de brindar un adecuado y pertinente análisis al deportista acerca de sus actividades deportivas.</p>
+                    </blockquote>
+                    
+                </div><!--//quote-holder-->
+            </div><!--//item-->
+        </div><!--//container-->
+    </div><!--//testimonials--> 
+    <div id="features" class="features-section">
+        <div class="container text-center">
+            <h2 class="section-title"><b>Diseño del Aplicativo</b></h2>
+            <p class="intro">A continiación una vista previa de la interfaz de cada uno de los modulos pertenecientes a Endurist Tranking, cada imagen esta tomada de el diseño original del Aplicativo Web, ademas contiene las principales caracteristicas del sistema.</p>
+            
+            <div class="tabbed-area row">
+                
+                <!-- Nav tabs -->
+                <div class="feature-nav nav nav-pill flex-column col-lg-4 col-md-6 col-12 order-0 order-md-1" role="tablist" aria-orientation="vertical">
+                	 <a class="nav-link mb-lg-3" href="#feature-8" aria-controls="feature-8" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-scroll"></i>Pagina Principal</a> 
+                     <a class="nav-link active mb-lg-3" href="#feature-1" aria-controls="feature-1" data-toggle="pill" role="tab" aria-selected="true"><i class="fas fa-users"></i> Inicio Sesion</a>
+                     <a class="nav-link mb-lg-3" href="#feature-2" aria-controls="feature-2" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-user-lock"></i> Crear Cuenta</a>
+                     <a class="nav-link mb-lg-3" href="#feature-3" aria-controls="feature-3" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-flag-checkered"></i> Seguimiento Competencias</a>
+                     <a class="nav-link mb-lg-3" href="#feature-4" aria-controls="feature-4" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-motorcycle"></i> Acompañaiento a Entrenamientos</a>
+                     <a class="nav-link mb-lg-3" href="#feature-5" aria-controls="feature-5" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-images"></i> Galeria de Pistas</a>
+                     <a class="nav-link mb-lg-3" href="#feature-7" aria-controls="feature-7" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-chart-bar"></i> Graficas Y Estadisticas</a>
+                     <a class="nav-link mb-lg-3" href="#feature-6" aria-controls="feature-6" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-mobile-alt mr-2"></i>Adaptable a Cualquier Dispositivo</a>
+                     <a class="nav-link mb-lg-3" href="#feature-7" aria-controls="feature-7" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-thumbs-up"></i> Diseño Agradable</a>                  
+                </div>
+                
+                <!-- Tab panes -->
+                <div class="feature-content tab-content col-lg-8 col-md-6 col-12 order-1 order-md-0">
+                    <div role="tabpanel" class="tab-pane fade show active" id="feature-1">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-2.png')}}" alt="screenshot" ></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="feature-2">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-1.png')}}" alt="screenshot" ></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="feature-3">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-2.png')}}" alt="screenshot" ></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="feature-4">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-2.png')}}" alt="screenshot" ></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="feature-5">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-2.png')}}" alt="screenshot" ></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="feature-6">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-2.png')}}"alt="screenshot" ></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="feature-7">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-2.png')}}" alt="screenshot" ></a>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="feature-8">
+                        <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="{{ url_for('homePage.static', filename='assets/images/feature-2.png')}}" alt="screenshot" ></a>
+                    </div>
+                    
+                </div><!--//feature-content-->
+
+                
+            </div><!--//tabbed-area-->
+            
+        </div><!--//container-->
+    </div><!--//features-->
+
+    <div class="team-section" id="team">
+        <div class="container text-center">
+        	<h2 class="section-title"><b>Equipo Desarrollador</b></h2>
+            <p class="intro">El equipo de desarrollo se conforma de tres Ingenieras de sistemas en formación, las cuales utilizaron su conocimiento en conjunto para el desarrollo de este aplicativo, a continuación se presenta una descripción de cada una de las integrantes.</p>
+       
+            
+            <div class="items-wrapper row">
+                <div class="item col-md-4 col-12">
+                    <div class="item-inner">
+                    	 <div class="profile mb-2">
+                            <img class="profile-image" src="{{ url_for('homePage.static', filename='assets/images/pp.jpg')}}"alt="Xiaoying Riley" />
+                        </div>
+                        <div class="member-content">
+                            <h3 class="member-name">Yeimy Angel Sanchez</h3>
+                            <div class="member-title">Estudiante Ingenieria de Sitemas</div>
+                            <ul class="social list-inline">
+                                <li class="list-inline-item"><a class="twitter" href="https://twitter.com/yeimyangel29?s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                
+                                <li class="list-inline-item"><a class="facebook" href="https://www.facebook.com/yeimy.xngel" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a class="dribbble" href="https://dribbble.com/Xiaoying" target="_blank"><i class="fab fa-instagram"></i></i></a></li>
+                                <li class="list-inline-item"><a class="github" href="https://github.com/xriley" target="_blank"><i class="fab fa-github"></i></a></li>
+                               <li class="list-inline-item"><a class="medium" href="https://uk.linkedin.com/in/xiaoying" target="_blank"><i class="fas fa-user"></i></a></li>
+                                
+                            </ul>
+                            <div class="member-desc">
+                               <p> Desarrolladora Frontend en proceso , muestra interes  en lenguajes como HTML, CSS y JS , cuenta con la actitud de aprender  y  estar al tanto  de los diferentes contenidos y tematicas de la actualidad .Trabaja en base a las necesidades del cliente ya que es su principal objetivo.</p>
+                            </div><!--//member-desc-->
+                        </div><!--//member-content-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-md-4 col-12">
+                    <div class="item-inner">
+                        <div class="profile mb-2">
+                            <img class="profile-image" src="{{ url_for('homePage.static', filename='assets/images/nata (2).jpeg')}}" alt="Xiaoying Riley" />
+                        </div>
+                        <div class="member-content">
+                            <h3 class="member-name">Natalia Antonio Bello</h3>
+                            <div class="member-title">Estudiante Ingenieria de Sitemas</div>
+                            <ul class="social list-inline">
+                                <li class="list-inline-item"><a class="twitter" href="https://twitter.com/Natalia61469843" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                
+                                <li class="list-inline-item"><a class="facebook" href="https://m.facebook.com/natalia.antonio.716195?ref=bookmarks" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a class="dribbble" href="https://github.com/nathsep9" target="_blank"><i class="fab fa-instagram"></i></i></a></li>
+                                <li class="list-inline-item"><a class="github" href="https://twitter.com/Natalia61469843" target="_blank"><i class="fab fa-github"></i></a></li>
+                               <li class="list-inline-item"><a class="medium" href="https://nathsep9.neocities.org/Portafolio/pagina.html" target="_blank"><i class="fas fa-user"></i></a></li>
+                                
+                            </ul>
+                            <div class="member-desc">
+                               <p>Por medio del desarrollo de este proyecto eh podido afianzar nuevas bases en el mundo del desarrollo web, optar por nuevas estéticas en el frontend y explorar herramientas tecnológicas para el backend. y la imlementacion de lenguajes de programacion de alto nivel</p>
+                            </div><!--//member-desc-->
+                        </div><!--//member-content-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-md-4 col-12">
+                    <div class="item-inner">
+                       <div class="profile mb-2">
+                            <img class="profile-image" src="{{ url_for('homePage.static', filename='assets/images/yiyi.jpg')}}" alt="Xiaoying Riley" />
+                        </div>
+                        <div class="member-content">
+                            <h3 class="member-name">Yineth Castiblanco R</h3>
+                            <div class="member-title">Estudiante Ingenieria de Sitemas</div>
+                            <ul class="social list-inline">
+                                <li class="list-inline-item"><a class="twitter" href="https://twitter.com/3rdwave_themes" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                
+                                <li class="list-inline-item"><a class="facebook" href="https://www.facebook.com/people/Yin%C3%ABth-Castibl%C3%A4nco/100004108715272" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a class="dribbble" href="https://twitter.com/YCastiblanco22" target="_blank"><i class="fab fa-instagram"></i></i></a></li>
+                                <li class="list-inline-item"><a class="github" href="https://github.com/Yineth-hut?tab=repositories" target="_blank"><i class="fab fa-github"></i></a></li>
+                               <li class="list-inline-item"><a class="medium" href="https://yinethcastiblanco22.neocities.org/Yiyis/index.html" target="_blank"><i class="fas fa-user"></i></a></li>
+                                
+                            </ul>
+                            <div class="member-desc">
+                               <p>Ingeniera de sistemas en formación con conocimientos en desarrollo de Backend y Frontend, en lenguajes de programación como Java y Python, conocimientos en HTML, CSS Y JS y con una pequeña experiencia en formulación y desarrollo de proyectos de software.</p>
+                            </div><!--//member-desc-->
+                        </div><!--//member-content-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+            </div><!--//items-wrapper-->
+        </div><!--//container-->
+     </div>
+    </div><!--//team-section-->
+    
+     <div id="about" class="about-section">
+        <div class="container text-center">
+            <h2 class="section-title"><b>Tecologias Y beneficios</b></h2>
+            <p class="intro">Endurist Tracking utiliza tecnologías frontales modernas y está repleto de componentes y widgets útiles para acelerar su desarrollo.</p>
+            <ul class="technologies list-inline">
+            	<li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/2.png')}}" alt="Sass"  width="60" height="60"></li>
+            	<li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/6.png')}}" alt="Sass"  width="60" height="60"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/logo-html5.svg')}}" alt="HTML5"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/logo-css3.svg')}}" alt="CSS3"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/7.png')}}" alt="Sass"  width="55" height="63"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/logo-bootstrap.svg')}}" alt="Bootstrap"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/3.png')}}" alt="Sass"  width="80" height="60"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/5.png')}}" alt="Sass"  width="60" height="60"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/1.png')}}" alt="Sass"  width="60" height="60"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/4.png')}}" alt="Sass"  width="60" height="60"></li>
+                <li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/logo-jquery.svg')}}" alt="jQuery"></li>
+            </ul>
+            
+            <div class="items-wrapper row">
+                <div class="item col-md-4 col-12">
+                    <div class="item-inner">
+                        <div class="figure-holder">
+                            <img class="figure-image" src="{{ url_for('homePage.static', filename='assets/images/figure-1.png')}}" alt="image">
+                        </div><!--//figure-holder-->
+                        <h3 class="item-title">Automatizacion Registros</h3>
+                        <div class="item-desc mb-3">
+                            La implementación de tecnologías y lenguajes de programación permite optimizar el registro de las actividades de un Endurista pasando del método manual al uso de un aplicativo web que cuenta con despliegues y alojamiento en AWS. 
+                        </div><!--//item-desc-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-md-4 col-12">
+                    <div class="item-inner">
+                        <div class="figure-holder">
+                            <img class="figure-image" src="{{ url_for('homePage.static', filename='assets/images/figure-2.png')}}" alt="image">
+                        </div><!--//figure-holder-->
+                        <h3 class="item-title">Lenguajes de Alto Nivel</h3>
+                        <div class="item-desc mb-3">Endurist Tracking contiene en el desarrollo del Backend y Frontend lenguajes y tecnologías de alto nivel como lo es Python con framework de Flask que permite desarrollar aplicaciones web de forma contundente, además se utilizan lenguajes como HTML, CSS Y JS. </div><!--//item-desc-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+                <div class="item col-md-4 col-12">
+                    <div class="item-inner">
+                        <div class="figure-holder">
+                            <img class="figure-image" src="{{ url_for('homePage.static', filename='assets/images/figure-3.png')}}" alt="image">
+                        </div><!--//figure-holder-->
+                        <h3 class="item-title">Desarrollo Responsive</h3>
+                        <div class="item-desc mb-3"> El diseño web responsive del aplicativo implementa una técnica de adaptación de mismo lo que busca la correcta visualización de una misma página en distintos dispositivos. Desde ordenadores de escritorio a tablets y móviles.</div><!--//item-desc-->
+                    </div><!--//item-inner-->
+                </div><!--//item-->
+            </div><!--//items-wrapper-->
+        </div><!--//container-->
+    </div><!--//about-section-->
+  
+    <div id="contact" class="contact-section">
+        <div class="container text-center">
+            <h2 class="section-title">Contáctenos</h2>
+            <div class="contact-content">
+                <p></p>
+                
+            </div>
+
+
+            <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Mensaje</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="Mensaje">
+  </div>
+ 
+</form>
+            <a class="btn btn-cta btn-primary">Enviar</a>
+            
+        </div><!--//container-->
+    </div><!--//contact-section-->
+    
+    <footer class="footer text-center">
+        <div class="container">
+            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright"><i class="fas fa-motorcycle"></i> Busqué mi libertad en todos lados, y la encontré justo aquí… sobre mi motocicleta <i class="fas fa-motorcycle"></i></small>
+            
+            
+        </div><!--//container-->
+    <!-- Javascript -->          
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/bootstrap.bundle.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/jquery/jquery-3.5.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('homePage.static', filename='assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js')}}"></script>         
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script> 
+    
+</body>
+</html> 
