@@ -19,6 +19,7 @@
     {% block body %}{% endblock %}
     <script src="{% static 'lib/js/jquery/jquery-3.5.1.slim.min.js' %}"></script>
     <script src="{% static 'lib/js/bootstrap.bundle.min.js' %}"></script>
+    {% block base_scripts %}{% endblock %}
     {% block scripts %}{% endblock %}
   </body>
 </html>

@@ -4,6 +4,7 @@ from datetime import datetime
 
 from flask import Flask, render_template, url_for
 from flask_login.utils import login_required
+from flask_seeder import FlaskSeeder
 
 from blueprints import trainingBp, authenticationBp, trackBp
 from database import db, getSession, migrate
@@ -31,6 +32,10 @@ app.secret_key = os.getenv('SECRET_KEY')
 db.init_app(app)
 migrate.init_app(app)
 login_manager.init_app(app)
+
+seeder = FlaskSeeder()
+seeder.init_app(app, db)
+
 app.register_blueprint(homePageBp)
 app.register_blueprint(competenceBp)
 app.register_blueprint(trainingBp)
@@ -61,7 +66,7 @@ def load_user(user_id):
 @app.route("/main")
 @login_required
 def main():
-    return render_template('main.html')
+    return render_template('newmain.html')
 
 
 @app.route("/user")

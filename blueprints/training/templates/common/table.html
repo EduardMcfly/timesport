@@ -1,32 +1,44 @@
+{% macro buttons(limit=None, count=None, page = None) -%}
+    {% if limit != None and limit != None %}
+        <div class="d-flex justify-content-end" >
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                {% for number in range(1, ((count / limit) | round(method='ceil') | int) + 1) %}
+                    <a class="btn btn-primary {{ 'active' if number == page else '' }}" href="?page={{number}}&limit={{limit}}">
+                        {{ number }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>  
+    {% endif %}
+{%- endmacro %}
 {% macro table(trainings, limit=None, count=None, page = None) -%}
-<table class="table table-striped table-sm table-entrenamiento">
-    <thead>
-        <tr>
+    {{ buttons(limit = limit, count = count, page = page) }}
+    <table class="table table-striped table-sm table-entrenamiento">
+        <thead>
+            <tr>
 
-            <th>Fecha</th>
-            <th>Categoria</th>
-            <th>Pista</th>
-            <th>Vueltas</th>
-            <th>Eliminar</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for row in trainings %}
-        <tr>
+                <th>Fecha</th>
+                <th>Categoria</th>
+                <th>Pista</th>
+                <th>Vueltas</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in trainings %}
+            <tr>
 
-            <td>{{row.Training.date}}</td>
-            <td>{{row.Category.name}}</td>
-            <td>{{row.Track.name}}</td>
-            <td>{{row.Training.turns}}</td>
-            <td><a href="{{ url_for('training.delete', id = row.Training.id) }}">Delete</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% if page != None %}
-    estas en la pg {{page}} y puede ir hasta {{ (count / limit) | round(method='ceil') | int }}
-    {% for number in range(1, (count / limit) | round(method='ceil') | int) %}
-        <li><a href="?page={{number}}&limit={{limit}}">{{ number }}</a></li>
-    {% endfor %}
-{% endif %}
+                <td>{{row.Training.date}}</td>
+                <td>{{row.Category.name}}</td>
+                <td>{{row.Track.name}}</td>
+                <td>{{row.Training.turns}}</td>
+                <td><a href="{{ url_for('training.delete', id = row.Training.id) }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ buttons(limit = limit, count = count, page = page) }}
+    {% if page != None %}
+        {{page}}{{ (count / limit) | round(method='ceil') | int }}
+    {% endif %}
 {%- endmacro %}

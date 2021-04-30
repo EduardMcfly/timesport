@@ -4,72 +4,36 @@
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 <link rel="stylesheet" href="{% static 'training/style.css' %}" />
 <link rel="stylesheet" href="{% static 'training/base.css' %}" />
-<link rel="icon" href="{% static " images/IconoNegro.ico" %}" />
+<link rel="icon" href="{% static 'images/Logoo.png' %}">
 {% endblock %}
 {% block content %}
 
-{{ moduleHeader('Entrenamientos', image = 'training-image') }}
+
 
 <div class="competence-container  ">
     <div class="flash">
       <div class="row">
   
-        <!-- Earnings (Monthly) Card Example -->
+        <!-- Earnings (Monthly) Card Example --> 
         <div class="col-xl-3 col-md-6 mb-4">
-          <a class="card border-left-primary shadow h-100 py-2" href="{% url 'training.create' %}">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                   Atrás</div>
-                  <div class="row no-gutters align-items-center">
-                    <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                        Volver
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="progress progress-sm mr-2">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 18%" aria-valuenow="50"
-                          aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-  
+          <a class="card border-left-primary shadow h-100 py-2" href="{% url 'training.trainings' %}">
+            <div class="align-self-md-center">
+              <div class="row h-100 "style="color: #000">
+                <div class=" col-auto align-items-center d-flex">
+                  <i class="fa fa-backward fa-2x"></i>
                 </div>
-                <div class="col-auto">
-                  <i class="fas fa-add fa-2x text-gray-300"></i>
+                <div class="col align-items-center d-flex h4 mb-0">
+                    Volver
                 </div>
               </div>
             </div>
           </a>
         </div>
+      </div>
+    </div>
+</div>
   
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-          <a class="card border-left-success shadow h-100 py-2 text-decoration-none"
-            href="{% url 'training.trainingsAll' %}">
   
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                    Ver Entrenamientos</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">
-  
-                    Ver
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="progress progress-sm mr-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 37%" aria-valuenow="50"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
   
 <div class="container">
     {{ table(trainings, page = page, count = count, limit = limit) }}

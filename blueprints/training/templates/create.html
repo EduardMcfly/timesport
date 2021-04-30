@@ -6,45 +6,81 @@
 <link rel="stylesheet" href="{% static 'training/formulario.css' %}" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
+<link rel="shortcut" href="{% static " images/Logoo.png" %}" /> {% endblock %}
 {% block content %}
 
-<div class="background"></div>
-<div class="competence-container container-form m-auto">
-<div class="informacion">
-   <h1 class="text-center m-4">Registrar Entrenamiento</h1>
+<div class="container">
+  <div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <a class="card border-left-primary shadow h-100 py-2" href="{% url 'training.trainings' %}">
+        <div class="align-self-md-center">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+
+              <div class="row no-gutters align-items-center">
+                <div class="row h-100 " style="color: #000">
+                  <div class=" col-auto align-items-center d-flex">
+                    <i class="fa fa-backward fa-2x"></i>
+                  </div>
+                  <div class="col align-items-center d-flex h4 mb-0">
+                    Volver
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-add fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
-<div class="container mt-4">
-  <form action="{% url 'training.create' %}" method="POST">
-  <div class="text">
-    <div class="form-group">
-      <label for="exampleInputDate1" style="color: #50290bde;">Fecha</label>
-      <input name="date" type="date" class="form-control" />
+
+  <div class="border-bottom-primary card m-auto shadow ">
+
+    <div class="informacion">
+      <h1 class="text-center m-4">Registrar Entrenamiento</h1>
     </div>
-    <div class="form-group">
-      <label for="exampleInputTrack1" style="color: #50290bde;">Categoria</label>
-      <select class="form-control" name="category" id="exampleFormControlSelect1">
-      {% for category in categories  %}
-         <option value="{{category.id}}">{{category.name}}</option>
-      {% endfor %}
-      </select>
+    <div class="p-4 mt-4">
+      <form action="{% url 'training.create' %}" method="POST">
+        <div class="text">
+          <div class="form-group">
+            <label for="exampleInputDate1" style="color: #50290bde;">Fecha</label>
+            <input name="date" type="date" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputTrack1" style="color: #50290bde;">Categoria</label>
+            <select class="form-control" name="category" id="exampleFormControlSelect1">
+              {% for category in categories %}
+              <option value="{{category.id}}">{{category.name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputTrack1" style="color: #50290bde;">Cantidad de Vueltas</label>
+          <input name="turns" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputCategory1" style="color: #50290bde;">Pistas</label>
+          <select name="track" id="" class="form-control">
+            {% for track in tracks %}
+            <option value="{{track.id}}">{{track.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary" style="color:#50290bde;/* margin-left: auto; */">Save</button>
+
+        </div>
+      </form>
     </div>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputTrack1" style="color: #50290bde;">Cantidad de Vueltas</label>
-      <input name="turns" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="exampleInputCategory1" style="color: #50290bde;">Pistas</label>
-      <select name="track" id="" class="form-control">
-        {% for track in tracks %}  
-          <option value="{{track.id}}">{{track.name}}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary" style="color:#50290bde;">Save</button>
-  </form>
-</div>
+  </div>
 </div>
 
 
