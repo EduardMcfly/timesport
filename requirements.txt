@@ -8,3 +8,4 @@ psycopg2==2.8.6
 flask-login==0.5.0
 bcrypt==3.2.0 
 gunicorn
+Flask-Seeder==1.2.0
