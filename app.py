@@ -12,7 +12,7 @@ from utils import ext, query_to_dict
 from blueprints.competence import competenceBp
 from login_manager import login_manager
 from blueprints.homePage import homePageBp
-from blueprints.mainPage import mainPageBp
+
 
 
 
@@ -36,7 +36,7 @@ app.register_blueprint(competenceBp)
 app.register_blueprint(trainingBp)
 app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
-app.register_blueprint(mainPageBp)
+
 
 
 @app.template_filter('date_format')
