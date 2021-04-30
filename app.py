@@ -15,6 +15,8 @@ from login_manager import login_manager
 from blueprints.homePage import homePageBp
 
 
+
+
 static_url_path = '/static'
 app = Flask(__name__, static_url_path=static_url_path)
 
@@ -39,6 +41,7 @@ app.register_blueprint(competenceBp)
 app.register_blueprint(trainingBp)
 app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
+
 
 
 @app.template_filter('date_format')
@@ -71,3 +74,4 @@ def user():
     user = User.query.get(2)
     year = user.getYearsOld()
     print(year)
+
