@@ -1,0 +1,161 @@
+:root {
+    --color-dark: #f5760c;
+    --color-dark-x: #7896c5;
+    --color-dark-xx: #e1e6ef;
+    --color-light: #100e0e;
+    --color-grey: #cc7011;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 4.5;
+    color: #060606;
+    text-align: left;
+    background-color: #fff;
+}
+
+
+.form-one{
+	width: 25px;
+    height: 25px;
+    margin-left: 1em;
+    font-size:25px;
+}
+
+
+
+.bg-light {
+    background-color: var(--color-light)!important;
+}
+
+.bg-dark {
+    background-color: var(--color-dark)!important;
+    border-radius: 4rem;
+}
+
+
+.contact-box {
+    padding: 8rem;
+	padding-left: 228px;
+    padding-right: 228px;
+}
+
+.form {
+    display: block;
+    margin-top: 0em;
+    margin-block-end: 1em;
+}
+.btn {
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    min-width: 10rem;
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--color-dark-xx);
+}
+
+
+.form-control {
+    background-color: #efece8;
+    border-radius: 3rem;
+    padding: 1.5rem 1rem;
+     margin-top: 20px;
+}
+
+.form-group mb-3{
+	 margin-top: 10em;
+    margin-block-end: 1em;
+}
+
+.register-bg {
+    background-image: url('images/enduro3.jpg');
+    background-size: cover;
+    border-radius: 2rem;
+    min-height: 100vh;
+}
+.login{
+    background-image: url('images/enduro4.jpg');
+    background-size: cover;
+    border-radius: 2rem;
+    min-height: 100vh;
+}
+
+.testiomonial {
+    bottom: 20px
+}
+
+@media (max-width: 575.98px) {
+    .p-6 {
+        padding: 2rem;
+    }
+
+    .contact-box {
+        padding: 0;
+        color: #fff9f4ba;
+    }
+
+    .width-100 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) { 
+    .register-bg {
+        min-height: 50vh;
+    }
+}
+
+.no-gutters>.col, .no-gutters>[class*=col-] {
+    padding-right: inherit;
+    padding-left: 100;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: #ff851b;
+  text-decoration: none;
+}
+.btn btn-outline-dark{
+	position:center;
+}
+
+button {
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: orange;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: white;
+    background-color: transparent;
+}
+
