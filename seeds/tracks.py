@@ -1,3 +1,4 @@
+from database import getSession
 from flask_seeder import Seeder, Faker, generator
 from models import Track
 # All seeders inherit from Seeder
@@ -16,10 +17,16 @@ data = [
     {"name": "Lenguazaque", "location": "Lenguazaque "},
 ]
 
+
 class DemoSeeder(Seeder):
 
     # run() will be called by Flask-Seeder
     def run(self):
+
+        session = getSession()
+        count = session.query(Track).count()
+        if(count != 0):
+            return None
         for item in data:
             track = Track()
             track.name = item.get("name")
