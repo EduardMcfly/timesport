@@ -66,7 +66,7 @@ def load_user(user_id):
 @app.route("/main")
 @login_required
 def main():
-    return render_template('newmain.html')
+    return render_template('main.html')
 
 
 @app.route("/user")
