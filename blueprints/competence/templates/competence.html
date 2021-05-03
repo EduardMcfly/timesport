@@ -1,7 +1,7 @@
 {% extends "app.html" %}
  {% block title %}Login{% endblock %}
   {% block head %}
-<link rel="stylesheet" href="/competence/static/competennce.css"/>
+<link rel="stylesheet" href="{{ url_for('competence.static', filename='competennce.css')}}" />
  {% endblock %} 
  {% block content %}
 <div class="container">
@@ -28,4 +28,5 @@
         {% endif %}
     </div>
 </div>
+
 {% endblock %}

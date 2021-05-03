@@ -1,0 +1,10 @@
+.competence-image {
+    background:url(/competence/static/img/se.jpg);
+    background-attachment: fixed;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center calc(50% - 200px);
+  }
+
+  

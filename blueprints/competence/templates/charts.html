@@ -1,11 +1,28 @@
 {% extends "app.html" %}
-
 {% block title %}Charts{% endblock %} 
-
 {% block content %}
-<link rel="stylesheet" href="competence/static/start.css">
-<link rel="stylesheet" href="/competence/static/charts.css">
-
+<link rel="stylesheet" href="{{ url_for('competence.static', filename='charts.css')}}" />
+<div class="competence-containerr  ">
+    <div class="flash">
+      <div class="row">
+        <!-- Earnings (Monthly) Card Example --> 
+        <div class="col-xl-3 col-md-6 mb-4">
+          <a class="card border-left-primary shadow h-100 py-2" href="{% url 'competence.indexC' %}">
+            <div class="align-self-md-center">
+              <div class="row h-100 "style="color: #000">
+                <div class=" col-auto align-items-center d-flex">
+                  <i class="fa fa-backward fa-2x"></i>
+                </div>
+                <div class="col align-items-center d-flex h4 mb-0">
+                    Volver
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
 <div class="chart-container" style="position: relative; width: 600px">
 <div class="informacion">
    <h1 class="text-center m-4 ">Gráfica Resultados Competencias</h1><span>
