@@ -3,18 +3,11 @@
 {% block content %}
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-  <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h5 h3 mb-0 font-weight-bold text-gray-800">ENCUENTRA</h1>
-  
-  </div>
-
   <!-- Content Row -->
   <div class="row">
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -32,7 +25,7 @@
     </div>
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card border-left-success shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -50,7 +43,7 @@
     </div>
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
       <div class="card border-left-info shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -62,7 +55,7 @@
                   <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Usadas</div>
                 </div>
                 <div class="col">
-                  
+
                 </div>
               </div>
             </div>
@@ -73,13 +66,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-warning shadow h-100 py-2">
-        <img src= templates/img/enduro.jpg alt="">
-      </div>
-    </div>
   </div>
 
   <!-- Content Row -->
@@ -87,7 +73,7 @@
   <div class="row">
 
     <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-12">
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -106,7 +92,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="card-body">
           <div class="chart-area">
             <div class="chartjs-size-monitor">
@@ -168,7 +154,10 @@
         </div>
       </div>
 
-      <!-- Color System -->
+
+
+    </div>
+    <div class="col-lg-6">
       <div class="row">
         <div class="col-lg-6 mb-4">
           <div class="card bg-primary text-white shadow">
@@ -235,10 +224,7 @@
           </div>
         </div>
       </div>
-
     </div>
-
-
   </div>
 </div>
 <!-- /.container-fluid -->
@@ -280,21 +266,21 @@
   var myLineChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      labels: JSON.parse('{{ labels | tojson }}'),
       datasets: [{
-        label: "Earnings",
+        label: "Rendimiento",
         lineTension: 0.3,
-        backgroundColor: "rgba(78, 115, 223, 0.05)",
-        borderColor: "rgba(78, 115, 223, 1)",
+        backgroundColor: "rgb(241 230 224 / 12%)",
+        borderColor: "rgba(211, 84, 0)",
         pointRadius: 3,
-        pointBackgroundColor: "rgba(78, 115, 223, 1)",
-        pointBorderColor: "rgba(78, 115, 223, 1)",
+        pointBackgroundColor: "rgba(53, 14, 6)",
+        pointBorderColor: "rgba(53, 14, 6)",
         pointHoverRadius: 3,
-        pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-        pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+        pointHoverBackgroundColor: "rgba(46, 135, 127 )",
+        pointHoverBorderColor: "rgba(88, 115, 223, 1)",
         pointHitRadius: 10,
         pointBorderWidth: 2,
-        data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+        data: JSON.parse('{{ data | tojson}}'),
       }],
     },
     options: {
@@ -326,12 +312,12 @@
             padding: 10,
             // Include a dollar sign in the ticks
             callback: function (value, index, values) {
-              return '$' + number_format(value);
+              return number_format(value);
             }
           },
           gridLines: {
-            color: "rgb(234, 236, 244)",
-            zeroLineColor: "rgb(234, 236, 244)",
+            color: "rgb(206, 199, 197 )",
+            zeroLineColor: "rgb(2, 236, 244)",
             drawBorder: false,
             borderDash: [2],
             zeroLineBorderDash: [2]
@@ -358,7 +344,7 @@
         callbacks: {
           label: function (tooltipItem, chart) {
             var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-            return datasetLabel + ': $' +  (tooltipItem.yLabel);
+            return datasetLabel + ': ' + (Math.round(tooltipItem.yLabel));
           }
         }
       }
