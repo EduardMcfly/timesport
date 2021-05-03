@@ -69,6 +69,8 @@ def create():
         date = request.form.get('date')
         category = request.form.get('category')
         turns = request.form.get('turns')
+        startTime = request.form.get('startTime')
+        endTime = request.form.get('endTime')
         track = request.form.get('track')
         session = getSession()
         try:
@@ -76,6 +78,8 @@ def create():
             training.date = date
             training.category_id = category
             training.turns = turns
+            training.start_time = startTime
+            training.end_time = endTime
             training.track_id = track
             training.user_id = current_user.id
             session.add(training)
