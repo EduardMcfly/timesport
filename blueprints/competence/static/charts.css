@@ -1,25 +1,22 @@
-body{
-    width: 100%;
-    height:330px;
-    background: linear-gradient(to bottom,
-    rgba(211,135,20, .6),
-    rgba(204, 94, 4, 0.6),
-    rgba(49, 31, 7, 0.45)
-    ), url(/competence/static/img/ultima.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-  }
-  
-  img{
-      vertical-align: top;
-  }
+
+ 
   
   .chart-container{
-      background-color: #fffffffa;
+      background-color: #ffffff00;
       padding: 30px;
-      margin-top: 35px;
-      margin-left: 400px;
+      margin-top: -35px;
+      margin-left: 300px;
       
   }
+
+  .competence-containerr{
+      margin-left: 45px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
   

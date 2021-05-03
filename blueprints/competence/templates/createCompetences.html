@@ -4,12 +4,14 @@
 <link rel="stylesheet" href="competence/static/start.css">
 <link rel="stylesheet" href="competence/static/Formulario.css">
 <link rel="stylesheet" href="{% static 'css/pages/formulario.css' %}" />
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
+{% endblock %} 
 {% block content %}
+
+
 <div class="mt-4">
   <div class="competence-container container-form m-auto">
     <div class="informacion">
-      <h1 class="text-center m-4 ">Registrar Competencias</h1><span><i class="fa fa-heart"></i>
+      <h1 class="text-center m-4 ">Registrar Competencias</h1><span></i>
     </div>
     <form action="{% url 'competence.create' %}" method="POST">
       <div class="text">
