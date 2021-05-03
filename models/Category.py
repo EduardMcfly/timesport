@@ -12,3 +12,5 @@ class Category(db.Model):
     duration_min = Column(Integer)
     duration_max = Column(Integer)
     categoryAges = relationship("CategoryAge")
+    trainings = relationship("Training")
+    
