@@ -124,10 +124,10 @@ def createResults(id):
 @login_required
 def delete(id):
     session = getSession()
-    competence = session.query(Competence).filter(
-        Competence.id == id, Competence.user_id == current_user.id
+    competence = session.query(UserCompetence).filter(
+        UserCompetence.competences_id == id, UserCompetence.user_id == current_user.id
     )
-    if(competence.first()):
+    if competence.first():
         competence.delete()
         session.commit()
         return redirect(url_for('competence.index'))
@@ -142,7 +142,7 @@ def charts(id):
         Competence.date <= competence.date,
         UserCompetence.user_id == current_user.id,
         Competence.track_id == competence.track_id
-    ).limit(6).all()
+    ).limit(8).all()
 
     labels = []
     data = []
