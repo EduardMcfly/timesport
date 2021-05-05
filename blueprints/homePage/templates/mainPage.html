@@ -84,9 +84,9 @@
     				        
 				            <h2 class="heading"> Aplicativo Web Para Enduristas En La Modalidad De Hare Scramble </h2>
 				            <p class="intro">Este sistema cuenta con tres módulos principales los cuales permiten realizar un registro de los datos y resultados obtenidos en cada uno de los entrenamientos y competencias. Y así disponer de una actualizada galería de pistas disponibles en las que se practica este deporte.</p>
-				            <a class="btn btn-cta btn-primary">Iniciar Sesion</a>
-				            <a class="btn btn-cta btn-primary">Crear Cuenta</a>
-            
+				            <a href="{{ url_for('authentication.login') }}" class="btn btn-cta btn-primary">Iniciar Sesion</a>
+				            <a href="{{ url_for('authentication.signUp') }}" class="btn btn-cta btn-primary">Crear Cuenta</a>
+
             
     				        
     					</div><!--//item-content-inner-->
@@ -270,8 +270,8 @@
                                 <li class="list-inline-item"><a class="twitter" href="https://twitter.com/yeimyangel29?s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
                                 
                                 <li class="list-inline-item"><a class="facebook" href="https://www.facebook.com/yeimy.xngel" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a class="dribbble" href="https://dribbble.com/Xiaoying" target="_blank"><i class="fab fa-instagram"></i></i></a></li>
-                                <li class="list-inline-item"><a class="github" href="https://github.com/xriley" target="_blank"><i class="fab fa-github"></i></a></li>
+                                <li class="list-inline-item"><a class="dribbble" href="https://www.instagram.com/yeimy_xngel/" target="_blank"><i class="fab fa-instagram"></i></i></a></li>
+                                <li class="list-inline-item"><a class="github" href="https://github.com/YeimeDevOps" target="_blank"><i class="fab fa-github"></i></a></li>
                                <li class="list-inline-item"><a class="medium" href="https://uk.linkedin.com/in/xiaoying" target="_blank"><i class="fas fa-user"></i></a></li>
                                 
                             </ul>
@@ -397,11 +397,11 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input name="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input name="password" class="form-control" id="inputPassword4" placeholder="Password">
     </div>
   </div>
   <div class="form-group">
