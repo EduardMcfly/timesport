@@ -10,11 +10,10 @@ from blueprints import trainingBp, authenticationBp, trackBp
 from database import db, getSession, migrate
 from models import *
 from utils import ext, getPerformance
+from utils.charts import dataChartTrainings
 from blueprints.competence import competenceBp
 from login_manager import login_manager
 from blueprints.homePage import homePageBp
-
-
 
 
 static_url_path = '/static'
@@ -43,7 +42,6 @@ app.register_blueprint(authenticationBp)
 app.register_blueprint(trackBp)
 
 
-
 @app.template_filter('date_format')
 def filter_datetime(value: datetime, fmt="%Y:%M:%d"):
     return value.strftime(fmt)
@@ -66,32 +64,34 @@ def load_user(user_id):
 @app.route("/main")
 @login_required
 def main():
-    session = getSession()
-    query = session.query(Training, Track, Category).join(
-        Track, Category
-    ).filter(Training.user_id == current_user.id)
-    query = query.order_by(Training.date.desc())
-    query = query.limit(10)
+    labels, data = dataChartTrainings()
 
-    trainings = query.all()
-    labels = []
-    data = []
-    for training in trainings: 
-        performance = getPerformance(training.Training, training.Track, training.Category,  )
-        date = training.Training.date
-        start_time = training.Training.start_time
-        labels.append(date.strftime("%d-%b-%Y") + (start_time.strftime(" %H:%M") if start_time else "") )
-        data.append(performance)
-    
-    return render_template('main.html', labels = labels, data = data)
-
+    charts = [
+        {
+            "id": "trainings_chart",
+            "labels": labels,
+            "data": data, 
+            "name": "Rendimiento Entrenamientos",
+            "dataset": {
+                "label": "Rendimiento",
+                "color": "rgb(241 230 224 / 12%)"
+            }
+        },
+        {
+            "id": "competences_chart",
+            "labels": labels,
+            "data": data,
+            "name": "Rendimiento Competencias",
+            "dataset": {
+                "label": "Rendimiento ",
+                "color": "rgb(141 30 2 / 32%)"
+            }
+        },
+    ]
+    return render_template('main.html', charts=charts)
 
 @app.route("/user")
 def user():
     user = User.query.get(2)
     year = user.getYearsOld()
     print(year)
-
-
-
-
