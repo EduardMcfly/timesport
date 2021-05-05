@@ -10,6 +10,7 @@ from flask.blueprints import Blueprint
 from database import getSession
 from utils import query_to_dict
 from flask_login import current_user
+from utils.charts import dataChartTrainings
 
 trainingBp = Blueprint(
     'training',
@@ -100,7 +101,7 @@ def create():
     return render_template('create.html', categories=categories, tracks=tracks)
 
 
-@trainingBp.route("/trainig/delete/<int:id>")
+@trainingBp.route("/training/delete/<int:id>")
 @login_required
 def delete(id):
     session = getSession()
@@ -114,9 +115,11 @@ def delete(id):
     return "No tienes acceso"
 
 
-@trainingBp.route("/charts")
+@trainingBp.route("/training/charts")
+@login_required
 def charts():
-    return render_template('charts.html')
+    labels, data = dataChartTrainings()
+    return render_template('charts_trainings.html',labels = labels, data = data)
 
 
 @trainingBp.route("/modules")

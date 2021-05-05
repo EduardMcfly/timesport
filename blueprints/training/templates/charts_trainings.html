@@ -1,21 +1,19 @@
 {% extends "app.html" %}
-{% from 'common/table.html' import table %}
+{% block title %}Graficas{% endblock %}
 {% block head %}
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
-<link rel="stylesheet" href="{% static 'training/style.css' %}" />
-<link rel="stylesheet" href="{% static 'training/base.css' %}" />
-<link rel="icon" href="{% static 'images/Logoo.png' %}">
-{% endblock %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+<link rel="shortcut" href="{% static " images/Logoo.png" %}" /> {% endblock %}
 {% block content %}
-
-
-
 <div class="competence-container  ">
     <div class="flash">
       <div class="row">
   
         <!-- Earnings (Monthly) Card Example --> 
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-4" style=" margin-left: 20px;">
           <a class="card border-left-primary shadow h-100 py-2" href="{% url 'training.trainings' %}">
             <div class="align-self-md-center">
               <div class="row h-100 "style="color: #000">
@@ -31,14 +29,12 @@
         </div>
       </div>
     </div>
-</div>
+    
+
 <div class="titulo">
-  <h1 class="m-0 tet text-primary text-center m-4" style=" font-family: 'Lora', serif">Entrenamientos Realizados</h1>
+    <h1 class="m-0 tet text-primary text-center m-4" style=" font-family: 'Lora', serif">Rendimiento Entrenamientos</h1>
+    <canvas id="myChart" style="height: 380px;"></canvas>
 </div>
-  
-  
-  
-<div class="container">
-    {{ table(trainings, page = page, count = count, limit = limit) }}
-</div>
+<script src="{{ url_for('static', filename='lib/Chart.js/Chart.min.js')}}"></script>
+{{ chartjs('myChart', labels, data, { "label": "Rendimiento Entrenamientos" }) }}
 {% endblock %}

@@ -34,7 +34,7 @@
                 <td>{{row.Track.name}}</td>
                 <td>{{row.Training.getDuration()}}</td>
                 <td>{{row.Training.turns}}</td>
-                <td><a href="{{ url_for('training.delete', id = row.Training.id) }}">Delete</a></td>
+                <td><a href="{{ url_for('training.delete', id = row.Training.id) }}" style="color: #858796">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
