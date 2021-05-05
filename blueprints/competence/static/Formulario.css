@@ -5,6 +5,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  
 }
 
 img {
@@ -12,8 +13,16 @@ img {
 }
 
 .competence-container {
-  background-color: #ffffffd1;
+  background-color: #ffffff00;
   padding: 15px;
   position: fixed;
   margin-top: 15px;
+  max-width: 900px !important;
+}
+
+.text-centerr {
+  color: #e4810f;
+  text-align: center !important;
+  font-family: 'Bitter', serif;
+
 }

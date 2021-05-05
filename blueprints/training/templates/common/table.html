@@ -20,6 +20,7 @@
                 <th>Fecha</th>
                 <th>Categoria</th>
                 <th>Pista</th>
+                <th>Duración</th>
                 <th>Vueltas</th>
                 <th>Eliminar</th>
             </tr>
@@ -31,6 +32,7 @@
                 <td>{{row.Training.date}}</td>
                 <td>{{row.Category.name}}</td>
                 <td>{{row.Track.name}}</td>
+                <td>{{row.Training.getDuration()}}</td>
                 <td>{{row.Training.turns}}</td>
                 <td><a href="{{ url_for('training.delete', id = row.Training.id) }}">Delete</a></td>
             </tr>

@@ -124,10 +124,10 @@ def createResults(id):
 @login_required
 def delete(id):
     session = getSession()
-    competence = session.query(Competence).filter(
-        Competence.id == id, Competence.user_id == current_user.id
+    competence = session.query(UserCompetence).filter(
+        UserCompetence.competences_id == id, UserCompetence.user_id == current_user.id
     )
-    if(competence.first()):
+    if competence.first():
         competence.delete()
         session.commit()
         return redirect(url_for('competence.index'))
@@ -142,7 +142,7 @@ def charts(id):
         Competence.date <= competence.date,
         UserCompetence.user_id == current_user.id,
         Competence.track_id == competence.track_id
-    ).limit(6).all()
+    ).limit(8).all()
 
     labels = []
     data = []
@@ -183,7 +183,36 @@ def graphicPreviousCompetitions(id):
 
 
 
-@competenceBp.route("/rendimiento")
-def rendimento():
-    categoria = competences.category
-    return print(categoria)
+
+
+
+@competenceBp.route("/indexC")
+@login_required
+def indexC():
+    session = getSession()
+    connection = session.connection()
+
+    results = connection.execute(
+        text('''
+    SELECT
+        competences.id,
+        competences.date,
+        tracks.name as track,
+        categories.NAME AS category,
+        tracks.size AS track_size
+    FROM
+        public.competences
+        INNER JOIN user_competences ON public.competences.id = public.user_competences.competences_id
+        INNER JOIN categories ON competences.category_id = categories.id 
+        INNER JOIN tracks ON competences.track_id = tracks.id 
+    WHERE
+	user_competences.user_id = :user_id;'''),
+        ({"user_id": current_user.id})
+    )
+    competences = query_to_dict(results)
+    print(competences)
+    competences = session.query(Competence, Track, Category, UserCompetence).join(
+        UserCompetence, Track, Category
+    ).filter(UserCompetence.user_id == current_user.id).all()
+    print(competences)
+    return render_template('competence-table.html', competences=competences)
