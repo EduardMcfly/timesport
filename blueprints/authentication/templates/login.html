@@ -1,33 +1,51 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock %}
+{% block title %}Ingreso{% endblock %}
 {% block head %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}">
-<link rel="stylesheet" href="{% static 'css/forms.css' %}">
-<link rel="icon" href="{% static " images/IconoNegro.ico" %}" />
+<link rel="stylesheet" href="{% static 'css/pages/formnew.css' %}">
+<link rel="icon" href="{% static 'images/IconoNegro.ico' %}" />
 {% endblock %}
 {% block contentWrapper %}
-<div class="flex-fill">
-  <div class="container-form">
-    <div class="informacion">
-      <h1 class="text-center m-4">Time Sport 15</h1><span><i class="fa fa-heart"></i>
-    </div>
-  </div>
-  <div class="h-100">
-    <div class="form" style="max-width: 400px">
-      <div class="d-flex justify-content-center thumbnail">
-        <img class="w-100" style="object-fit: contain;" src={% static "images/dos.png" %} />
-      </div>
-      <form class="login-form" method="POST" action="{% url 'authentication.login' %}">
-        <input name="email" type="text" placeholder="Email" />
-        <input name="password" type="password" placeholder="Password" />
-        <button><strong>Login</strong></button>
-        <p class="message">Not registered?
-          <a href="{% url 'authentication.signUp' %}">
-            <strong>Create an account</strong></a>
-        </p>
+<<div class="container-form flex-fill">
+    <div class="form">
+      <form class="login-form" method="POST" action="{% url 'authentication.login' %}">   
+        <section class="contact-box">
+            <div class="row no-gutters bg-dark">
+                <div class="col-xl-6 col-lg-12 login">
+                    </div>
+                <div class="col-xl-5 col-lg-12 d-flex">
+                     <div class="container align-self-center p-6"><center>
+                         <h1 class="font-weight-bold mb-3">BIENVENIDOS!!!</h1></center><center>
+                         <img src={% static "images/login2.png" %} width="120" height="120"></center>
+                         <form>
+                             <div class="form-group mb-3">
+                                 <input name="email" type="text" class="form-control" placeholder="Correo Electronico " >
+                             </div>
+                             <div class="form-group mb-3">
+                                 <input name="password" type="password" class="form-control" placeholder="Contraseña">
+                             </div>
+                              <center>
+                             <button><strong>Ingreso</strong></button>  
+             <p class="message">No estas registrado?
+                <a href="{% url 'authentication.signUp' %}">
+                             <button type="button" class="btn btn-link">Crear nueva Cuenta</button></center>
+                            </form> 
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       </form>
     </div>
   </div>
 </div>
+</body>
 
 {% endblock %}

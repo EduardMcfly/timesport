@@ -33,12 +33,12 @@ body {
 
 .bg-dark {
     background-color: var(--color-dark)!important;
-    border-radius: 4rem;
+    border-radius: 2rem;
 }
 
 
 .contact-box {
-    padding: 8rem;
+    padding: 1rem;
 	padding-left: 228px;
     padding-right: 228px;
 }
@@ -52,7 +52,7 @@ body {
     font-weight: 400;
     padding: 1rem 2rem;
     border-radius: 2rem;
-    min-width: 10rem;
+    
 }
 
 .btn-outline-dark {
@@ -62,7 +62,7 @@ body {
 
 .form-control {
     background-color: #efece8;
-    border-radius: 3rem;
+    border-radius: 1rem;
     padding: 1.5rem 1rem;
      margin-top: 20px;
 }
@@ -73,13 +73,13 @@ body {
 }
 
 .register-bg {
-    background-image: url('images/enduro3.jpg');
+    background-image: url(/static/images/enduro3.jpg);
     background-size: cover;
     border-radius: 2rem;
     min-height: 100vh;
 }
 .login{
-    background-image: url('images/enduro4.jpg');
+    background-image: url(/static/images/enduro4.jpg);
     background-size: cover;
     border-radius: 2rem;
     min-height: 100vh;
@@ -116,12 +116,12 @@ body {
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
+  color:#040404;
+  font-size: 15px;
 }
 
 .form .message a {
-  color: #ff851b;
+  color:  #0c0c0c;
   text-decoration: none;
 }
 .btn btn-outline-dark{
@@ -159,3 +159,25 @@ button {
     background-color: transparent;
 }
 
+.form button {
+    outline: 0;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: #101010;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 3rem
+  }
+  
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 10px;
+}
