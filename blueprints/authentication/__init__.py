@@ -1,3 +1,4 @@
+from models.Gender import Gender
 from flask import render_template, request, redirect
 from flask.blueprints import Blueprint
 from flask.helpers import url_for
@@ -57,21 +58,27 @@ def user():
 
 @authenticationBp.route("/signUp", methods=['GET', 'POST'])
 def signUp():
+    session = getSession() 
     method = request.method
     if(method == 'POST'):
         name = request.form.get('name')
         lastname = request.form.get('lastname')
         email = request.form.get('email')
+        dateBirth=request.form.get('dateBirth')
         password = toBytes(request.form.get('password'))
-        session = getSession()
+        gender=request.form.get('gender_id')
+
         try:
             user = User()
             user.email = email
             user.name = name
+            user.dateBirth=dateBirth
+            user.gender_id=gender
             user.lastname = lastname
             hashed = bcrypt.hashpw(
                 password, bcrypt.gensalt()
             )
+
             user.password = hashed.decode("utf-8")
             session.add(user)
             session.commit()
@@ -80,4 +87,7 @@ def signUp():
         except Exception as error:
             session.rollback()
             raise error
-    return render_template('signUp.html')
+    
+    genders=session.query(Gender).all()
+            
+    return render_template('signUp.html',genders=genders)
