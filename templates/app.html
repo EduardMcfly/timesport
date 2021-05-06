@@ -29,10 +29,9 @@
   </li>
 
   <!-- Divider -->
-  <hr class="sidebar-divider" />
+
 
   <!-- Heading -->
-  <div class="sidebar-heading">Interface</div>
 
 
   <!-- Divider -->
@@ -43,12 +42,12 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    
+
     <a class="nav-link" href="{{ url_for('training.trainings') }}">
       <i class="fas fa-fw fa-chart-area"></i>
-      
+
       <span>Entrenamientos</span></a>
-      
+
   </li>
 
   <!-- Nav Item - Competences -->
@@ -59,8 +58,8 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="http://127.0.0.1:8000/tracks" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-      aria-controls="collapseTwo">
+    <a class="nav-link collapsed" href="http://127.0.0.1:8000/tracks" data-toggle="collapse" data-target="#collapseTwo"
+      aria-expanded="true" aria-controls="collapseTwo">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
         viewBox="0 0 16 16">
         <path
@@ -128,7 +127,7 @@
       <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
 
-       
+
       </button>
 
       <!-- Topbar Navbar -->
@@ -142,7 +141,7 @@
           <!-- Dropdown - Messages -->
           <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
             <form class="form-inline mr-auto w-100 navbar-search">
-              <div class="input-group">            
+              <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                   aria-label="Search" aria-describedby="basic-addon2" />
                 <div class="input-group-append">
@@ -158,7 +157,7 @@
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-          
+
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
 
@@ -170,12 +169,12 @@
             <a class="dropdown-item" href="#">
               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
               Profile
-            
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-              Logout
-            </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+              </a>
           </div>
         </li>
       </ul>
@@ -196,7 +195,7 @@
   <!-- End of Footer -->
 </div>
 
-{% endblock %} 
+{% endblock %}
 {% block base_scripts %}
 
 <script>
