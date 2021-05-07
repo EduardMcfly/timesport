@@ -31,7 +31,7 @@ body {
     background-color: var(--color-light)!important;
 }
 
-.bg-dark {
+.bg-darklogin {
     background-color: var(--color-dark)!important;
     border-radius: 2rem;
 }
