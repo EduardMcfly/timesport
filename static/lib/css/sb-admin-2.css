@@ -5103,7 +5103,6 @@ input[type="button"].btn-block {
   color: #858796;
   pointer-events: none;
   cursor: auto;
-  background-color: #fff;
   border-color: #dddfeb;
 }
 
@@ -6836,8 +6835,7 @@ button.bg-warning:focus {
 }
 
 .bg-danger {
-  background-image: linear-gradient(179deg, #ff851b 10%, #4a2f18 100%);
-  background-color: #fb7100e5 !important;
+ 
 }
 
 a.bg-danger:hover,
@@ -9883,7 +9881,7 @@ button.bg-dark:focus {
 }
 
 .text-center {
-  color: #e4810f;
+  color: #040404;
   text-align: center !important;
   font-family: "Lora", serif;
 }
@@ -9979,7 +9977,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #e4810f !important;
+  color: #ff8800 !important;
 }
 
 a.text-primary:hover,
@@ -9997,7 +9995,7 @@ a.text-secondary:focus {
 }
 
 .text-success {
-  color: #754415 !important;
+  color: #e4ff00 !important;
 }
 
 a.text-success:hover,
@@ -10006,7 +10004,7 @@ a.text-success:focus {
 }
 
 .text-info {
-  color: #fb7100e5 !important;
+  color: #fb2300e5 !important;
 }
 
 a.text-info:hover,
