@@ -1,10 +1,4 @@
-/*   
- * Template Name: Appkit Landing - Responsive Website Template for Developers
- * Version: 2.3
- * Author: Xiaoying Riley
- * Twitter: @3rdwave_themes
- * Website: https://themes.3rdwavemedia.com/
-*/
+
 body {
   font-family: 'Open Sans', arial, sans-serif;
   color: #494d55;
@@ -67,15 +61,15 @@ a:focus {
 }
 
 .btn-primary {
-  background: #ff5722;
-  border: 1px solid #ff5722;
+  background: #f07603;
+  border: 1px solid #f07603;
   color: #fff;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.hover {
-  background: #ff572230;
+  background: #f0760330;
   color: #fff;
-  border: 1px solid #ff572230;
+  border: 1px solid #f0760330;
 }
 
 .btn-inverse {
@@ -177,7 +171,7 @@ a:focus {
 }
 
 .header.header-scrolled .logo .logo-icon-wrapper {
-  background: #ff57229e;
+  background: #f076039e;
   width: 40px;
   height: 40px;
   -webkit-border-radius: 50%;
@@ -202,12 +196,12 @@ a:focus {
 }
 
 .header.header-scrolled .main-nav .nav .nav-link:hover {
-  color: #ff5722;
+  color: #f07603;
 }
 
 .header.header-scrolled .main-nav .nav .nav-link.active {
-  color: #ff5722;
-  border-bottom: 4px solid #ff5722;
+  color: #f07603;
+  border-bottom: 4px solid #f07603;
 }
 
 .header a {
@@ -466,12 +460,12 @@ a:focus {
   margin-bottom: 15px;
   font-size: 36px;
   font-weight: 300;
-  color: #ff5722;
+  color: #f07603;
   font-family: "Comfortaa";
 }
 
 .about-section .intro {
-  color: #a2a6af;
+  color: #727375;
   font-size: 16px;
   max-width: 760px;
   margin: 0 auto;
@@ -496,7 +490,7 @@ a:focus {
 }
 
 .about-section .items-wrapper .item-title {
-  color: #ff5722;
+  color: #f07603;
   font-size: 18px;
   font-weight: bold;
   margin: 0;
@@ -542,8 +536,7 @@ a:focus {
 }
 
 .testimonials-inner .quote {
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: rgb(31, 29, 29);
   margin-left: 130px;
   border-left: none;
   margin-bottom: 0;
@@ -559,6 +552,7 @@ a:focus {
   background-clip: padding-box;
   position: relative;
   padding: 15px;
+  background: #f0760345;
 }
 
 .testimonials-inner .quote:before {
@@ -589,7 +583,7 @@ a:focus {
   margin-bottom: 30px;
   font-size: 36px;
   font-weight: 300;
-  color: #ff5722;
+  color: #f07603;
   font-family: "Comfortaa";
 }
 
@@ -619,7 +613,7 @@ a:focus {
   content: "";
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 10px solid rgba(0, 0, 0, 0.2);
+  border-left: 10px solid #f0760345;
   border-right: inherit;
 }
 
@@ -637,8 +631,8 @@ a:focus {
 }
 
 .testimonials-section .item .quote {
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  background:#f0760345 ;
+  color: rgb(29, 28, 28);
   margin-left: 105px;
   border-left: none;
   margin-bottom: 0;
@@ -665,11 +659,11 @@ a:focus {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 10px solid rgba(0, 0, 0, 0.2);
+  border-right: 10px solid #f0760345;
 }
 
 .testimonials-section .item .quote-source {
-  color: rgba(0, 0, 0, 0.6);
+  color: #727375;
 }
 
 /* ======= Features Section ======= */
@@ -683,12 +677,12 @@ a:focus {
   margin-bottom: 15px;
   font-size: 36px;
   font-weight: 300;
-  color: #ff5722;
-  font-family: "Comfortaa";
+  color: #f07603;
+  font-family: 'Comfortaa', cursive;
 }
 
 .features-section .intro {
-  color: #a2a6af;
+  color: #727375;
   font-size: 16px;
   max-width: 760px;
   margin: 0 auto;
@@ -718,7 +712,7 @@ a:focus {
 
 .feature-nav .nav-link:hover {
   background: none;
-  color: #f941088f ;
+  color: #d28843 ;
 }
 
 .feature-nav .nav-link .svg-inline--fa {
@@ -730,7 +724,7 @@ a:focus {
 }
 
 .feature-nav .nav-link.active {
-  color: #ff5722;
+  color: #f07603;
   background: none;
   font-weight: bold;
 }
@@ -771,7 +765,7 @@ a:focus {
 }
 
 .pricing-wrapper .item-inner {
-  color: #ff5722;
+  color: #f07603;
   border-color: black;
   padding: 30px;
   -webkit-border-radius: 8px;
@@ -851,12 +845,12 @@ a:focus {
   margin-bottom: 15px;
   font-size: 36px;
   font-weight: 300;
-  color: #ff5722;
+  color: #f07603;
   font-family: "Comfortaa";
 }
 
 .team-section .intro {
-  color: #a2a6af;
+  color:#727375;
   font-size: 16px;
   max-width: 760px;
   margin: 0 auto;
@@ -897,7 +891,7 @@ a:focus {
 .team-section .member-name {
   font-size: 18px;
   font-weight: 700;
-  color: #ff5722;
+  color: #f07603;
 }
 
 .team-section .member-title {
