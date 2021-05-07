@@ -9,7 +9,7 @@ from flask_seeder import FlaskSeeder
 from blueprints import trainingBp, authenticationBp, trackBp
 from database import db, getSession, migrate
 from models import *
-from utils import ext, getPerformance
+from utils import ext, getPerformance, getPerformanceCompetence
 from utils.charts import dataChartTrainings
 from blueprints.competence import competenceBp
 from login_manager import login_manager
@@ -95,3 +95,20 @@ def user():
     user = User.query.get(2)
     year = user.getYearsOld()
     print(year)
+
+@competenceBp.route("/graphics")
+def charts():
+    session = getSession()
+    competences = session.query(Competence, Track, UserCompetence, Category).join(Track, UserCompetence, Category).filter(
+        UserCompetence.user_id == current_user.id,
+    ).limit(8).all()
+
+    labelss = []
+    datas = []
+    for item in competences:
+        performance = getPerformanceCompetence(
+            item.Competence, item.Track, item.Category, item.UserCompetence
+        )
+        datas.append(performance)
+        labelss.append(item.Competence.name_competence)
+    return render_template('charts.html', labelss=labelss, datas=datas)

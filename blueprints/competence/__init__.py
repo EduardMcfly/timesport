@@ -3,7 +3,7 @@ from sqlalchemy.sql import text
 from flask.helpers import url_for
 from database import db, getSession, migrate
 from models import Category, Track, Competence, UserCompetence
-from utils import query_to_dict
+from utils import getPerformanceCompetence, query_to_dict
 from flask_login import current_user
 from flask_login.utils import login_required
 
@@ -81,7 +81,7 @@ def create():
 
             userCompetence = UserCompetence()
             userCompetence.user_id = current_user.id
-            userCompetence.competences_id=competence.id
+            userCompetence.competences_id = competence.id
             session.add(userCompetence)
             session.commit()
             return redirect(url_for('competence.index'))
@@ -113,7 +113,7 @@ def createResults(id):
             userCompetence.turns = turns
             session.add(userCompetence)
             session.commit()
-            return redirect(url_for('competence.one', id=userCompetence.competences_id))
+            return redirect(url_for('competence.indexC', id=userCompetence.competences_id))
         except Exception as error:
             session.rollback()
             raise error
@@ -134,24 +134,22 @@ def delete(id):
     return "No tienes acceso"
 
 
-@competenceBp.route("/graphics/<int:id>")
-def charts(id):
+@competenceBp.route("/graphics")
+def charts():
     session = getSession()
-    competence = session.query(Competence).filter(Competence.id == id).first()
-    competences = session.query(Competence, UserCompetence).join(UserCompetence).filter(
-        Competence.date <= competence.date,
+    competences = session.query(Competence, Track, UserCompetence, Category).join(Track, UserCompetence, Category).filter(
         UserCompetence.user_id == current_user.id,
-        Competence.track_id == competence.track_id
     ).limit(8).all()
 
     labels = []
     data = []
     for item in competences:
-        c = item.Competence
-        uc = item.UserCompetence
-        data.append(uc.turns)
-        labels.append(c.name_competence)
-    return render_template('charts.html', labels = labels, data = data)
+        performance = getPerformanceCompetence(
+            item.Competence, item.Track, item.Category, item.UserCompetence
+        )
+        data.append(performance)
+        labels.append(item.Competence.name_competence)
+    return render_template('charts.html', labels=labels, data=data)
 
 
 @competenceBp.route("/graphic_previous_competitions/<int:id>")
@@ -180,10 +178,6 @@ def graphicPreviousCompetitions(id):
             },
         })
     return jsonify(result)
-
-
-
-
 
 
 @competenceBp.route("/indexC")
@@ -216,3 +210,4 @@ def indexC():
     ).filter(UserCompetence.user_id == current_user.id).all()
     print(competences)
     return render_template('competence-table.html', competences=competences)
+

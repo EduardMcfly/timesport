@@ -1,17 +1,50 @@
 {% extends "app.html" %}
 {% block title %}Create{% endblock %}
 {% block head %}
-<link rel="stylesheet" href="competence/static/start.css">
+<link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
 <link rel="stylesheet" href="competence/static/Formulario.css">
-<link rel="stylesheet" href="{% static 'css/pages/formulario.css' %}" />
-{% endblock %} 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+<link rel="shortcut" href="{% static " images/Logoo.png" %}" /> {% endblock %}
 {% block content %}
 
+<div class="container">
+  <div class="row">
 
-<div class="mt-4">
-  <div class="competence-container container-form m-auto">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <a class="card border-left-primary shadow h-100 py-2" href="{% url 'competence.index' %}">
+        <div class="align-self-md-center">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+
+              <div class="row no-gutters align-items-center">
+                <div class="row h-100 " style="color: #000">
+                  <div class=" col-auto align-items-center d-flex">
+                    <i class="fa fa-backward fa-2x"></i>
+                  </div>
+                  <div class="col align-items-center d-flex h4 mb-0">
+                    Volver
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-add fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="border-bottom-primary card m-auto shadow ">
+
     <div class="informacion">
-      <h1 class="text-center m-4 ">Registrar Competencias</h1><span></i>
+    <h1 class="m-4 text-center m-2" style=" font-family: 'Lora', serif">Registrar Competencias</h1>
     </div>
     <form action="{% url 'competence.create' %}" method="POST">
       <div class="text">
@@ -43,5 +76,8 @@
       </form>
     </div>
   </div>
+
 </div>
+
+
 {% endblock %}
