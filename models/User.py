@@ -30,5 +30,6 @@ class User(db.Model, UserMixin):
         else:
             return 18
 
-    tracks = relationship("Track")
+    tracks = relationship("Track") 
     userCompetences = relationship("UserCompetence")
+    

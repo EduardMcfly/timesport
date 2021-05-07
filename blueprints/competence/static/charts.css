@@ -1,5 +1,4 @@
 
- 
   
   .chart-container{
       background-color: #ffffff00;
@@ -9,14 +8,20 @@
       
   }
 
-  .competence-containerr{
-      margin-left: 45px;
+  .competence-container{
+      margin-left: 95px;
+      margin-right: 95px;
   }
 
-  .row {
+  .roww {
     display: flex;
     flex-wrap: wrap;
     margin-right: -0.75rem;
-    margin-left: -0.75rem;
+    margin-left: -80px;
+    padding-top: -40px;
+
 }
+
+
+
   
