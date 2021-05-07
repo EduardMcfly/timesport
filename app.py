@@ -11,7 +11,7 @@ from database import db, getSession, migrate
 from models import *
 from utils import ext
 from utils import ext, getPerformance, getPerformanceCompetence
-from utils.charts import dataChartTrainings
+from utils.charts import dataChartTrainings, dataChartCompetences
 from blueprints.competence import competenceBp
 from login_manager import login_manager
 from blueprints.homePage import homePageBp
@@ -49,6 +49,21 @@ def filter_datetime(value: datetime, fmt="%Y:%M:%d"):
     return value.strftime(fmt)
 
 
+@app.template_filter('color')
+def color(value):
+    if value > 80:
+        return '#ff8800'
+    if value > 60:
+        return '#ef9835'
+    if value > 40:
+        return '#e4ff00'
+    if value > 20:
+        return '#e4f746'
+    if value > 10:
+        return '#fb2300e5'
+    return '#f15e47e5 '
+
+
 @app.context_processor
 def inject_dict_for_all_templates():
     return dict(
@@ -67,7 +82,7 @@ def load_user(user_id):
 @login_required
 def main():
     labels, data = dataChartTrainings()
-
+    labelsCompetences, dataCompetences = dataChartCompetences()
     charts = [
         {
             "id": "trainings_chart",
@@ -81,8 +96,8 @@ def main():
         },
         {
             "id": "competences_chart",
-            "labels": labels,
-            "data": data,
+            "labels": labelsCompetences,
+            "data": dataCompetences,
             "name": "Rendimiento Competencias",
             "dataset": {
                 "label": "Rendimiento ",
@@ -110,8 +125,13 @@ def main():
     trendingCategories = getTrending('category_id', Category)
 
     totalCategories = sum(list(map(lambda x: x.count, trendingCategories)))
+
     return render_template(
-        'main.html', charts=charts, popularTracks=popularTracks, trendingCategories=trendingCategories, totalCategories=totalCategories
+        'main.html',
+        charts=charts,
+        popularTracks=popularTracks,
+        trendingCategories=trendingCategories,
+        totalCategories=totalCategories,
     )
 
 
@@ -120,6 +140,7 @@ def user():
     user = User.query.get(2)
     year = user.getYearsOld()
     print(year)
+
 
 @competenceBp.route("/graphics")
 def charts():
