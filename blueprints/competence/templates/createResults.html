@@ -4,13 +4,46 @@
 <link rel="stylesheet" href="competence/static/start.css">
 <link rel="stylesheet" href="/competence/static/results.css">
 <link rel="stylesheet" href="{% static 'css/pages/formulario.css' %}" />
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 {% endblock %} 
 {% block content %}
 <div class="container">
-  <div class="container-results">
-    <div class="informacion">
-      <h1 class="text-center m-4 ">Agregar Resultados</h1><span>
+  <div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <a class="card border-left-primary shadow h-100 py-2" href="{% url 'competence.index' %}">
+        <div class="align-self-md-center">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+
+              <div class="row no-gutters align-items-center">
+                <div class="row h-100 " style="color: #000">
+                  <div class=" col-auto align-items-center d-flex">
+                    <i class="fa fa-backward fa-2x"></i>
+                  </div>
+                  <div class="col align-items-center d-flex h4 mb-0">
+                    Volver
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-add fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
+  </div>
+  <div class="results">
+   <div class="border-bottom-primary card m-auto shadow ">
+    <div class="informacion">
+      <h1 class="m-4 text-center m-4" style=" font-family: 'Lora', serif">Agregar Resultados</h1>
+    </div>
+    <div class="text">
     <form action="{{ url_for('competence.createResults', id = id)  }}" method="POST">
       <div class="form-group">
         <label>Duracion</label>
@@ -24,6 +57,8 @@
         <button type="submit" class="btn btn-primary px-4">Guardar</button>
       </div>
     </form>
+     </div>
   </div>
+</div>
 </div>
 {% endblock %}

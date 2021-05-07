@@ -1,12 +1,10 @@
 {% extends "app.html" %}
 {% from 'common/table.html' import table %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/forms.css' %}" />
-<link rel="stylesheet" href="{% static 'training/style.css' %}" />
-<link rel="stylesheet" href="{% static 'training/base.css' %}" />
-<link rel="icon" href="{% static " images/IconoNegro.ico" %}" />
-{% endblock %}
 
+<link rel="stylesheet" href="competence/static/baseCom.css">
+<link rel="stylesheet" href="competence/static/styles.css">
+{% endblock %}
 <link rel="stylesheet" href="{{ url_for('track.static', filename='styles.css')}}" />
 <link rel="icon" href="{% static " images/IconoNegro.ico" %}" />
 {% block content %}

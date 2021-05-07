@@ -55,3 +55,11 @@ a {
   color: #5a5c69;
   font-weight: 700 !important;
 }
+.training-image {
+  background:url(/training/static/img/t.png);
+  background-attachment: fixed;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center calc(50% - 200px);
+}

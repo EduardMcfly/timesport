@@ -15,9 +15,10 @@
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="{{ url_for('homePage.static', filename='assets/css/styles.css')}}">
     
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
     
 </head> 
 
@@ -55,13 +56,13 @@
     
     <div id="hero" class="hero-section">
         
-        <div id="hero-carousel" class="hero-carousel carousel carousel-fade slide" data-ride="carousel" data-interval="7000">
+        <div id="hero-carousel" class="hero-carousel carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
             
             <div class="figure-holder-wrapper">
         		<div class="container">
             		<div class="row justify-content-end">
                 		<div class="figure-holder">
-                	        <img class="figure-image img-fluid" src="{{ url_for('homePage.static', filename='assets/images/imac.png')}}" alt="image" />
+                	        <img class="figure-image img-fluid" src="{{ url_for('homePage.static', filename='assets/images/dos.png')}}" alt="image" />
                         </div><!--//figure-holder-->
             		</div><!--//row-->
         		</div><!--//container-->
@@ -423,10 +424,10 @@
             
         </div><!--//container-->
     <!-- Javascript -->          
-    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/bootstrap.bundle.min.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='lib/js/jquery/jquery-3.5.1.min.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('homePage.static', filename='assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js')}}"></script>         
-    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script> 
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/bootstrap.bundle.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('homePage.static', filename='assets/js/main.js')}}"></script> 
     
 </body>
 </html> 

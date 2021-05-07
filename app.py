@@ -1,7 +1,7 @@
-from blueprints.training import trainingsAll
 import os
+from sqlalchemy import or_
 from datetime import datetime
-from typing import List
+from typing import Union
 from flask import Flask, render_template, url_for
 from flask_login import current_user
 from flask_login.utils import login_required
@@ -9,11 +9,13 @@ from flask_seeder import FlaskSeeder
 from blueprints import trainingBp, authenticationBp, trackBp
 from database import db, getSession, migrate
 from models import *
-from utils import ext, getPerformance
+from utils import ext
+from utils import ext, getPerformance, getPerformanceCompetence
 from utils.charts import dataChartTrainings
 from blueprints.competence import competenceBp
 from login_manager import login_manager
 from blueprints.homePage import homePageBp
+from sqlalchemy import func, or_
 
 
 static_url_path = '/static'
@@ -70,7 +72,7 @@ def main():
         {
             "id": "trainings_chart",
             "labels": labels,
-            "data": data, 
+            "data": data,
             "name": "Rendimiento Entrenamientos",
             "dataset": {
                 "label": "Rendimiento",
@@ -88,10 +90,50 @@ def main():
             }
         },
     ]
-    return render_template('main.html', charts=charts)
+
+    def getTrending(key: str, model: Union[Track, Category], limit=8):
+        session = getSession()
+        sumColumn = (
+            func.count(getattr(Training, key)) +
+            func.count(getattr(Competence, key))
+        ).label("count")
+        query = session.query(
+            sumColumn,
+            model
+        ).join(Training, Competence, UserCompetence, isouter=True)\
+            .filter(or_(Training.user_id == current_user.id, UserCompetence.user_id == current_user.id))\
+            .group_by(model.id).order_by(sumColumn.desc())\
+            .limit(limit)
+        return query.all()
+
+    popularTracks = getTrending('track_id', Track)
+    trendingCategories = getTrending('category_id', Category)
+
+    totalCategories = sum(list(map(lambda x: x.count, trendingCategories)))
+    return render_template(
+        'main.html', charts=charts, popularTracks=popularTracks, trendingCategories=trendingCategories, totalCategories=totalCategories
+    )
+
 
 @app.route("/user")
 def user():
     user = User.query.get(2)
     year = user.getYearsOld()
     print(year)
+
+@competenceBp.route("/graphics")
+def charts():
+    session = getSession()
+    competences = session.query(Competence, Track, UserCompetence, Category).join(Track, UserCompetence, Category).filter(
+        UserCompetence.user_id == current_user.id,
+    ).limit(8).all()
+
+    labelss = []
+    datas = []
+    for item in competences:
+        performance = getPerformanceCompetence(
+            item.Competence, item.Track, item.Category, item.UserCompetence
+        )
+        datas.append(performance)
+        labelss.append(item.Competence.name_competence)
+    return render_template('charts.html', labelss=labelss, datas=datas)
