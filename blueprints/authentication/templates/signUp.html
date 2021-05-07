@@ -13,6 +13,7 @@
 <link rel="icon" href="{% static 'images/IconoNegro.ico' %}" />
 {% endblock %}
 {% block contentWrapper %}
+
 <div class="container-form flex-fill">
   <div class="form">
     <form class="register-form" action="{% url 'authentication.signUp' %}" method="POST">
@@ -27,9 +28,7 @@
                      padding-left: 0px;
                          padding-right: 0px;"><center>
      
-                         <center><h1 class="font-weight-bold mb-3">REGISTRAR CUENTA</h1></center> 
-                        <center>
-                            <img src={% static "images/login.png" %} width="120" height="120"></center></center>      
+                         <center><h1 class="font-weight-bold mb-3">REGISTRAR  CUENTA</h1></center> </center>      
                          <form>
                              <div class="form-row mb-2">
                                  <div class="form-group col-md-6">
@@ -57,9 +56,9 @@
                                 {%endfor%}
                              </center>
                             <center>
-                                <button><strong>Registrame</strong></button>
+                                <button><strong>Registrar</strong></button>
                                 </form>
-                                <p class="message">Ya estas registrado?
+                                <p class="message">Ya esta registrado?
                                     <a href="{% url 'authentication.login' %}">
                                                  <button type="button" class="btn btn-link">Ingresar</button></center>
                          </center>

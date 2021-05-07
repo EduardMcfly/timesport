@@ -15,6 +15,7 @@ body {
     color: #060606;
     text-align: left;
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 
@@ -34,13 +35,21 @@ body {
 .bg-darklogin {
     background-color: var(--color-dark)!important;
     border-radius: 2rem;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 50px;
+    border: black 1px solid;
+    height: 40em;
+
+
 }
 
 
 .contact-box {
-    padding: 1rem;
+    padding: 0rem;
 	padding-left: 228px;
     padding-right: 228px;
+    height: 500px;
 }
 
 .form {
@@ -76,13 +85,14 @@ body {
     background-image: url(/static/images/enduro3.jpg);
     background-size: cover;
     border-radius: 2rem;
-    min-height: 100vh;
+
+    height: 40em;
 }
 .login{
     background-image: url(/static/images/enduro4.jpg);
     background-size: cover;
     border-radius: 2rem;
-    min-height: 100vh;
+    height: 40em;
 }
 
 .testiomonial {
@@ -94,15 +104,10 @@ body {
         padding: 2rem;
     }
 
-    .contact-box {
-        padding: 0;
-        color: #fff9f4ba;
-    }
-
+}
     .width-100 {
         width: 100%;
     }
-}
 
 @media (max-width: 1200px) { 
     .register-bg {
@@ -171,7 +176,7 @@ button {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-    border-radius: 3rem
+    border-radius: 1rem
   }
   
   p {
@@ -180,4 +185,14 @@ button {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 10px;
+}
+
+h1 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
