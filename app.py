@@ -9,11 +9,8 @@ from flask_seeder import FlaskSeeder
 from blueprints import trainingBp, authenticationBp, trackBp
 from database import db, getSession, migrate
 from models import *
-<<<<<<< HEAD
 from utils import ext
-=======
 from utils import ext, getPerformance, getPerformanceCompetence
->>>>>>> 61f6a4559870237630f3df0e701123210d9101b6
 from utils.charts import dataChartTrainings
 from blueprints.competence import competenceBp
 from login_manager import login_manager
