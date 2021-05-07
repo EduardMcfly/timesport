@@ -16,3 +16,11 @@
   background-position: center calc(50% - 200px);
   }
   
+  .tracks-image {
+  background: url(/competence/static/img/pista.jpg);
+  background-attachment: fixed;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center calc(50% - 200px);
+}
