@@ -4,19 +4,56 @@
 <link rel="stylesheet" href="competence/static/baseCom.css">
 <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
 <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
-
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 <link
   rel="stylesheet"
   href="{{ url_for('track.static', filename='styles.css')}}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('track.static', filename='form.css')}}"
 />
 <link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
 {% block content %}<!--Card-->
 
 <div class="container mt-4">
+
+<div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <a class="card border-left-primary shadow h-100 py-2" href="{% url 'track.tracks' %}">
+        <div class="align-self-md-center">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+
+              <div class="row no-gutters align-items-center">
+                <div class="row h-100 " style="color: #000">
+                  <div class=" col-auto align-items-center d-flex">
+                    <i class="fa fa-backward fa-2x"></i>
+                  </div>
+                  <div class="col align-items-center d-flex h4 mb-0">
+                    Volver
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-add fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+<div class="border-bottom-primary card m-auto shadow ">
   <div class="informacion">
-    <h1 class="text-center m-4">Pistas</h1><span><i class="fa fa-heart"></i>
+    <h1 class="m-4 text-center m-2" style=" font-family: 'Lora', serif">Registrar Pistas</h1>
   </div>
   <form action="{% url 'track.createTracks' %}" method="POST"   enctype="multipart/form-data">
+     <div class="text"> 
       <div class="form-group">
         <label></label>
         <input name="name" type="text" class="form-control" placeholder = "Nombre" />
@@ -38,8 +75,13 @@
       </div>
       <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
+  </div>
 </div>
- <center> <h5>Localiza tu Pista </h5></center>
+</div>
+
+
+<div class="map"> 
+<h1 class="m-4 text-center m-2" style=" font-family: 'Lora', serif">Localiza tu Pista</h1>
  <div class= "d-flex justify-content-center">
  <!--Card content-->
  <div class="card-body card-body-cascade text-center">
@@ -51,6 +93,7 @@
      0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f28eb1616af2b%3A0x933cbcb5fad108ed!2sCundinamarca%2C%20Colombia!5e0!3m2!1ses!2sus!4v1616618256870!5m2!1ses!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
      </iframe>
    </div>
+ </div>
  </div>
  <!--/.Card content-->
  
