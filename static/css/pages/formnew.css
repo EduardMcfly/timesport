@@ -85,6 +85,7 @@ body {
     background-image: url(/static/images/enduro3.jpg);
     background-size: cover;
     height: 100%;
+    border-radius: 30px;
 }
 .login{
     background-image: url(/static/images/enduro4.jpg);
