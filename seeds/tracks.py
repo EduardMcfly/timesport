@@ -25,7 +25,7 @@ actual = Path(__file__).parent
 
 path = os.path.join(actual, "images/")
 
-to =  os.path.join(actual.parent, "./blueprints/track/static/images/")
+to =  os.path.join(actual.parent, "./static/tracks/")
 
 if not os.path.exists(to):
     os.makedirs(to)
