@@ -84,9 +84,7 @@ body {
 .register-bg {
     background-image: url(/static/images/enduro3.jpg);
     background-size: cover;
-    border-radius: 2rem;
-
-    height: 40em;
+    height: 100%;
 }
 .login{
     background-image: url(/static/images/enduro4.jpg);
