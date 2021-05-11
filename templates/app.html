@@ -48,7 +48,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="http://127.0.0.1:8000/tracks" data-toggle="collapse" data-target="#collapseTwo"
+    <a class="nav-link collapsed" href="{{ url_for('track.tracks')}}" data-toggle="collapse" data-target="#collapseTwo"
       aria-expanded="true" aria-controls="collapseTwo">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
         viewBox="0 0 16 16">
@@ -60,8 +60,8 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="http://127.0.0.1:8000/tracks">Pistas</a>
-        <a class="collapse-item" href="http://127.0.0.1:8000/cronometro">Cronómetro</a>
+        <a class="collapse-item" href="{{ url_for('track.tracks')}}">Pistas</a>
+        <a class="collapse-item" href="{{url_for('track.cronometro')}}">Cronómetro</a>
       </div>
     </div>
   </li>
