@@ -20,6 +20,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
     
+    <!-- Javascript -->          
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/jquery/jquery-3.5.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('homePage.static', filename='assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js')}}"></script>         
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/js/bootstrap.bundle.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('homePage.static', filename='assets/js/main.js')}}"></script> 
 </head> 
 
 <body>
@@ -338,7 +343,7 @@
     
      <div id="about" class="about-section">
         <div class="container text-center">
-            <h2 class="section-title"><b>Tecologias Y beneficios</b></h2>
+            <h2 class="section-title"><b>Tecnologias Y beneficios</b></h2>
             <p class="intro">Endurist Tracking utiliza tecnologías frontales modernas y está repleto de componentes y widgets útiles para acelerar su desarrollo.</p>
             <ul class="technologies list-inline">
             	<li class="list-inline-item"><img src="{{ url_for('homePage.static', filename='assets/images/2.png')}}" alt="Sass"  width="60" height="60"></li>

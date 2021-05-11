@@ -61,7 +61,7 @@ def color(value):
         return '#e4f746'
     if value > 10:
         return '#fb2300e5'
-    return '#f15e47e5 '
+    return '#ef3619e5'
 
 
 @app.context_processor
