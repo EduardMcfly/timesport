@@ -11,8 +11,11 @@ from werkzeug.utils import secure_filename
 
 from database import getSession
 from utils import query_to_dict
+from utils.uploadFiles import uploadfiles
 from models import Track, TrackImage, Competence
 from flask import redirect
+
+
 
 trackBp = Blueprint(
     'track',
@@ -72,14 +75,11 @@ def createPost():
         session.commit()
 
         files = request.files.getlist("images")
-        for file in files:
-            key = uuid.uuid4().hex
-            ext = os.path.splitext(file.filename)[1]
-            newName = key+ext
+        imagesPaths = uploadfiles(files, folderTracks)
+        for imagesPath in imagesPaths:
             trackImage = TrackImage()
-            trackImage.src = newName
+            trackImage.src = imagesPath
             trackImage.track_id = track.id
-            file.save(folderTracks + newName)
             session.add(trackImage)
         session.commit()
         return redirect(url_for('track.tracks'))
