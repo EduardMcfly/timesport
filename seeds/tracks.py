@@ -30,6 +30,6 @@ class DemoSeeder(Seeder):
         for item in data:
             track = Track()
             track.name = item.get("name")
-            track.location = item.get("name")
+            track.location = item.get("location")
             track.size = item.get("size") or 5000
             self.db.session.add(track)
