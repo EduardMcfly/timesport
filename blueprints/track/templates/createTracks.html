@@ -13,7 +13,7 @@
   rel="stylesheet"
   href="{{ url_for('track.static', filename='form.css')}}"
 />
-<link rel="icon" href="{% static "images/IconoNegro.ico" %}"/> {% endblock %} 
+{% endblock %} 
 {% block content %}<!--Card-->
 
 <div class="container mt-4">
@@ -60,7 +60,7 @@
       </div>
       <div class="form-group">
      
-        <input name="municipality" type="text" class="form-control" placeholder = "Municipio" />
+        <input name="location" type="text" class="form-control" placeholder = "Ubicacion" />
       </div>
       <div class="form-group">
         <input name="size" type="text" class="form-control" placeholder = "Medida"/>
