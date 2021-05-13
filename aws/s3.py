@@ -7,5 +7,5 @@ bucket = os.getenv("BUCKET")
 
 
 def getFile(key):
-    file = s3.get_object(Bucket=os.getenv("BUCKET"), Key=key)
+    file = s3.get_object(Bucket=bucket, Key=key)
     return file
