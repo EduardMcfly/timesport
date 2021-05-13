@@ -25,7 +25,7 @@ app = Flask(__name__, static_url_path=static_url_path)
 for extension in [ext.JinjaStatic, ext.JinjaUrl]:
     # pylint: disable=no-member
     app.jinja_env.add_extension(extension)
-
+print(app.env)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'development' == app.env
 app.secret_key = os.getenv('SECRET_KEY')

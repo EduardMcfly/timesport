@@ -1,3 +1,5 @@
+from aws import getFile
+from botocore.retries import bucket
 from blueprints.training import trainings
 import uuid
 import os
@@ -6,7 +8,7 @@ from sqlalchemy.sql import text
 from flask import render_template, request, jsonify
 from flask.blueprints import Blueprint
 
-from flask.helpers import url_for
+from flask.helpers import make_response, url_for
 from werkzeug.utils import secure_filename
 
 from database import getSession
@@ -14,7 +16,6 @@ from utils import query_to_dict
 from utils.uploadFiles import uploadfiles
 from models import Track, TrackImage, Competence
 from flask import redirect
-
 
 
 trackBp = Blueprint(
@@ -39,10 +40,12 @@ def tracks():
 def createTracks():
     return render_template('createTracks.html')
 
+
 @trackBp.route("/cronometro")
 @login_required
 def cronometro():
     return render_template('cronometro.html')
+
 
 @trackBp.route("/indextra")
 @login_required
@@ -50,7 +53,7 @@ def indextra():
     return render_template('indextra.html')
 
 
-folderTracks = 'static/tracks/'
+folderTracks = 'tracks/'
 if not os.path.exists(folderTracks):
     os.makedirs(folderTracks)
 
@@ -97,3 +100,12 @@ def delete(id):
     track.delete()
     session.commit()
     return redirect(url_for('track.tracks'))
+
+
+@ trackBp.route("/track_image/<src>")
+@login_required
+def imageTrack(src):
+    file = getFile(folderTracks + src)
+    response = make_response(file['Body'].read())
+    response.headers['Content-Type'] = 'image/jpg'
+    return response

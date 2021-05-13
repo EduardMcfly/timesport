@@ -6,5 +6,7 @@
 !.elasticbeanstalk/*.global.yml
 .venv/**
 .env
+.env.example
+.env.production
 app.db
 static/tracks/**
