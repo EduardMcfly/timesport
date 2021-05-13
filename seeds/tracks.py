@@ -27,8 +27,6 @@ path = os.path.join(actual, "images/")
 
 to =  "tracks/"
 
-
-
 class Tracks(Seeder):
 
     # run() will be called by Flask-Seeder
@@ -42,7 +40,7 @@ class Tracks(Seeder):
             exist = bool(track)
             if not exist: track = Track()
             track.name = item.get("name")
-            track.location = item.get("location")
+            track.location = item.get("name")
             track.size = item.get("size") or 5000
             if not exist: self.db.session.add(track)
             self.db.session.commit()
