@@ -1,7 +1,7 @@
+from aws.s3 import s3, bucket
 from database import getSession
-from flask_seeder import Seeder, Faker, generator
+from flask_seeder import Seeder
 from models import Track, TrackImage
-import shutil
 import os
 import uuid
 from  pathlib import Path
@@ -25,10 +25,8 @@ actual = Path(__file__).parent
 
 path = os.path.join(actual, "images/")
 
-to =  os.path.join(actual.parent, "./static/tracks/")
+to =  "tracks/"
 
-if not os.path.exists(to):
-    os.makedirs(to)
 
 
 class Tracks(Seeder):
@@ -58,7 +56,8 @@ class Tracks(Seeder):
                     if not haveImage:
                         ext = Path(image).suffix
                         namefile = uuid.uuid4().hex + ext
-                        shutil.copy(path + image, to + namefile)
+                        file = open(path + image, 'rb')
+                        s3.put_object(Bucket=bucket, Key=to + namefile, Body=file)
                         trackImage = TrackImage()
                         trackImage.src = namefile
                         trackImage.track_id = track.id

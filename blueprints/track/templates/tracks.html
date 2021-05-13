@@ -40,7 +40,7 @@
               {% for image in track.images %}
               <div class="carousel-item {{ 'active' if loop.index == 1 }}">
                 <img
-                  src="{{ url_for('static', filename='tracks/'+image.src) }}"
+                  src="{{ url_for('track.imageTrack', src=image.src) }}"
                   class="d-block w-100"
                   alt="..."
                 />
