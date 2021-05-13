@@ -1,17 +1,28 @@
-{% extends "base.html" %}
-{% from 'common/module-header.html' import moduleHeader %}
-{% from 'common/chart.html' import chartjs %}
-{% block head_app %}
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
-  rel="stylesheet" />
+{% extends "base.html" %} {% from 'common/module-header.html' import
+moduleHeader %} {% from 'common/chart.html' import chartjs %} {% block head_app
+%}
+<link
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
 <link rel="stylesheet" href="{% static 'css/app.css' %}" />
-<link href="{% static 'lib/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css" />
-<link rel="icon" href="{% static 'images/Logoo.png' %}" /> {% endblock %}
-{% block sidebar %}
+<link
+  href="{% static 'lib/fontawesome-free/css/all.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link rel="icon" href="{% static 'images/Logoo.png' %}" /> {% endblock %} {%
+block sidebar %}
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul
+  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+  id="accordionSidebar"
+>
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+  <a
+    class="sidebar-brand d-flex align-items-center justify-content-center"
+    href="index.html"
+  >
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fa fa-motorcycle" aria-hidden="true"></i>
     </div>
@@ -25,32 +36,34 @@
   <li class="nav-item">
     <a class="nav-link" href="{{ url_for('main') }}">
       <i class="far fa-user"></i>
-      <span>Inicio</span></a>
+      <span>Inicio</span></a
+    >
   </li>
   <hr class="sidebar-divider" />
   <!-- Heading -->
   <div class="sidebar-heading">Módulos</div>
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-
     <a class="nav-link" href="{{ url_for('training.trainings') }}">
       <i class="fas fa-fw fa-chart-area"></i>
 
-      <span>Entrenamientos</span></a>
-
+      <span>Entrenamientos</span></a
+    >
   </li>
 
   <!-- Nav Item - Competences -->
   <li class="nav-item">
     <a class="nav-link" href="{{ url_for('competence.index') }}">
       <i class="fas fa-flag-checkered"></i>
-      <span>Competencias</span></a>
+      <span>Competencias</span></a
+    >
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{% url 'track.tracks' %}">
       <i class="fas fa-map-marker-alt"></i>
-      <span>Pistas</span></a>
-  </li> 
+      <span>Pistas</span></a
+    >
+  </li>
   <!-- Nav Item - Tables -->
 
   <!-- Divider -->
@@ -69,24 +82,40 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">¿Quieres cerrar sesión ?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalLabel">
+          ¿Quieres cerrar sesión ?
+        </h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.
+        Seleccione "Cerrar sesión" a continuación si está listo para finalizar
+        su sesión actual.
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">
           Cancelar
         </button>
-        <a class="btn btn-primary" href="{{ url_for('authentication.logout') }}">Cerrar Sesión</a>
+        <a class="btn btn-primary" href="{{ url_for('authentication.logout') }}"
+          >Cerrar Sesión</a
+        >
       </div>
     </div>
   </div>
@@ -97,28 +126,58 @@
   <!-- Main Content -->
   <div id="content">
     <!-- Topbar -->
-    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <nav
+      class="
+        navbar navbar-expand navbar-light
+        bg-white
+        topbar
+        mb-4
+        static-top
+        shadow
+      "
+    >
       <!-- Sidebar Toggle (Topbar) -->
-      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+      <button
+        id="sidebarToggleTop"
+        class="btn btn-link d-md-none rounded-circle mr-3"
+      >
         <i class="fa fa-bars"></i>
-
-
       </button>
 
       <!-- Topbar Navbar -->
       <ul class="navbar-nav ml-auto">
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
         <li class="nav-item dropdown no-arrow d-sm-none">
-          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="searchDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             <i class="fas fa-search fa-fw"></i>
           </a>
           <!-- Dropdown - Messages -->
-          <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+          <div
+            class="
+              dropdown-menu dropdown-menu-right
+              p-3
+              shadow
+              animated--grow-in
+            "
+            aria-labelledby="searchDropdown"
+          >
             <form class="form-inline mr-auto w-100 navbar-search">
               <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                  aria-label="Search" aria-describedby="basic-addon2" />
+                <input
+                  type="text"
+                  class="form-control bg-light border-0 small"
+                  placeholder="Search for..."
+                  aria-label="Search"
+                  aria-describedby="basic-addon2"
+                />
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -132,24 +191,45 @@
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ " ".join([current_user.name,current_user.lastname])  }}</span>
-            <img class="img-profile rounded-circle" src="{% static 'images/undraw_profile.svg' %}" />
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"
+              >{{ " ".join([current_user.name,current_user.lastname]) }}</span
+            >
+            <img
+              class="img-profile rounded-circle"
+              src="{% static 'images/undraw_profile.svg' %}"
+            />
           </a>
           <!-- Dropdown - User Information -->
-          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+          <div
+            class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="userDropdown"
+          >
             <a class="dropdown-item" href="#">
               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
               Perfil
 
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#logoutModal"
+              >
+                <i
+                  class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                ></i>
                 Cerrar sesión
               </a>
+            </a>
           </div>
         </li>
       </ul>
@@ -162,23 +242,20 @@
   <!-- Footer -->
   <footer class="sticky-footer bg-white">
     <div class="container my-auto">
-      <div class="copyright text-center my-auto">
-
-      </div>
+      <div class="copyright text-center my-auto"></div>
     </div>
   </footer>
   <!-- End of Footer -->
 </div>
 
-{% endblock %}
-{% block base_scripts %}
+{% endblock %} {% block base_scripts %}
 
 <script>
   var elementos = document.querySelectorAll(".nav-item .nav-link");
   var ruta = document.location.href;
   for (var i = 0; i <= elementos.length; i++) {
     var elemento = elementos[i];
-    const parent = elemento.parentNode
+    const parent = elemento.parentNode;
     if (elemento.href === ruta) {
       parent.classList.add("active");
     } else {
