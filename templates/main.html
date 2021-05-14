@@ -168,8 +168,8 @@
             {%for popularTrack in popularTracks %}
             <div class="col-lg-6 mb-4">
               <div class="card text-dark font-weight-bold text-truncate shadow"
-                style="background-color: rgb(231, 122, 26, {{ 1 - (loop.index) / 10 }});">
-                <div class="card-body text-truncate">
+                style="background-color: rgb(231, 122, 26)">
+                <div class="card-body text-truncate" style="color:white">
                   {{ popularTrack.Track.name }}
                   <div class="text-dark-50 small">Cantidad: {{ popularTrack.count }}</div>
                 </div>
