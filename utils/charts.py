@@ -3,6 +3,7 @@ from flask_login import current_user
 from models import Competence, Training, Track, Category, UserCompetence
 from . import getPerformance, getPerformanceCompetence
 
+
 def dataChartTrainings():
     session = getSession()
     query = session.query(Training, Track, Category).join(
@@ -21,12 +22,14 @@ def dataChartTrainings():
         labels.append(date.strftime("%d-%b-%Y") +
                       (start_time.strftime(" %H:%M") if start_time else ""))
         data.append(performance)
-    return labels,data
+    return labels, data
+
 
 def dataChartCompetences():
     session = getSession()
     competences = session.query(Competence, Track, UserCompetence, Category).join(Track, UserCompetence, Category).filter(
-        UserCompetence.user_id == current_user.id,
+        UserCompetence.user_id == current_user.id, UserCompetence.turns.isnot(
+            None), UserCompetence.duration.isnot(None)
     ).limit(8).all()
     labels = []
     data = []
@@ -36,4 +39,4 @@ def dataChartCompetences():
         )
         data.append(performance)
         labels.append(item.Competence.name_competence)
-    return labels,data
+    return labels, data
